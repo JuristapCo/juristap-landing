@@ -1,0 +1,180 @@
+---
+import { Image } from 'astro:assets';
+import Logo from '../assets/images/brand/logo-horizontal-white.webp';
+---
+
+<header class="bg-primary text-white border-b border-white/20">
+  <div class="container mx-auto flex items-center justify-between p-4 md:p-6">
+    <Image src={Logo} alt="Juristap" class="w-auto h-8" draggable="false" />
+    <nav class="hidden md:flex gap-6">
+      <a href="#" class="hover:text-secondary-300">Soy abogado</a>
+      <a href="#" class="hover:text-secondary-300">Soy un cliente</a>
+      <a href="#" class="hover:text-secondary-300">Contáctenos</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button
+        class="hidden sm:block bg-white text-primary cursor-pointer px-4 py-1 rounded-lg hover:bg-primary-50 transition-colors duration-300"
+        >Registrarse</button
+      >
+      <!-- Mobile Menu Button -->
+      <button id="menuToggle" class="md:hidden text-white focus:outline-none text-2xl"> ☰ </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobileMenu"
+      class="fixed inset-0 bg-primary z-50 flex flex-col justify-start items-center transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto"
+    >
+      <!-- Header with logo and close button -->
+      <div class="w-full px-6 pt-8 flex justify-between items-center border-b border-white/10 pb-6">
+        <Image src={Logo} alt="Juristap" class="w-auto h-10" draggable="false" />
+        <button id="closeMenu" class="text-white text-3xl hover:text-purple-300 transition-colors"
+          >&times;</button
+        >
+      </div>
+
+      <!-- Menu items -->
+      <nav class="flex flex-col w-full px-6 mt-10">
+        <div class="grid grid-cols-1 gap-2">
+          <a href="#" class="mobile-menu-item overflow-hidden">
+            <div
+              class="py-4 pl-4 pr-2 flex items-center justify-between bg-white/5 rounded-lg group hover:bg-purple-900/40 transition-colors duration-300"
+            >
+              <span
+                class="text-xl font-medium group-hover:text-purple-300 transition-colors duration-300"
+                >Soy abogado</span
+              >
+              <div
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 group-hover:bg-purple-800/50 transition-colors duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="mobile-menu-item overflow-hidden">
+            <div
+              class="py-4 pl-4 pr-2 flex items-center justify-between bg-white/5 rounded-lg group hover:bg-purple-900/40 transition-colors duration-300"
+            >
+              <span
+                class="text-xl font-medium group-hover:text-purple-300 transition-colors duration-300"
+                >Soy un cliente</span
+              >
+              <div
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 group-hover:bg-purple-800/50 transition-colors duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="mobile-menu-item overflow-hidden">
+            <div
+              class="py-4 pl-4 pr-2 flex items-center justify-between bg-white/5 rounded-lg group hover:bg-purple-900/40 transition-colors duration-300"
+            >
+              <span
+                class="text-xl font-medium group-hover:text-purple-300 transition-colors duration-300"
+                >Contáctenos</span
+              >
+              <div
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 group-hover:bg-purple-800/50 transition-colors duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-10 mb-8">
+          <button
+            class="w-full bg-white text-primary font-medium cursor-pointer px-6 py-4 rounded-lg hover:bg-purple-100 hover:text-purple-900 transition-colors duration-300 flex items-center justify-center gap-2"
+          >
+            <span>Registrarse</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Footer -->
+      <div
+        class="mt-auto w-full px-6 py-8 text-center text-sm text-white/60 border-t border-white/10"
+      >
+        <p>© {new Date().getFullYear()} Juristap. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuToggle?.addEventListener('click', () => {
+      mobileMenu?.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeMenu?.addEventListener('click', () => {
+      mobileMenu?.classList.add('translate-x-full');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+
+<style>
+  .mobile-menu-item {
+    display: block;
+    color: white;
+    transition: all 0.3s ease;
+  }
+</style>

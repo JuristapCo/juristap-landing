@@ -1,0 +1,43 @@
+---
+import Header from '../components/header.astro';
+
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juristap</title>
+  </head>
+  <body class="font-sans antialiased bg-gray-50">
+    <Header />
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 md:px-6 lg:px-8 py-8 space-y-12">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white mt-12">
+      <div class="container mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <h2 class="text-lg font-semibold mb-2">Juristap</h2>
+          <p>Conectando clientes y abogados de manera simple y efectiva.</p>
+        </div>
+        <div>
+          <h2 class="text-lg font-semibold mb-2">Navegación</h2>
+        </div>
+        <div>
+          <h2 class="text-lg font-semibold mb-2">Contacto</h2>
+          <p>Email: info@juristap.com</p>
+          <p>Teléfono: +57 300 123 4567</p>
+        </div>
+      </div>
+      <div class="bg-primary-800 text-center py-4">
+        <p>© 2025 Juristap. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  </body>
+</html>
