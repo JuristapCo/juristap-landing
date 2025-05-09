@@ -1,22 +1,10 @@
 ---
 import BaseLayout from '../layouts/base-layout.astro';
+import WelcomeSection from '../features/home/welcome-section.astro';
+import IntroSection from '../features/home/intro-section.astro';
 ---
 
 <BaseLayout>
-  <section class="bg-white p-8 rounded-lg shadow-md">
-    <h2 class="text-3xl font-bold mb-4 text-purple-900">Bienvenido a Juristap</h2>
-    <p class="text-gray-700">Encuentra un abogado en menos de 24 horas, fácil y rápido.</p>
-    <button
-      class="mt-6 bg-secondary text-black px-6 py-3 rounded-lg hover:bg-secondary-400 transition"
-    >
-      Empezar Ahora
-    </button>
-  </section>
-
-  <section class="bg-purple-100 p-8 rounded-lg shadow-md">
-    <h3 class="text-2xl font-bold mb-4 text-purple-800">Nuestros Servicios</h3>
-    <p class="text-gray-700">
-      Te conectamos con un abogado de confianza para resolver tus preocupaciones legales.
-    </p>
-  </section>
+  <WelcomeSection />
+  <IntroSection />
 </BaseLayout>

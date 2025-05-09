@@ -1,0 +1,91 @@
+---
+import SectionContainer from '../../components/ui/section-container.astro';
+import { Image } from 'astro:assets';
+import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
+---
+
+<SectionContainer
+  background="bg-primary text-white"
+  withSpacing={false}
+  constrained={false}
+  py="py-0"
+>
+  <!-- Background pattern overlay (relative to the entire viewport) -->
+  <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle,_transparent_20%,_#000_70%)] opacity-5">
+    </div>
+    <Image
+      src={PatternHero}
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-10 mix-blend-overlay"
+      aria-hidden="true"
+      width={1920}
+      height={1080}
+    />
+  </div>
+
+  <!-- Decorative elements -->
+  <div
+    class="absolute top-0 right-0 w-64 h-64 bg-purple-800/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 left-0 w-96 h-96 bg-purple-700/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/4 pointer-events-none"
+  >
+  </div>
+
+  <!-- Subtle grid pattern -->
+  <div
+    class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px] opacity-5 pointer-events-none"
+  >
+  </div>
+
+  <!-- Content container with max-width -->
+  <div class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-24">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-12 relative z-10">
+      <!-- Text content -->
+      <div class="md:w-1/2 space-y-6">
+        <h1 class="text-4xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+          Hola, te entendemos
+        </h1>
+
+        <div class="space-y-4 text-lg md:text-3xl">
+          <p>
+            Buscar un <span class="text-white font-bold">abogado</span> no debería ser más difícil que
+            el <span class="text-white font-bold">problema</span> que tienes
+          </p>
+
+          <p class="text-secondary text-2xl md:text-3xl font-semibold">
+            Nosotros lo encontramos por ti
+          </p>
+
+          <p class="text-white/80 text-base md:text-lg max-w-xl">
+            Nos importa tu situación, estamos aquí para que encuentres orientación <span
+              class="text-white/90">confiable</span
+            > y <span class="text-white/90">soluciones reales</span> sin estrés ni más enredos.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a
+            href="#conocenos"
+            class="px-8 py-2 border border-white/20 rounded-lg hover:bg-primary-600 transition-colors duration-300 text-center relative z-20"
+          >
+            Conócenos
+          </a>
+          <a
+            href="#registrate"
+            class="px-8 py-2 bg-secondary text-primary font-medium rounded-lg hover:bg-secondary-400 transition-colors duration-300 text-center relative z-20"
+          >
+            Regístrate
+          </a>
+        </div>
+      </div>
+
+      <!-- Right side content (placeholder) -->
+      <div class="md:w-1/2 relative">
+        <!-- Content for the right side can be added here -->
+      </div>
+    </div>
+  </div>
+</SectionContainer>
