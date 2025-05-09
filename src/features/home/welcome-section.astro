@@ -9,16 +9,22 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   withSpacing={false}
   constrained={false}
   py="py-0"
+  aria-label="Sección de bienvenida"
 >
-  <!-- Background pattern overlay (relative to the entire viewport) -->
-  <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle,_transparent_20%,_#000_70%)] opacity-5">
+  <!-- Background pattern overlay -->
+  <div
+    class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+    aria-hidden="true"
+  >
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle,_transparent_20%,_#000_70%)] opacity-5"
+      role="presentation"
+    >
     </div>
     <Image
       src={PatternHero}
-      alt=""
+      alt="Patrón de fondo decorativo"
       class="absolute inset-0 w-full h-full object-cover object-center opacity-10 mix-blend-overlay"
-      aria-hidden="true"
       width={1920}
       height={1080}
     />
@@ -27,16 +33,22 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   <!-- Decorative elements -->
   <div
     class="absolute top-0 right-0 w-64 h-64 bg-purple-800/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
   >
   </div>
   <div
     class="absolute bottom-0 left-0 w-96 h-96 bg-purple-700/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/4 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
   >
   </div>
 
   <!-- Subtle grid pattern -->
   <div
     class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px] opacity-5 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
   >
   </div>
 
@@ -50,32 +62,34 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
         </h1>
 
         <div class="space-y-4 text-lg md:text-md lg:text-2xl">
-          <p>
+          <p class="leading-relaxed">
             Buscar un <span class="text-white font-bold">abogado</span> no debería ser más difícil que
             el <span class="text-white font-bold">problema</span> que tienes
           </p>
 
-          <p class="text-secondary text-2xl md:text-xl lg:text-2xl font-semibold">
+          <p class="text-secondary text-2xl md:text-xl lg:text-2xl font-semibold leading-relaxed">
             Nosotros lo encontramos por ti
           </p>
 
-          <p class="text-white/80 text-base md:text-lg max-w-xl">
+          <p class="text-white/90 text-base md:text-lg max-w-xl leading-relaxed">
             Nos importa tu situación, estamos aquí para que encuentres orientación <span
-              class="text-white/90">confiable</span
-            > y <span class="text-white/90">soluciones reales</span> sin estrés ni más enredos.
+              class="text-white font-medium">confiable</span
+            > y <span class="text-white font-medium">soluciones reales</span> sin estrés ni más enredos.
           </p>
         </div>
 
         <div class="flex flex-wrap gap-4 pt-4">
           <a
             href="#conocenos"
-            class="px-8 py-2 border border-white/20 rounded-lg hover:bg-primary-600 transition-colors duration-300 text-center relative z-20"
+            class="px-8 py-2 border border-white/20 rounded-lg hover:bg-primary-600 transition-colors duration-300 text-center relative z-20 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary"
+            aria-label="Conoce más sobre nosotros"
           >
             Conócenos
           </a>
           <a
             href="#registrate"
-            class="px-8 py-2 bg-secondary text-primary font-medium rounded-lg hover:bg-secondary-400 transition-colors duration-300 text-center relative z-20"
+            class="px-8 py-2 bg-secondary text-primary font-medium rounded-lg hover:bg-secondary-400 transition-colors duration-300 text-center relative z-20 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 focus:ring-offset-primary"
+            aria-label="Regístrate en nuestra plataforma"
           >
             Regístrate
           </a>
@@ -84,7 +98,11 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
 
       <!-- Right side content with character SVG -->
       <div class="md:w-1/2 relative flex justify-center items-center">
-        <div class="character-container w-[90%] md:w-[100%] relative">
+        <div
+          class="character-container w-[90%] md:w-[100%] relative"
+          role="img"
+          aria-label="Ilustración de un personaje amigable usando un teléfono"
+        >
           <!--?xml version="1.0" encoding="UTF-8"?-->
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -93,6 +111,8 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
             width="100%"
             height="auto"
             class="welcome-character-svg"
+            aria-hidden="true"
+            role="presentation"
           >
             <defs>
               <style>
@@ -180,6 +200,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
     transform: translateY(20px);
     opacity: 0;
     animation: welcome-float-in 1s ease forwards;
+    will-change: transform, opacity;
   }
 
   @keyframes welcome-float-in {
@@ -192,6 +213,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   /* Main character floating animation */
   .welcome-character-svg {
     animation: welcome-floating 6s ease-in-out infinite;
+    will-change: transform;
   }
 
   @keyframes welcome-floating {
@@ -208,6 +230,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   .welcome-character-head {
     transform-origin: center;
     animation: welcome-head-bob 4s ease-in-out infinite;
+    will-change: transform;
   }
 
   @keyframes welcome-head-bob {
@@ -226,6 +249,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   /* Body movement */
   .welcome-character-body {
     animation: welcome-body-sway 8s ease-in-out infinite;
+    will-change: transform;
   }
 
   @keyframes welcome-body-sway {
@@ -242,11 +266,13 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   .welcome-hand-left {
     transform-origin: 30% 50%;
     animation: welcome-hand-wave-left 3s ease-in-out infinite;
+    will-change: transform;
   }
 
   .welcome-hand-right {
     transform-origin: 70% 50%;
     animation: welcome-hand-wave-right 3s ease-in-out infinite;
+    will-change: transform;
   }
 
   @keyframes welcome-hand-wave-left {
@@ -273,10 +299,12 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   .welcome-eye-left {
     animation: welcome-blink 4s ease-in-out infinite;
     transform-origin: center;
+    will-change: transform, opacity;
   }
   .welcome-eye-right {
     transform-origin: center;
     animation: welcome-blink-right 4s ease-in-out infinite;
+    will-change: transform, opacity;
   }
 
   @keyframes welcome-blink {
@@ -308,6 +336,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   /* Phone animations */
   .welcome-phone-path {
     animation: welcome-phone-tilt 5s ease-in-out infinite;
+    will-change: transform;
   }
 
   @keyframes welcome-phone-tilt {
@@ -323,6 +352,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   /* Phone screen glow effect */
   .welcome-phone-screen-path {
     animation: welcome-screen-glow 3s ease-in-out infinite;
+    will-change: filter;
   }
 
   @keyframes welcome-screen-glow {
@@ -338,6 +368,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   /* Legs movement */
   .welcome-legs-path {
     animation: welcome-legs-sway 6s ease-in-out infinite;
+    will-change: transform;
   }
 
   @keyframes welcome-legs-sway {
@@ -354,6 +385,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   .cloud-left {
     animation: cloud-drift-left 15s ease-in-out infinite;
     transform-origin: center;
+    will-change: transform;
   }
 
   @keyframes cloud-drift-left {
@@ -369,6 +401,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   .cloud-right {
     animation: cloud-drift-right 18s ease-in-out infinite;
     transform-origin: center;
+    will-change: transform;
   }
 
   @keyframes cloud-drift-right {
@@ -378,6 +411,25 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
     }
     50% {
       transform: translateX(10px) scale(1.05);
+    }
+  }
+
+  /* Reduce motion if user prefers it */
+  @media (prefers-reduced-motion: reduce) {
+    .character-container,
+    .welcome-character-svg,
+    .welcome-character-head,
+    .welcome-character-body,
+    .welcome-hand-left,
+    .welcome-hand-right,
+    .welcome-eye-left,
+    .welcome-eye-right,
+    .welcome-phone-path,
+    .welcome-phone-screen-path,
+    .welcome-legs-path,
+    .cloud-left,
+    .cloud-right {
+      animation: none;
     }
   }
 </style>
