@@ -10,7 +10,8 @@
     "prepare": "husky",
     "commit": "cz",
     "release": "standard-version",
-    "format": "biome format --write .",
+    "format": "biome format --write . && prettier --write \"src/**/*.astro\"",
+    "format:check": "prettier --check \"src/**/*.astro\"",
     "lint": "biome lint .",
     "check": "biome check --apply ."
   },
@@ -28,6 +29,8 @@
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
     "standard-version": "^9.5.0"
   },
   "config": {
