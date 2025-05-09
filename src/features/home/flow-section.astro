@@ -28,17 +28,162 @@ import Character from '../../assets/images/brand/character-2.webp';
     >
       <!-- Línea amarilla decorativa -->
       <div
-        class="absolute top-[62%] left-[-100vw] right-0 h-1 md:h-0.5 bg-secondary transform -translate-y-1/2 -z-10"
+        class="absolute top-[58%] left-[-100vw] right-0 h-1 md:h-0.5 bg-secondary transform -translate-y-1/2 -z-10"
       >
       </div>
 
-      <Image
-        src={Character}
-        alt="Personaje legal"
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 577.71 835.71"
         class="max-w-[200px] md:max-w-full h-auto relative"
-        width={400}
-        height={400}
-      />
+      >
+        <defs>
+          <filter
+            id="drop-shadow-1"
+            x="111.09"
+            y="112.14"
+            width="362.16"
+            height="646.56"
+            filterUnits="userSpaceOnUse"
+          >
+            <feOffset dx="17.19" dy="22.1"></feOffset>
+            <feGaussianBlur result="blur" stdDeviation="9.82"></feGaussianBlur>
+            <feFlood flood-color="#000" flood-opacity=".25"></feFlood>
+            <feComposite in2="blur" operator="in"></feComposite>
+            <feComposite in="SourceGraphic"></feComposite>
+          </filter>
+        </defs>
+        <style>
+          .st0 {
+            fill: #fff;
+          }
+          .st1 {
+            filter: url(#drop-shadow-1);
+          }
+
+          /* Head movement animation */
+          .head-part-1,
+          .head-part-2 {
+            transform-origin: center;
+            animation: head-move 4s ease-in-out infinite;
+          }
+
+          @keyframes head-move {
+            0%,
+            100% {
+              transform: rotate(0deg);
+            }
+            25% {
+              transform: rotate(1deg);
+            }
+            75% {
+              transform: rotate(-1deg);
+            }
+          }
+
+          /* Hand animations */
+          .left-hand {
+            transform-origin: 30% 50%;
+            animation: left-hand-move 6s ease-in-out infinite;
+          }
+
+          .right-hand {
+            transform-origin: 70% 50%;
+            animation: right-hand-move 6s ease-in-out infinite;
+          }
+
+          @keyframes left-hand-move {
+            0%,
+            100% {
+              transform: rotate(0deg);
+            }
+            25% {
+              transform: rotate(-3deg);
+            }
+            75% {
+              transform: rotate(3deg);
+            }
+          }
+
+          @keyframes right-hand-move {
+            0%,
+            100% {
+              transform: rotate(0deg);
+            }
+            25% {
+              transform: rotate(3deg);
+            }
+            75% {
+              transform: rotate(-3deg);
+            }
+          }
+
+          /* Eye movement and blinking */
+          .eye-left,
+          .eye-right {
+            transform-origin: center;
+            animation:
+              eye-move 4s ease-in-out infinite,
+              eye-blink 4s ease-in-out infinite;
+          }
+
+          @keyframes eye-move {
+            0%,
+            100% {
+              transform: translateX(0) rotate(-21.3deg);
+            }
+            25% {
+              transform: translateX(1px) rotate(-21.3deg);
+            }
+            75% {
+              transform: translateX(-1px) rotate(-21.3deg);
+            }
+          }
+
+          @keyframes eye-blink {
+            0%,
+            96%,
+            100% {
+              transform: scale(1) rotate(-21.3deg);
+              opacity: 1;
+            }
+            98% {
+              transform: scale(0.95) rotate(-21.3deg);
+              opacity: 0.2;
+            }
+          }
+        </style>
+        <path
+          class="st0 left-hand"
+          d="M54.97,462.91c5.84-13.02,25.99-20.81,37.81-12.1,5.7,4.2,9.34,12.15,8.18,20.06-2.27,15.48-21.71,22.53-23.71,20.28-1.82-2.05,9.3-13.47,6.87-16.43-2.97-3.62-20.73,12.12-28.19,6.62-4.36-3.22-3.61-12.53-.96-18.42Z"
+        ></path>
+        <path
+          class="st0 right-hand"
+          d="M528.14,462.91c-5.84-13.02-25.99-20.81-37.81-12.1-5.7,4.2-9.34,12.15-8.18,20.06,2.27,15.48,21.71,22.53,23.71,20.28,1.82-2.05-9.3-13.47-6.87-16.43,2.97-3.62,20.73,12.12,28.19,6.62,4.36-3.22,3.61-12.53.96-18.42Z"
+        ></path>
+        <g class="st1">
+          <polygon
+            class="st0 head-part-1"
+            points="418.12 235.82 123.54 350.52 209.34 235.33 124.09 119.73 418.12 235.82"
+          ></polygon>
+          <path
+            class="st0 body"
+            d="M309.79,459.61l-7.27,23.43-15.98,1.3-11.02-22.22c-58.06-.04-94.07-22.07-94.07-22.07l133.28,266.77,84.87-284.58s-30.53,28.57-89.82,37.36ZM304.64,606.65l-29.35-33.01,11.76-84.25,15.68-1.32,25.95,81.19-24.04,37.38Z"
+          ></path>
+          <g>
+            <path
+              class="st0 head-part-2"
+              d="M130.87,369.33s66.56,99.9,189.85,51.84c123.29-48.06,104.68-166.65,104.68-166.65l-294.53,114.81ZM307.55,376.61c3.55,9.12-.96,19.38-10.07,22.94l-25.31,9.86c-9.12,3.55-19.38-.96-22.94-10.07l-9.86-25.31c-.32-.81-.55-1.63-.74-2.46-6.97-2.7-25.06-9.85-19.01-8.86,4.48.73,27.86-11.01,27.86-11.01l-.11.36c.66-.36,1.34-.7,2.06-.98l25.31-9.86c9.12-3.55,19.38.96,22.94,10.07l9.86,25.31ZM347.48,331.16l7.32,18.79c2.55,6.54-.69,13.92-7.23,16.47l-16.42,6.4c-6.55,2.55-13.92-.69-16.47-7.23l-7.79-19.99c-2.55-6.55.69-13.92,7.23-16.47l16.42-6.4c1.15-.45,2.32-.71,3.48-.81,5.69-1.71,18.94-5.89,20.77-8.22,3.45-4.4-5.29,13.4-7.31,17.47Z"
+            ></path>
+            <path
+              class="st0 eye-left"
+              d="M284.55,350.16h21.73c3.23,0,5.85,2.62,5.85,5.85v32.59c0,3.23-2.62,5.85-5.85,5.85h-21.73c-3.23,0-5.85-2.62-5.85-5.85v-32.59c0-3.23,2.62-5.85,5.85-5.85Z"
+              transform="translate(-116.07 127.26) rotate(-21.3)"></path>
+            <rect class="st0 eye-right" x="315.87" y="334.77" width="20" height="30" rx="7" ry="7"
+            ></rect>
+          </g>
+        </g>
+      </svg>
     </div>
 
     <!-- Pasos - En móvil tendrán un padding inferior para que el robot se sobreponga -->
