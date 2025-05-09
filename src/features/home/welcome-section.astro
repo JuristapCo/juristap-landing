@@ -41,21 +41,21 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   </div>
 
   <!-- Content container with max-width -->
-  <div class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-24">
+  <div class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-12 lg:py-0">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-12 relative z-10">
       <!-- Text content -->
       <div class="md:w-1/2 space-y-6">
-        <h1 class="text-4xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+        <h1 class="text-4xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight">
           Hola, te entendemos
         </h1>
 
-        <div class="space-y-4 text-lg md:text-3xl">
+        <div class="space-y-4 text-lg md:text-md lg:text-2xl">
           <p>
             Buscar un <span class="text-white font-bold">abogado</span> no debería ser más difícil que
             el <span class="text-white font-bold">problema</span> que tienes
           </p>
 
-          <p class="text-secondary text-2xl md:text-3xl font-semibold">
+          <p class="text-secondary text-2xl md:text-xl lg:text-2xl font-semibold">
             Nosotros lo encontramos por ti
           </p>
 
@@ -82,10 +82,296 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
         </div>
       </div>
 
-      <!-- Right side content (placeholder) -->
-      <div class="md:w-1/2 relative">
-        <!-- Content for the right side can be added here -->
+      <!-- Right side content with character SVG -->
+      <div class="md:w-1/2 relative flex justify-center items-center">
+        <div class="character-container w-[90%] md:w-[100%] relative">
+          <!--?xml version="1.0" encoding="UTF-8"?-->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 577.71 835.71"
+            width="100%"
+            height="auto"
+            class="character-svg"
+          >
+            <defs>
+              <style>
+                .st0 {
+                  fill: #fff;
+                }
+
+                .st1 {
+                  fill: none;
+                }
+
+                .st2 {
+                  filter: url(#drop-shadow-1);
+                }
+              </style>
+              <filter
+                id="drop-shadow-1"
+                x="86.29"
+                y="73.81"
+                width="458.88"
+                height="726.96"
+                filterUnits="userSpaceOnUse"
+              >
+                <feOffset dx="11.81" dy="11.81"></feOffset>
+                <feGaussianBlur result="blur" stdDeviation="8.44"></feGaussianBlur>
+                <feFlood flood-color="#000" flood-opacity=".25"></feFlood>
+                <feComposite in2="blur" operator="in"></feComposite>
+                <feComposite in="SourceGraphic"></feComposite>
+              </filter>
+            </defs>
+            <g class="st2">
+              <path
+                class="st1 phone-path"
+                d="M219.13,424.94c.98,10.84,10.57,18.83,21.4,17.84l30.09-2.73c10.84-.98,18.83-10.57,17.84-21.4l-2.73-30.09c-.98-10.84-10.57-18.83-21.4-17.84l-30.09,2.73c-10.84.98-18.83,10.57-17.84,21.4l2.73,30.09ZM246.54,382.24l24.07-2.18c3.58-.32,6.74,2.31,7.06,5.89l3.27,36.1c.32,3.58-2.31,6.74-5.89,7.06l-24.07,2.18c-3.58.32-6.74-2.31-7.06-5.89l-3.27-36.1c-.32-3.58,2.31-6.74,5.89-7.07Z"
+              ></path>
+              <polygon
+                class="st1 legs-path"
+                points="283.98 522.01 271.74 615.83 304.72 652.25 331.08 610.44 301.41 520.39 283.98 522.01"
+              ></polygon>
+              <path
+                class="st1 phone-screen-path"
+                d="M297.32,385.3l2.16,23.77c.71,7.78,7.59,13.52,15.37,12.81l19.53-1.77c7.78-.71,13.52-7.59,12.81-15.37l-2.16-23.77c-.71-7.78-7.59-13.52-15.37-12.81l-19.53,1.77c-7.78.71-13.52,7.59-12.81,15.37ZM307.64,379.07l17.04-1.55c2.18-.2,4.11,1.41,4.3,3.59l2.45,27.03c.2,2.18-1.41,4.11-3.59,4.3l-17.04,1.55c-2.18.2-4.11-1.41-4.3-3.59l-2.45-27.03c-.2-2.18,1.41-4.11,3.59-4.3Z"
+              ></path>
+              <path
+                class="st0 hand-left"
+                d="M148.36,526.22c-3.45,1.45,3.93,21.32-.8,23.54-5.78,2.71-19-26.02-31.47-23.54-7.29,1.45-11.67,13.05-11.73,21.6-.14,18.87,20.6,39.37,40.37,35.45,9.53-1.89,18.62-9.42,21.69-19.57,6-19.85-14.28-39.06-18.06-37.47Z"
+              ></path>
+              <path
+                class="st0 hand-right"
+                d="M507.46,393.62c-1.6-8.4-7.99-19.02-15.42-19.13-12.71-.19-20.54,30.44-26.72,28.82-5.05-1.32-1.37-22.2-5.02-23.01-4.01-.88-20.5,21.66-11.03,40.11,4.84,9.43,15.14,15.2,24.86,15.34,20.15.3,36.86-23.6,33.33-42.13Z"
+              ></path>
+              <path
+                class="st0 character-body"
+                d="M301.12,514.79l-17.76,1.61-12.48-24.6c-64.58.53-104.84-23.6-104.84-23.6l150.91,295.37,91.54-317.36s-33.67,32.09-99.52,42.45l-7.85,26.14ZM304.72,652.25l-32.98-36.42,12.24-93.82,17.43-1.62,29.67,90.05-26.36,41.81Z"
+              ></path>
+              <!-- Agrupar cabeza y ojos para que se muevan juntos -->
+              <g class="character-head">
+                <path
+                  d="M288.79,470.33c145.2-13.17,160.99-165.14,161.27-167.99h.01s-.01,0-.01,0c0-.02,0-.06,0-.06h-.07S171.71,87.53,171.71,87.53l55.41,149.84-127.23,96.61v.06s42.32,149.58,188.89,136.29ZM329.66,368.16c7.78-.71,14.66,5.03,15.37,12.81l2.16,23.77c.71,7.78-5.03,14.66-12.81,15.37l-19.53,1.77c-7.78.71-14.66-5.03-15.37-12.81l-2.16-23.77c-.71-7.78,5.03-14.66,12.81-15.37l19.53-1.77ZM270.66,253.83l8.31,27.3h28.54s-53.23,33.34-53.23,33.34l16.38-60.64ZM234.24,373.45l30.09-2.73c10.84-.98,20.42,7,21.4,17.84l2.73,30.09c.98,10.84-7,20.42-17.84,21.4l-30.09,2.73c-10.84.98-20.42-7-21.4-17.84l-2.73-30.09c-.98-10.84,7-20.42,17.84-21.4Z"
+                  class="st0"></path>
+                <path
+                  class="st0 eye-left"
+                  d="M250.99,431.29l24.07-2.18c3.58-.32,6.21-3.49,5.89-7.06l-3.27-36.1c-.32-3.58-3.49-6.21-7.06-5.89l-24.07,2.18c-3.58.32-6.21,3.49-5.89,7.07l3.27,36.1c.32,3.58,3.49,6.21,7.06,5.89Z"
+                ></path>
+                <rect class="st0 eye-right" x="307" y="378" width="25" height="35" rx="7" ry="7"
+                ></rect>
+              </g>
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
   </div>
 </SectionContainer>
+
+<style>
+  /* Character container with entrance animation */
+  .character-container {
+    transform: translateY(20px);
+    opacity: 0;
+    animation: float-in 1s ease forwards;
+  }
+
+  @keyframes float-in {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Main character floating animation */
+  .character-svg {
+    animation: floating 6s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+  }
+
+  /* Head movement */
+  .character-head {
+    transform-origin: center;
+    animation: head-bob 4s ease-in-out infinite;
+  }
+
+  @keyframes head-bob {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(1deg);
+    }
+    75% {
+      transform: rotate(-1deg);
+    }
+  }
+
+  /* Body movement */
+  .character-body {
+    animation: body-sway 8s ease-in-out infinite;
+  }
+
+  @keyframes body-sway {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(2px);
+    }
+  }
+
+  /* Hand animations */
+  .hand-left {
+    transform-origin: 30% 50%;
+    animation: hand-wave-left 3s ease-in-out infinite;
+  }
+
+  .hand-right {
+    transform-origin: 70% 50%;
+    animation: hand-wave-right 3s ease-in-out infinite;
+  }
+
+  @keyframes hand-wave-left {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
+  }
+
+  @keyframes hand-wave-right {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+
+  /* Eye animations */
+  .eye-left {
+    animation: blink 4s ease-in-out infinite;
+    transform-origin: center;
+  }
+  .eye-right {
+    transform-origin: center;
+    animation: blink-right 4s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    96%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    98% {
+      transform: scale(0.95);
+      opacity: 0.2;
+    }
+  }
+
+  @keyframes blink-right {
+    0%,
+    96%,
+    100% {
+      transform: rotate(-5deg) scale(1);
+      opacity: 1;
+    }
+    98% {
+      transform: rotate(-5deg) scale(0.95);
+      opacity: 0.2;
+    }
+  }
+
+  /* Phone animations */
+  .phone-path {
+    animation: phone-tilt 5s ease-in-out infinite;
+  }
+
+  @keyframes phone-tilt {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-2deg);
+    }
+  }
+
+  /* Phone screen glow effect */
+  .phone-screen-path {
+    animation: screen-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes screen-glow {
+    0%,
+    100% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.2);
+    }
+  }
+
+  /* Legs movement */
+  .legs-path {
+    animation: legs-sway 6s ease-in-out infinite;
+  }
+
+  @keyframes legs-sway {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(2px);
+    }
+  }
+
+  /* Cloud animations */
+  .cloud-left {
+    animation: cloud-drift-left 15s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  @keyframes cloud-drift-left {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-10px) scale(1.05);
+    }
+  }
+
+  .cloud-right {
+    animation: cloud-drift-right 18s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  @keyframes cloud-drift-right {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px) scale(1.05);
+    }
+  }
+</style>
