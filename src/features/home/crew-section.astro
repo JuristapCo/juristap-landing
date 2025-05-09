@@ -1,0 +1,185 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<section class="container mx-auto py-16 px-4 relative">
+  <div class="flex flex-col items-center relative">
+    <!-- Título de la sección -->
+    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">
+      Nuestra Tripulación
+    </h2>
+
+    <div class="relative max-w-4xl w-full">
+      <div class="md:flex md:flex-row md:items-start md:justify-between relative z-10">
+        <!-- En móvil, contenedor para los dos círculos juntos -->
+        <div class="flex justify-center gap-8 mb-10 md:hidden relative">
+          <!-- Círculo Capitanes para móvil -->
+          <div class="flex flex-col items-center">
+            <div class="w-[120px] h-[36px] relative mb-0">
+              <svg width="120" height="36" viewBox="0 0 140 45">
+                <defs>
+                  <path id="capitanes-arc-mobile" d="M5,42 Q70,-5 135,42"></path>
+                </defs>
+                <text class="text-[16px] font-bold fill-primary tracking-wider">
+                  <textPath href="#capitanes-arc-mobile" startOffset="50%" text-anchor="middle">
+                    Capitanes
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+            <div class="transform transition-transform duration-300 group-hover:scale-105">
+              <div class="flex items-center justify-center">
+                <div
+                  class="border-3 border-primary rounded-full h-24 w-24 flex items-center justify-center relative overflow-hidden"
+                >
+                  <div
+                    class="bg-secondary rounded-full w-[85%] h-[85%] flex items-center justify-center"
+                  >
+                    <span class="text-3xl font-bold text-primary">C</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-2 text-center">
+              <h3 class="text-primary font-semibold text-base">Abogados</h3>
+            </div>
+          </div>
+
+          <!-- Círculo Viajeros para móvil -->
+          <div class="flex flex-col items-center">
+            <div class="w-[120px] h-[36px] relative mb-0">
+              <svg width="120" height="36" viewBox="0 0 140 45">
+                <defs>
+                  <path id="viajeros-arc-mobile" d="M5,42 Q70,-5 135,42"></path>
+                </defs>
+                <text class="text-[16px] font-bold fill-primary tracking-wider">
+                  <textPath href="#viajeros-arc-mobile" startOffset="50%" text-anchor="middle">
+                    Viajeros
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center justify-center">
+                <div
+                  class="border-3 border-primary rounded-full h-24 w-24 flex items-center justify-center relative overflow-hidden"
+                >
+                  <div
+                    class="bg-secondary rounded-full w-[85%] h-[85%] flex items-center justify-center"
+                  >
+                    <span class="text-3xl font-bold text-primary">V</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-2 text-center">
+              <h3 class="text-primary font-semibold text-base">Clientes</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left Circle - Capitanes (solo visible en desktop) -->
+        <div class="z-10 mb-0 hidden md:flex md:flex-col md:items-center relative group">
+          <div class="w-[140px] h-[42px] relative mb-0">
+            <svg width="140" height="42" viewBox="0 0 140 45">
+              <defs>
+                <path id="capitanes-arc" d="M5,42 Q70,-5 135,42"></path>
+              </defs>
+              <text class="text-[18px] font-bold fill-primary tracking-wider">
+                <textPath href="#capitanes-arc" startOffset="50%" text-anchor="middle">
+                  Capitanes
+                </textPath>
+              </text>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center justify-center">
+              <!-- Outer primary border -->
+              <div
+                class="border-3 border-primary rounded-full h-28 w-28 flex items-center justify-center relative overflow-hidden"
+              >
+                <!-- Inner secondary circle -->
+                <div
+                  class="bg-secondary rounded-full w-[85%] h-[85%] flex items-center justify-center"
+                >
+                  <span class="text-4xl font-bold text-primary">C</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Descripción bajo el círculo -->
+          <div class="mt-4 text-center w-48">
+            <h3 class="text-primary font-semibold text-lg">Abogados</h3>
+            <p class="text-sm text-gray-600">Guían y ofrecen su experiencia legal</p>
+          </div>
+        </div>
+
+        <!-- Center Text -->
+        <div class="text-center max-w-lg mx-4 z-10 px-6 md:mb-0 self-center">
+          <p class="text-lg">
+            Juristap es una tripulación interconectada, donde los
+            <strong>Abogados</strong> son los
+            <strong>capitanes</strong> y los
+            <strong>clientes</strong> son los
+            <strong>viajeros</strong>
+            que buscan orientación en su trayecto legal.
+          </p>
+          <a
+            href="/registro"
+            class="inline-block mt-6 bg-secondary hover:bg-secondary/90 text-primary font-medium py-2 px-8 rounded-md transition duration-300"
+          >
+            Regístrate
+          </a>
+        </div>
+
+        <!-- Right Circle - Viajeros (solo visible en desktop) -->
+        <div class="z-10 mb-0 hidden md:flex md:flex-col md:items-center relative group">
+          <div class="w-[140px] h-[42px] relative mb-0">
+            <svg width="140" height="42" viewBox="0 0 140 45">
+              <defs>
+                <path id="viajeros-arc" d="M5,42 Q70,-5 135,42"></path>
+              </defs>
+              <text class="text-[18px] font-bold fill-primary tracking-wider">
+                <textPath href="#viajeros-arc" startOffset="50%" text-anchor="middle">
+                  Viajeros
+                </textPath>
+              </text>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center justify-center">
+              <!-- Outer primary border -->
+              <div
+                class="border-3 border-primary rounded-full h-28 w-28 flex items-center justify-center relative overflow-hidden"
+              >
+                <!-- Inner secondary circle -->
+                <div
+                  class="bg-secondary rounded-full w-[85%] h-[85%] flex items-center justify-center"
+                >
+                  <span class="text-4xl font-bold text-primary">V</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Descripción bajo el círculo -->
+          <div class="mt-4 text-center w-48">
+            <h3 class="text-primary font-semibold text-lg">Clientes</h3>
+            <p class="text-sm text-gray-600">Navegan hacia soluciones legales efectivas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Línea conectora inferior -->
+    <div class="w-full max-w-4xl mt-12 md:mt-16 relative">
+      <div class="h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent w-full">
+      </div>
+      <p class="text-center text-gray-600 text-sm md:text-base mt-6 max-w-2xl mx-auto">
+        Juntos navegamos por los desafíos legales, creando una experiencia colaborativa que lleva a
+        resultados exitosos.
+      </p>
+    </div>
+  </div>
+</section>
