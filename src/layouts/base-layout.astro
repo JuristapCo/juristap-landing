@@ -11,15 +11,11 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Juristap</title>
   </head>
-  <body class="font-sans antialiased bg-gray-50">
-    <Header />
-
-    <!-- Main Content -->
-    <main>
+  <body class="font-sans antialiased bg-gray-50 pt-0">
+    <main class="relative">
+      <Header />
       <slot />
     </main>
-
-    <!-- Footer -->
     <Footer />
   </body>
 </html>
