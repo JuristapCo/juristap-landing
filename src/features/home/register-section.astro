@@ -1,0 +1,71 @@
+---
+import SectionContainer from '../../components/ui/section-container.astro';
+---
+
+<SectionContainer
+  background="bg-primary text-white"
+  py="py-0"
+  constrained={false}
+  withSpacing={false}
+  aria-label="Sección de registro"
+>
+  <div
+    class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-24 flex flex-col md:flex-row items-center justify-center gap-12 relative z-10 min-h-[500px]"
+  >
+    <!-- Texto motivacional -->
+    <div
+      class="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0"
+    >
+      <p class="text-lg md:text-xl lg:text-2xl font-medium mb-2">
+        Es momento de tomar <span class="font-bold">acción</span>,<br />
+        en <span class="font-bold">Juristap</span> nos preocupamos por ti.
+      </p>
+    </div>
+    <!-- Formulario de registro -->
+    <div
+      class="md:w-1/2 w-full max-w-md bg-white text-primary rounded-xl shadow-lg p-8 flex flex-col gap-6"
+    >
+      <h2 class="text-2xl font-bold text-center mb-4">Registro</h2>
+      <form class="flex flex-col gap-4">
+        <div>
+          <label for="nombre" class="block text-sm font-medium mb-1">Nombre</label>
+          <input
+            id="nombre"
+            name="nombre"
+            type="text"
+            placeholder="Nombre completo"
+            class="w-full px-4 py-2 border border-primary-100 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
+            required
+          />
+        </div>
+        <div>
+          <label for="correo" class="block text-sm font-medium mb-1">Correo</label>
+          <input
+            id="correo"
+            name="correo"
+            type="email"
+            placeholder="e-mail"
+            class="w-full px-4 py-2 border border-primary-100 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
+            required
+          />
+        </div>
+        <div>
+          <label for="celular" class="block text-sm font-medium mb-1">Celular</label>
+          <input
+            id="celular"
+            name="celular"
+            type="tel"
+            placeholder="Número de teléfono"
+            class="w-full px-4 py-2 border border-primary-100 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          class="mt-4 w-full bg-secondary text-primary font-bold py-2 rounded-md hover:bg-secondary-400 transition-colors"
+          >Registrarse</button
+        >
+      </form>
+    </div>
+  </div>
+</SectionContainer>
