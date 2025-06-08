@@ -16,23 +16,32 @@ import Logo from '../assets/images/brand/logo-horizontal-white.webp';
       class="w-auto h-8 hover:opacity-90 transition-all duration-300 hover:scale-105"
       draggable="false"
     />
-    <nav class="hidden lg:flex gap-8 relative items-center desktop-nav">
+    <nav class="hidden lg:flex gap-8 relative items-center desktop-nav header-navigation">
       <div
         class="absolute inset-0 bg-white/90 rounded-full transition-all duration-500 ease-in-out opacity-0"
         id="hoverBubble"
       >
       </div>
-      <a href="#" class="relative group px-4 py-2.5 rounded-lg z-10 flex items-center h-10">
+      <a
+        href="#"
+        class="relative group px-4 py-2.5 rounded-lg z-10 flex items-center h-10 header-nav-item"
+      >
         <span class="transition-all duration-300 group-hover:text-primary group-hover:scale-105"
           >Soy abogado</span
         >
       </a>
-      <a href="#" class="relative group px-4 py-2.5 rounded-lg z-10 flex items-center h-10">
+      <a
+        href="#"
+        class="relative group px-4 py-2.5 rounded-lg z-10 flex items-center h-10 header-nav-item"
+      >
         <span class="transition-all duration-300 group-hover:text-primary group-hover:scale-105"
           >Soy un cliente</span
         >
       </a>
-      <a href="#" class="relative group px-4 py-2.5 rounded-lg z-10 flex items-center h-10">
+      <a
+        href="#"
+        class="relative group px-4 py-2.5 rounded-lg z-10 flex items-center h-10 header-nav-item"
+      >
         <span class="transition-all duration-300 group-hover:text-primary group-hover:scale-105"
           >Contáctenos</span
         >
@@ -358,15 +367,13 @@ import Logo from '../assets/images/brand/logo-horizontal-white.webp';
     will-change: transform;
   }
 
-  /* Add subtle hover effect to desktop navigation elements */
-  .desktop-nav button,
-  .desktop-nav a {
+  /* Header specific styles */
+  .header-navigation .header-nav-item {
     position: relative;
     overflow: hidden;
   }
 
-  .desktop-nav button::after,
-  .desktop-nav a::after {
+  .header-navigation .header-nav-item::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -380,12 +387,11 @@ import Logo from '../assets/images/brand/logo-horizontal-white.webp';
     transform-origin: 50% 50%;
   }
 
-  .desktop-nav button:hover::after,
-  .desktop-nav a:hover::after {
-    animation: ripple 1s ease-out;
+  .header-navigation .header-nav-item:hover::after {
+    animation: header-ripple 1s ease-out;
   }
 
-  @keyframes ripple {
+  @keyframes header-ripple {
     0% {
       transform: scale(0, 0);
       opacity: 0.5;

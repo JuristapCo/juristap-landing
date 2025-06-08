@@ -9,9 +9,8 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   withSpacing={false}
   constrained={false}
   py="py-0"
-  aria-label="Sección de bienvenida"
+  aria-label="Sección principal de Juristap - Encuentra tu abogado ideal"
 >
-  <!-- Background pattern overlay -->
   <div
     class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
     aria-hidden="true"
@@ -23,10 +22,11 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
     </div>
     <Image
       src={PatternHero}
-      alt="Patrón de fondo decorativo"
+      alt="Patrón de fondo decorativo de Juristap"
       class="absolute inset-0 w-full h-full object-cover object-center opacity-10 mix-blend-overlay"
       width={1920}
       height={1080}
+      loading="eager"
     />
   </div>
 
@@ -52,55 +52,73 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   >
   </div>
 
-  <!-- Content container with max-width -->
-  <div class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-12 lg:py-0">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-12 relative z-10">
-      <!-- Text content -->
-      <div class="md:w-1/2 space-y-6">
-        <h1 class="text-4xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight">
-          Hola, te entendemos
-        </h1>
+  <div
+    class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 xl:px-24 py-32 lg:py-32 xl:py-24 2xl:py-32"
+  >
+    <div class="flex flex-col lg:flex-row md:items-center md:justify-between gap-12 relative z-10">
+      <div class="lg:w-2/3 xl:w-1/2 2xl:w-2/3 space-y-6">
+        <header class="space-y-2 sm:space-y-3">
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-tight"
+          >
+            Encuentra tu
+          </h1>
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-tight"
+          >
+            abogado ideal
+          </h2>
+        </header>
 
-        <div class="space-y-4 text-lg md:text-md lg:text-2xl">
+        <div class="space-y-3 sm:space-y-4 text-sm sm:text-lg md:text-xl lg:text-xl xl:text-2xl">
           <p class="leading-relaxed">
-            Buscar un <span class="text-white font-bold">abogado</span> no debería ser más difícil que
-            el <span class="text-white font-bold">problema</span> que tienes
+            En Juristap garantizamos que tendrás un <span class="text-white font-bold"
+              >abogado especializado</span
+            > en tu caso en menos de <span class="text-white font-bold">24 horas</span>
           </p>
 
-          <p class="text-secondary text-2xl md:text-xl lg:text-2xl font-semibold leading-relaxed">
-            Nosotros lo encontramos por ti
+          <p
+            class="text-secondary text-2xl sm:text-2xl md:text-2xl lg:text-2xl font-semibold leading-relaxed"
+          >
+            Sin esperas,
+            <br class="block sm:hidden" />
+            sin complicaciones
           </p>
 
-          <p class="text-white/90 text-base md:text-lg max-w-xl leading-relaxed">
-            Nos importa tu situación, estamos aquí para que encuentres orientación <span
-              class="text-white font-medium">confiable</span
-            > y <span class="text-white font-medium">soluciones reales</span> sin estrés ni más enredos.
+          <p class="text-white/90 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed">
+            Olvídate de las búsquedas interminables. Conectamos con <span
+              class="text-white font-medium">abogados verificados</span
+            > y <span class="text-white font-medium">especializados</span> que resolverán tu caso de
+            manera eficiente.
           </p>
         </div>
 
-        <div class="flex flex-wrap gap-4 pt-4">
+        <div
+          class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6"
+          aria-label="Navegación principal"
+        >
           <a
-            href="#conocenos"
-            class="px-8 py-2 border border-white/20 rounded-lg hover:bg-primary-600 transition-colors duration-300 text-center relative z-20 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary"
-            aria-label="Conoce más sobre nosotros"
-          >
-            Conócenos
-          </a>
-          <a
-            href="#registrate"
-            class="px-8 py-2 bg-secondary text-primary font-medium rounded-lg hover:bg-secondary-400 transition-colors duration-300 text-center relative z-20 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 focus:ring-offset-primary"
-            aria-label="Regístrate en nuestra plataforma"
+            href="#register"
+            class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-2 rounded-lg text-primary-500 bg-secondary-400 hover:bg-secondary-500 transition-colors duration-300 text-center relative z-20 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary text-base sm:text-lg"
+            aria-label="Descubre más sobre Juristap y nuestros servicios"
           >
             Regístrate
+          </a>
+          <a
+            href="#conocenos"
+            class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-2 border border-white/20 rounded-lg hover:bg-primary-600 transition-colors duration-300 text-center relative z-20 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary text-base sm:text-lg"
+            aria-label="Descubre más sobre Juristap y nuestros servicios"
+          >
+            Conócenos
           </a>
         </div>
       </div>
 
-      <div class="md:w-1/2 relative flex justify-center items-center">
+      <div class="lg:w-1/3 xl:w-1/2 2xl:w-1/3 relative flex justify-center items-center">
         <div
-          class="character-container w-[70%] md:w-[82%] relative"
+          class="character-container w-[80%] md:w-[100%] relative"
           role="img"
-          aria-label="Ilustración de un personaje amigable"
+          aria-label="Ilustración representativa de Juristap - Plataforma de conexión legal"
         >
           <!--?xml version="1.0" encoding="UTF-8"?-->
           <svg
@@ -192,6 +210,21 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
     </div>
   </div>
 </SectionContainer>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Juristap",
+    "description": "Conectamos con abogados especializados en menos de 24 horas. Tu solución legal rápida y confiable.",
+    "url": "https://juristap.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://juristap.com/buscar?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+</script>
 
 <style>
   /* Character container with entrance animation */
