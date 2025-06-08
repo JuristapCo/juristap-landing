@@ -2,22 +2,39 @@
 import SectionContainer from '../../components/ui/section-container.astro';
 ---
 
-<SectionContainer py="py-8 md:py-12" px="px-4 md:px-6 lg:px-8">
-  <section aria-labelledby="highlight-heading" class="text-center max-w-2xl mx-auto">
-    <h2 id="highlight-heading" class="text-2xl md:text-3xl lg:text-4xl text-primary-400 mb-2">
-      Encuentra un abogado
-    </h2>
+<SectionContainer py="py-16 lg:py-24" px="px-4 md:px-6 lg:px-8">
+  <article
+    class="text-center mx-auto"
+    aria-labelledby="highlight-heading"
+    itemscope
+    itemtype="https://schema.org/Service"
+  >
+    <header>
+      <h2
+        id="highlight-heading"
+        class="text-xl md:text-4xl lg:text-4xl text-primary-400 mb-2"
+        itemprop="name"
+      >
+        Encuentra un abogado
+      </h2>
+      <p
+        class="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 bg-gradient-to-r from-primary-700 via-primary-400 to-primary-700 text-transparent bg-clip-text"
+        aria-live="polite"
+        role="status"
+        itemprop="description"
+      >
+        <span class="sr-only">Tiempo de respuesta:</span> ¡EN MENOS DE 24 HORAS!
+      </p>
+    </header>
     <p
-      class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 bg-gradient-to-r from-primary-700 via-primary-400 to-primary-700 text-transparent bg-clip-text"
-      aria-live="polite"
-    >
-      <span class="sr-only">Tiempo de respuesta:</span> ¡EN MENOS DE 24 HORAS!
-    </p>
-    <p
-      class="text-gray-500 text-base md:text-lg max-w-xl mx-auto"
+      class="text-gray-500 text-base md:text-lg lg:text-xl max-w-xl mx-auto"
       aria-describedby="highlight-heading"
+      itemprop="slogan"
     >
-      Contamos con expertos profesionales que están listos para acompañarte en todo tu proceso.
+      Te conectamos con profesionales expertos que están listos para ti
     </p>
-  </section>
+    <meta itemprop="serviceType" content="Servicio Legal" />
+    <meta itemprop="areaServed" content="España" />
+    <meta itemprop="availableChannel" content="Online" />
+  </article>
 </SectionContainer>

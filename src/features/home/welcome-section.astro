@@ -9,7 +9,21 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   withSpacing={false}
   constrained={false}
   py="py-0"
+  id="hero"
+  title="Bienvenida a Juristap"
+  role="banner"
   aria-label="Sección principal de Juristap - Encuentra tu abogado ideal"
+  metadata={{
+    description:
+      'Conectamos con abogados especializados en menos de 24 horas. Tu solución legal rápida y confiable.',
+    keywords: [
+      'abogados',
+      'servicios legales',
+      'asesoría jurídica',
+      'juristap',
+      'abogados especializados',
+    ],
+  }}
 >
   <div
     class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
@@ -27,6 +41,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
       width={1920}
       height={1080}
       loading="eager"
+      fetchpriority="high"
     />
   </div>
 
@@ -57,7 +72,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   >
     <div class="flex flex-col lg:flex-row md:items-center md:justify-between gap-12 relative z-10">
       <div class="lg:w-2/3 xl:w-1/2 2xl:w-2/3 space-y-6">
-        <header class="space-y-2 sm:space-y-3">
+        <header class="space-y-2 sm:space-y-0">
           <h1
             class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-tight"
           >
@@ -93,29 +108,29 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
           </p>
         </div>
 
-        <div
+        <nav
           class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6"
           aria-label="Navegación principal"
         >
           <a
             href="#register"
             class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-2 rounded-lg text-primary-500 bg-secondary-400 hover:bg-secondary-500 transition-colors duration-300 text-center relative z-20 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary text-base sm:text-lg"
-            aria-label="Descubre más sobre Juristap y nuestros servicios"
+            aria-label="Regístrate en Juristap para encontrar tu abogado ideal"
           >
             Regístrate
           </a>
           <a
             href="#conocenos"
             class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-2 border border-white/20 rounded-lg hover:bg-primary-600 transition-colors duration-300 text-center relative z-20 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary text-base sm:text-lg"
-            aria-label="Descubre más sobre Juristap y nuestros servicios"
+            aria-label="Conoce más sobre Juristap y nuestros servicios legales"
           >
             Conócenos
           </a>
-        </div>
+        </nav>
       </div>
 
       <div class="lg:w-1/3 xl:w-1/2 2xl:w-1/3 relative flex justify-center items-center">
-        <div
+        <figure
           class="character-container w-[80%] md:w-[100%] relative"
           role="img"
           aria-label="Ilustración representativa de Juristap - Plataforma de conexión legal"
@@ -205,7 +220,11 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
               </g>
             </g>
           </svg>
-        </div>
+          <figcaption class="sr-only">
+            Ilustración animada que representa la plataforma Juristap conectando personas con
+            abogados especializados
+          </figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -223,6 +242,22 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
       "target": "https://juristap.com/buscar?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Juristap",
+    "url": "https://juristap.com",
+    "logo": "https://juristap.com/logo.png",
+    "description": "Plataforma que conecta personas con abogados especializados en menos de 24 horas",
+    "sameAs": [
+      "https://facebook.com/juristap",
+      "https://twitter.com/juristap",
+      "https://linkedin.com/company/juristap"
+    ]
   }
 </script>
 
