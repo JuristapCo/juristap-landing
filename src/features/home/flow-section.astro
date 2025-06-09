@@ -8,21 +8,35 @@ import Character from '../../assets/images/brand/character-2.webp';
   class="relative overflow-hidden py-24 lg:py-32 px-4 md:px-8 bg-primary text-white"
   aria-labelledby="flow-title"
   role="region"
+  aria-label="Proceso de atención legal"
 >
   <div class="absolute inset-0 z-0" aria-hidden="true">
     <Image
       src={PatternLines}
-      alt="Patrón de fondo decorativo"
+      alt=""
       class="w-full h-full object-cover opacity-70"
       width={1920}
       height={1080}
+      draggable="false"
     />
   </div>
 
+  <header class="relative z-10 mb-12 lg:mb-24">
+    <h2
+      id="flow-title"
+      class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 text-center"
+    >
+      Tu cuéntanos, nosotros lo resolvemos
+    </h2>
+    <p class="text-white/80 text-base lg:text-lg text-center">
+      Consigue asesoría legal en menos de 24 horas, sin complicaciones y potenciada por IA.
+    </p>
+  </header>
+
   <div
-    class="relative z-10 max-w-7xl mx-auto flex flex-col-reverse md:flex-row md:items-center gap-8 lg:gap-12"
+    class="relative z-10 max-w-6xl mx-auto flex flex-col-reverse md:flex-row md:items-center gap-8 lg:gap-12"
   >
-    <div
+    <figure
       class="w-full md:w-1/3 lg:w-1/4 flex justify-center md:justify-start mt-[-4rem] md:mt-0 md:mb-0 relative z-0"
       aria-hidden="true"
     >
@@ -184,30 +198,27 @@ import Character from '../../assets/images/brand/character-2.webp';
           </g>
         </g>
       </svg>
-    </div>
+    </figure>
 
     <!-- Pasos - En móvil tendrán un padding inferior para que el robot se sobreponga -->
     <div
       class="w-full md:w-2/3 lg:w-3/4 flex flex-col gap-12 md:gap-14 lg:gap-24 pb-20 md:pb-0 relative z-10"
+      role="list"
+      aria-label="Pasos del proceso legal"
     >
-      <h2 id="flow-title" class="sr-only">Proceso de atención legal</h2>
-
       <!-- Primer paso -->
-      <article class="flex items-center relative">
+      <article class="flex items-center relative" role="listitem">
         <!-- Círculo del icono con doble borde -->
         <div
           class="relative flex-shrink-0 w-[4.5rem] h-[4.5rem] md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-secondary flex items-center justify-center z-20"
           aria-hidden="true"
         >
           <!-- Círculo exterior -->
-          <div
-            class="absolute -inset-1.5 lg:-inset-2 rounded-full border border-secondary opacity-70"
-          >
-          </div>
+          <div class="absolute -inset-1.5 lg:-inset-2 rounded-full border border-secondary"></div>
 
           <!-- Icono -->
           <svg
-            class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 fill-none stroke-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
+            class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-12 fill-none stroke-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
             aria-hidden="true"
           >
             <use href="/icons/flow-sprites.svg#icon-microphone"></use>
@@ -226,14 +237,14 @@ import Character from '../../assets/images/brand/character-2.webp';
             Cuéntanos tu caso
           </h3>
           <p class="text-white/80 text-base lg:text-lg">
-            Habla con nosotros con confianza, te escuchamos, sin juicios, solo queremos darte
-            soluciones.
+            Nuestra IA analiza tu situación legal en tiempo real. Comparte los detalles de tu caso y
+            recibe una evaluación inmediata de cómo podemos ayudarte.
           </p>
         </div>
       </article>
 
       <!-- Segundo paso -->
-      <article class="flex items-center relative">
+      <article class="flex items-center relative" role="listitem">
         <!-- Círculo del icono con doble borde -->
         <div
           class="relative flex-shrink-0 w-[4.5rem] h-[4.5rem] md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-secondary flex items-center justify-center z-20"
@@ -263,17 +274,17 @@ import Character from '../../assets/images/brand/character-2.webp';
         <!-- Contenido de texto -->
         <div class="pl-8 md:pl-10 lg:pl-12 z-20">
           <h3 class="text-xl md:text-2xl lg:text-3xl text-white font-semibold mb-3">
-            Conecta con un abogado
+            Conecta con tu abogado en 24 horas
           </h3>
           <p class="text-white/80 text-base lg:text-lg">
-            Tu situación merece respuestas claras y rápidas. Uno de nuestros expertos estará ahí
-            para ayudarte.
+            Nuestro sistema te conecta con el abogado especializado en tu tipo de caso. Recibe una
+            respuesta en menos de 24 horas y comienza a resolver tu situación legal.
           </p>
         </div>
       </article>
 
       <!-- Tercer paso -->
-      <article class="flex items-center relative">
+      <article class="flex items-center relative" role="listitem">
         <!-- Círculo del icono con doble borde -->
         <div
           class="relative flex-shrink-0 w-[4.5rem] h-[4.5rem] md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-secondary flex items-center justify-center z-20"
@@ -303,11 +314,12 @@ import Character from '../../assets/images/brand/character-2.webp';
         <!-- Contenido de texto -->
         <div class="pl-8 md:pl-10 lg:pl-12 z-20">
           <h3 class="text-xl md:text-2xl lg:text-3xl text-white font-semibold mb-3">
-            Resuelve tus preocupaciones
+            Resuelve tu caso con confianza
           </h3>
           <p class="text-white/80 text-base lg:text-lg">
-            Dile adiós a la incertidumbre. Estamos aquí para resolver lo que te quita el sueño,
-            fácil y sin tanto enredo.
+            Tu abogado asignado te guiará con un plan personalizado basado en el análisis inicial de
+            nuestra IA. Comienza a resolver tu caso legal con la seguridad de tener el mejor equipo
+            a tu lado.
           </p>
         </div>
       </article>
@@ -318,23 +330,27 @@ import Character from '../../assets/images/brand/character-2.webp';
     {
       "@context": "https://schema.org",
       "@type": "HowTo",
-      "name": "Proceso de atención legal",
-      "description": "Sigue estos pasos para recibir asistencia legal profesional",
+      "name": "Proceso de atención legal con IA",
+      "description": "Sigue estos pasos para recibir asesoría legal personalizada en menos de 24 horas",
+      "totalTime": "PT24H",
       "step": [
         {
           "@type": "HowToStep",
           "name": "Cuéntanos tu caso",
-          "text": "Habla con nosotros con confianza, te escuchamos, sin juicios, solo queremos darte soluciones."
+          "text": "Nuestra IA analiza tu situación legal en tiempo real. Comparte los detalles de tu caso y recibe una evaluación inmediata de cómo podemos ayudarte.",
+          "position": 1
         },
         {
           "@type": "HowToStep",
-          "name": "Conecta con un abogado",
-          "text": "Tu situación merece respuestas claras y rápidas. Uno de nuestros expertos estará ahí para ayudarte."
+          "name": "Conecta con tu abogado en 24 horas",
+          "text": "Nuestro sistema te conecta con el abogado especializado en tu tipo de caso. Recibe una respuesta en menos de 24 horas y comienza a resolver tu situación legal.",
+          "position": 2
         },
         {
           "@type": "HowToStep",
-          "name": "Resuelve tus preocupaciones",
-          "text": "Dile adiós a la incertidumbre. Estamos aquí para resolver lo que te quita el sueño, fácil y sin tanto enredo."
+          "name": "Resuelve tu caso con confianza",
+          "text": "Tu abogado asignado te guiará con un plan personalizado basado en el análisis inicial de nuestra IA. Comienza a resolver tu caso legal con la seguridad de tener el mejor equipo a tu lado.",
+          "position": 3
         }
       ]
     }

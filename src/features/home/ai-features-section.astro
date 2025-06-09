@@ -1,0 +1,239 @@
+---
+import SectionContainer from '../../components/ui/section-container.astro';
+
+interface Feature {
+  title: string;
+  description: string;
+  icon: string;
+  imageSrc: string;
+  imageAlt: string;
+  imagePrompt: string;
+  class: string;
+}
+
+const features: Feature[] = [
+  {
+    title: 'Identificamos tu problema',
+    description:
+      'Detectamos automáticamente el tipo de asunto legal y lo clasificamos en segundos.',
+    icon: `<img src="/icons/magnify-3d.png" alt="Icono de lupa para identificación de problemas legales" class="h-24 w-24 object-contain" />`,
+    imageSrc: '/icons/magnify-3d.png',
+    imageAlt: 'Panel de IA analizando documentos legales con precisión',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+  {
+    title: 'Escuchamos al instante',
+    description:
+      'Leemos tu caso y lo resumimos con IA para que no repitas tu historia una y otra vez.',
+    icon: `<img src="/icons/microphone-3d.png" alt="Icono de micrófono para captura de voz" class="h-24 w-24 object-contain" />`,
+    imageSrc: '/icons/microphone-3d.png',
+    imageAlt: 'Sistema de procesamiento de voz convirtiendo audio en texto legal',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+  {
+    title: 'Conexión con el abogado indicado',
+    description: 'Dirigimos tu consulta al profesional más adecuado de nuestra red.',
+    icon: `<img src="/icons/lawyer-3d.png" alt="Icono de abogado profesional" class="h-24 w-24 object-contain" />`,
+    imageSrc: '/icons/lawyer-3d.png',
+    imageAlt: 'Red de conexión digital entre cliente y abogado especializado',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-1',
+  },
+  {
+    title: 'Soporte profesional',
+    description:
+      'Expertos disponibles para asistirte en cualquier momento y brindarte seguridad en tus decisiones.',
+    icon: `<img src="/icons/headset-3d.png" alt="Icono de soporte técnico y legal" class="h-24 w-24 object-contain" />`,
+    imageSrc: '/icons/headset-3d.png',
+    imageAlt: 'Asesor legal profesional brindando soporte personalizado',
+    imagePrompt: '',
+    class: 'md:col-span-6 md:row-span-1',
+  },
+  {
+    title: 'Menos estrés, más claridad',
+    description: 'Recibe respuestas claras y siguientes pasos concretos sin complicaciones.',
+    icon: `<img src="/icons/check-3d.png" alt="Icono de verificación y aprobación" class="h-24 w-24 object-contain" />`,
+    imageSrc: '/icons/check-3d.png',
+    imageAlt: 'Usuario satisfecho recibiendo asesoría legal clara en dispositivo móvil',
+    imagePrompt: '',
+    class: 'md:col-span-6 md:row-span-2',
+  },
+];
+
+// Structured data for features
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: features.map((feature, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: feature.title,
+    description: feature.description,
+  })),
+};
+---
+
+<section
+  class="relative py-24 bg-gradient-to-b from-purple-50 via-white to-white"
+  aria-labelledby="features-heading"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Encabezado -->
+    <header class="mb-16 text-center">
+      <h2
+        id="features-heading"
+        class="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center text-primary-700"
+      >
+        Una plataforma que realmente <span class="text-primary-400">te entiende</span>
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+        Nos apoyamos en <span class="font-semibold">inteligencia artificial</span> para que no repitas
+        tu historia sin tener respuesta.
+      </p>
+    </header>
+
+    <!-- Grid principal -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      role="list"
+      aria-label="Características principales"
+    >
+      <!-- Primera fila (2 grandes) -->
+      <div class="col-span-1 md:col-span-2 lg:col-span-3 flex flex-col md:flex-row gap-6">
+        {
+          features.slice(0, 2).map(({ title, description, icon, imageSrc, imageAlt }) => (
+            <article
+              class="flex-1 group relative overflow-hidden rounded-3xl bg-white shadow-sm flex items-center justify-center
+                            transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl animate-fade-in-up
+                            bg-conic/[from_var(--border-angle)] from-white-900 via-purple-300 to-purple-500 from-80% via-90% to-100%
+                            animate-rotate-border"
+              role="listitem"
+            >
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                class="absolute inset-0 w-full h-full object-cover opacity-10 z-0 pointer-events-none"
+                draggable="false"
+                loading="lazy"
+              />
+              <div class="relative z-10 flex h-[99%] w-[99%] flex-col justify-between p-8 bg-white rounded-3xl">
+                <div
+                  class="mb-6 group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.5)] transition duration-300"
+                  set:html={icon}
+                />
+                <div>
+                  <h3 class="mb-2 text-2xl font-semibold text-primary-400">{title}</h3>
+                  <p class="text-gray-700">{description}</p>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <!-- Segunda fila (3 cards) -->
+      {
+        features.slice(2, 5).map(({ title, description, icon, imageSrc, imageAlt }, i) => (
+          <article
+            class="flex-1 group relative overflow-hidden rounded-3xl bg-white shadow-sm flex items-center justify-center
+                            transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl animate-fade-in-up
+                            bg-conic/[from_var(--border-angle)] from-white-900 via-purple-400 to-purple-500 from-80% via-90% to-100%
+                            animate-rotate-border"
+            role="listitem"
+          >
+            <img
+              src={imageSrc}
+              alt={imageAlt}
+              class="absolute inset-0 w-full h-full object-cover opacity-10 z-0 pointer-events-none"
+              draggable="false"
+              loading="lazy"
+            />
+            <div class="relative z-10 flex h-[99%] w-[99%] flex-col justify-between p-8 bg-white backdrop-blur-sm rounded-3xl">
+              <div
+                class="mb-6 group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.5)] transition duration-300"
+                set:html={icon}
+              />
+              <div>
+                <h3 class={`mb-2 text-2xl font-semibold text-primary-400`}>{title}</h3>
+                <p class="text-gray-700">{description}</p>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- CTA Section -->
+    <footer class="mt-16 text-center">
+      <h3 class="text-2xl md:text-3xl font-normal text-primary-700 mb-4">
+        Porque te <span class="font-bold">entendemos</span> y nuestra <span class="font-bold"
+          >tecnología</span
+        > también.
+      </h3>
+      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+        Sé parte de la nueva era de asistencia legal, donde la tecnología potencia tu experiencia de
+        manera eficiente y personalizada.
+      </p>
+      <a
+        href="/contacto"
+        class="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-primary-400 rounded-lg hover:bg-primary-500 transition-colors duration-300 shadow-lg hover:shadow-xl"
+        aria-label="Registrarse en la plataforma"
+      >
+        Regístrate
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 ml-2"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </a>
+    </footer>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+<style>
+  @property --border-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+  }
+
+  @keyframes border-rotate {
+    to {
+      --border-angle: 360deg;
+    }
+  }
+
+  .animate-rotate-border {
+    animation: border-rotate 15s linear infinite;
+  }
+
+  .group:hover .animate-rotate-border {
+    animation: border-rotate 3s linear infinite;
+  }
+</style>
