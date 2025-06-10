@@ -24,5 +24,5 @@
   "biome.lspBin": "bunx biome",
   "biome.enable": true,
   "biome.requireConfiguration": false,
-  "cSpell.words": ["Juristap", "tailwindcss"]
+  "cSpell.words": ["gsap", "Juristap", "tailwindcss"]
 }
