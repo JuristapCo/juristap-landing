@@ -1,5 +1,7 @@
 ---
 import SectionContainer from '../../components/ui/section-container.astro';
+import { Image } from 'astro:assets';
+import PatternLines from '../../assets/images/patterns/pattern-lines.webp';
 ---
 
 <SectionContainer
@@ -9,63 +11,315 @@ import SectionContainer from '../../components/ui/section-container.astro';
   withSpacing={false}
   aria-label="Sección de registro"
 >
+  <!-- Fondo decorativo -->
   <div
-    class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-24 flex flex-col md:flex-row items-center justify-center gap-12 relative z-10 min-h-[500px]"
+    class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+    aria-hidden="true"
   >
-    <!-- Texto motivacional -->
     <div
-      class="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0"
+      class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+      style="background: linear-gradient(to bottom, #31005c 0%, #3d0071 100%);"
+      role="presentation"
     >
-      <p class="text-lg md:text-xl lg:text-2xl font-medium mb-2">
-        Es momento de tomar <span class="font-bold">acción</span>,<br />
-        en <span class="font-bold">Juristap</span> nos preocupamos por ti.
-      </p>
     </div>
-    <!-- Formulario de registro -->
     <div
-      class="md:w-1/2 w-full max-w-md bg-white text-primary rounded-xl shadow-lg p-8 flex flex-col gap-6"
+      class="absolute top-0 left-0 w-full h-4/5 pointer-events-none"
+      style="mask-image: linear-gradient(to bottom, black 50%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);"
     >
-      <h2 class="text-2xl font-bold text-center mb-4">Registro</h2>
-      <form class="flex flex-col gap-4">
-        <div>
-          <label for="nombre" class="block text-sm font-medium mb-1">Nombre</label>
-          <input
-            id="nombre"
-            name="nombre"
-            type="text"
-            placeholder="Nombre completo"
-            class="w-full px-4 py-2 border border-primary-100 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-            required
-          />
-        </div>
-        <div>
-          <label for="correo" class="block text-sm font-medium mb-1">Correo</label>
-          <input
-            id="correo"
-            name="correo"
-            type="email"
-            placeholder="e-mail"
-            class="w-full px-4 py-2 border border-primary-100 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-            required
-          />
-        </div>
-        <div>
-          <label for="celular" class="block text-sm font-medium mb-1">Celular</label>
-          <input
-            id="celular"
-            name="celular"
-            type="tel"
-            placeholder="Número de teléfono"
-            class="w-full px-4 py-2 border border-primary-100 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          class="mt-4 w-full bg-secondary text-primary font-bold py-2 rounded-md hover:bg-secondary-400 transition-colors"
-          >Registrarse</button
+      <Image
+        src={PatternLines}
+        alt=""
+        class="w-full h-full object-cover opacity-100"
+        width={1920}
+        height={1080}
+        draggable="false"
+      />
+    </div>
+  </div>
+
+  <!-- Elementos decorativos -->
+  <div
+    class="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 left-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/4 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+  <div
+    class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px] opacity-5 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+
+  <div
+    class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-24 md:py-32 flex flex-col md:flex-row items-center justify-center gap-16 relative z-10 min-h-[600px]"
+  >
+    <!-- Character floating near the card -->
+    <div class="absolute -right-32 bottom-0 w-96 h-96 hidden lg:block">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 577.71 835.71"
+        width="100%"
+        height="auto"
+        class="welcome-character-svg"
+        aria-hidden="true"
+        role="presentation"
+      >
+        <defs>
+          <style>
+            .st0 {
+              fill: #fff;
+            }
+            .st1 {
+              fill: none;
+            }
+            .st2 {
+              filter: url(#drop-shadow-1);
+            }
+          </style>
+          <filter
+            id="drop-shadow-1"
+            x="86.29"
+            y="73.81"
+            width="430.88"
+            height="726.96"
+            filterUnits="userSpaceOnUse"
+          >
+            <feOffset dx="11.81" dy="11.81"></feOffset>
+            <feGaussianBlur result="blur" stdDeviation="8.44"></feGaussianBlur>
+            <feFlood flood-color="#000" flood-opacity=".25"></feFlood>
+            <feComposite in2="blur" operator="in"></feComposite>
+            <feComposite in="SourceGraphic"></feComposite>
+          </filter>
+        </defs>
+        <g class="st2">
+          <path
+            class="st1 welcome-phone-path"
+            d="M219.13,424.94c.98,10.84,10.57,18.83,21.4,17.84l30.09-2.73c10.84-.98,18.83-10.57,17.84-21.4l-2.73-30.09c-.98-10.84-10.57-18.83-21.4-17.84l-30.09,2.73c-10.84.98-18.83,10.57-17.84,21.4l2.73,30.09ZM246.54,382.24l24.07-2.18c3.58-.32,6.74,2.31,7.06,5.89l3.27,36.1c.32,3.58-2.31,6.74-5.89,7.06l-24.07,2.18c-3.58.32-6.74-2.31-7.06-5.89l-3.27-36.1c-.32-3.58,2.31-6.74,5.89-7.07Z"
+          ></path>
+          <polygon
+            class="st1 welcome-legs-path"
+            points="283.98 522.01 271.74 615.83 304.72 652.25 331.08 610.44 301.41 520.39 283.98 522.01"
+          ></polygon>
+          <path
+            class="st1 welcome-phone-screen-path"
+            d="M297.32,385.3l2.16,23.77c.71,7.78,7.59,13.52,15.37,12.81l19.53-1.77c7.78-.71,13.52-7.59,12.81-15.37l-2.16-23.77c-.71-7.78-7.59-13.52-15.37-12.81l-19.53,1.77c-7.78.71-13.52,7.59-12.81,15.37ZM307.64,379.07l17.04-1.55c2.18-.2,4.11,1.41,4.3,3.59l2.45,27.03c.2,2.18-1.41,4.11-3.59,4.3l-17.04,1.55c-2.18.2-4.11-1.41-4.3-3.59l-2.45-27.03c-.2-2.18,1.41-4.11,3.59-4.3Z"
+          ></path>
+          <path
+            class="st0 welcome-hand-left"
+            d="M148.36,526.22c-3.45,1.45,3.93,21.32-.8,23.54-5.78,2.71-19-26.02-31.47-23.54-7.29,1.45-11.67,13.05-11.73,21.6-.14,18.87,20.6,39.37,40.37,35.45,9.53-1.89,18.62-9.42,21.69-19.57,6-19.85-14.28-39.06-18.06-37.47Z"
+          ></path>
+          <path
+            class="st0 welcome-hand-right"
+            d="M507.46,393.62c-1.6-8.4-7.99-19.02-15.42-19.13-12.71-.19-20.54,30.44-26.72,28.82-5.05-1.32-1.37-22.2-5.02-23.01-4.01-.88-20.5,21.66-11.03,40.11,4.84,9.43,15.14,15.2,24.86,15.34,20.15.30,36.86-23.60,33.33-42.13Z"
+          ></path>
+          <path
+            class="st0 welcome-character-body"
+            d="M301.12,514.79l-17.76,1.61-12.48-24.6c-64.58.53-104.84-23.6-104.84-23.6l150.91,295.37,91.54-317.36s-33.67,32.09-99.52,42.45l-7.85,26.14ZM304.72,652.25l-32.98-36.42,12.24-93.82,17.43-1.62,29.67,90.05-26.36,41.81Z"
+          ></path>
+          <g class="welcome-character-head">
+            <path
+              d="M288.79,470.33c145.2-13.17,160.99-165.14,161.27-167.99h.01s-.01,0-.01,0c0-.02,0-.06,0-.06h-.07S171.71,87.53,171.71,87.53l55.41,149.84-127.23,96.61v.06s42.32,149.58,188.89,136.29ZM329.66,368.16c7.78-.71,14.66,5.03,15.37,12.81l2.16,23.77c.71,7.78-5.03,14.66-12.81,15.37l-19.53,1.77c-7.78.71-14.66-5.03-15.37-12.81l-2.16-23.77c-.71-7.78,5.03-14.66,12.81-15.37l19.53-1.77ZM270.66,253.83l8.31,27.3h28.54s-53.23,33.34-53.23,33.34l16.38-60.64ZM234.24,373.45l30.09-2.73c10.84-.98,20.42,7,21.4,17.84l2.73,30.09c.98,10.84-7,20.42-17.84,21.4l-30.09,2.73c-10.84.98-20.42-7-21.4-17.84l-2.73-30.09c-.98-10.84,7-20.42,17.84-21.4Z"
+              class="st0"></path>
+            <path
+              class="st0 welcome-eye-left"
+              d="M250.99,431.29l24.07-2.18c3.58-.32,6.21-3.49,5.89-7.06l-3.27-36.1c-.32-3.58-3.49-6.21-7.06-5.89l-24.07,2.18c-3.58.32-6.21,3.49-5.89,7.07l3.27,36.1c.32,3.58,3.49,6.21,7.06,5.89Z"
+            ></path>
+            <rect class="st0 welcome-eye-right" x="307" y="378" width="25" height="35" rx="7" ry="7"
+            ></rect>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div
+      class="w-full max-w-7xl bg-white/10 text-white rounded-2xl shadow-2xl p-10 flex flex-col gap-8 items-center mx-auto border border-white/20"
+    >
+      <div class="flex flex-col gap-4 items-center">
+        <span class="px-4 py-1.5 bg-secondary/20 text-secondary rounded-full text-sm font-medium">
+          Próximamente
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-center leading-tight max-w-5xl mx-auto">
+          La nueva forma de resolver tus asuntos legales en Colombia
+        </h2>
+        <p class="text-center text-white/80 text-base md:text-lg max-w-5xl mx-auto">
+          Juristap está transformando el acceso a la justicia. Únete a nuestra lista de espera y sé
+          parte de esta revolución legal.
+        </p>
+      </div>
+
+      <div class="w-full max-w-3xl">
+        <form
+          class="flex flex-col md:flex-row gap-4 w-full items-center justify-center"
+          id="registerForm"
         >
-      </form>
+          <div class="w-full md:w-auto flex-1">
+            <label for="correo" class="sr-only">Correo</label>
+            <input
+              id="correo"
+              name="correo"
+              type="email"
+              placeholder="tu@email.com"
+              required
+              class="w-full px-4 py-3 bg-white/5 text-white rounded-lg border border-white/20 focus:outline-none focus:border-secondary placeholder-white/50"
+            />
+          </div>
+          <div class="w-full md:w-auto flex items-center gap-2">
+            <button
+              type="submit"
+              class="w-full md:w-auto bg-secondary text-primary font-semibold py-3 px-8 rounded-lg hover:bg-secondary-400 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
+            >
+              <span>Unirme a la lista de espera</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <p class="text-sm text-white/60 text-center">
+        Te enviaremos un correo cuando estemos listos para lanzar
+      </p>
     </div>
   </div>
 </SectionContainer>
+
+<style>
+  /* Character animations */
+  .welcome-character-svg {
+    animation: welcome-floating 6s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes welcome-floating {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+  }
+
+  .welcome-character-head {
+    transform-origin: center;
+    animation: welcome-head-bob 4s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes welcome-head-bob {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(1deg);
+    }
+    75% {
+      transform: rotate(-1deg);
+    }
+  }
+
+  .welcome-character-body {
+    animation: welcome-body-sway 8s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes welcome-body-sway {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(2px);
+    }
+  }
+
+  .welcome-hand-left {
+    transform-origin: 30% 50%;
+    animation: welcome-hand-wave-left 3s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .welcome-hand-right {
+    transform-origin: 70% 50%;
+    animation: welcome-hand-wave-right 3s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes welcome-hand-wave-left {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
+  }
+
+  @keyframes welcome-hand-wave-right {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+
+  .welcome-eye-left {
+    animation: welcome-blink 4s ease-in-out infinite;
+    transform-origin: center;
+    will-change: transform, opacity;
+  }
+
+  .welcome-eye-right {
+    transform-origin: center;
+    animation: welcome-blink-right 4s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+
+  @keyframes welcome-blink {
+    0%,
+    96%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    98% {
+      transform: scale(0.95);
+      opacity: 0.2;
+    }
+  }
+
+  @keyframes welcome-blink-right {
+    0%,
+    96%,
+    100% {
+      transform: rotate(-5deg) scale(1);
+      opacity: 1;
+    }
+    98% {
+      transform: rotate(-5deg) scale(0.95);
+      opacity: 0.2;
+    }
+  }
+
+  /* Reduce motion if user prefers it */
+  @media (prefers-reduced-motion: reduce) {
+    .welcome-character-svg,
+    .welcome-character-head,
+    .welcome-character-body,
+    .welcome-hand-left,
+    .welcome-hand-right,
+    .welcome-eye-left,
+    .welcome-eye-right {
+      animation: none;
+    }
+  }
+</style>

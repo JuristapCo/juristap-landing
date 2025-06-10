@@ -6,6 +6,11 @@ import InterfaceIcon from '../../assets/images/interface.webp';
 import LockIcon from '../../assets/images/lock.webp';
 import StatusIcon from '../../assets/images/status.webp';
 import QuoteAndCharacter from '../../assets/images/brand/quote-and-character.webp';
+import { Icon } from 'astro-icon/components';
+import MatrixRain from '../../components/ui/matrix-rain.astro';
+import PuzzleEffect from '../../components/ui/puzzle-effect.astro';
+import GlobeEffect from '../../components/ui/globe-effect.astro';
+import NotificationEffect from '../../components/ui/notification-effect.astro';
 ---
 
 <SectionContainer
@@ -32,7 +37,7 @@ import QuoteAndCharacter from '../../assets/images/brand/quote-and-character.web
   <!-- Gradient overlay -->
   <div
     class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
-    style="background:radial-gradient(circle at 50% 50%, #896D9A 0%, #4F0786 55%, #3C007D 100%); opacity:0.85;"
+    style="background:linear-gradient(135deg, #2A004D 0%, #660fb3 50%, #2A004D 100%); opacity:0.85;"
     aria-hidden="true"
     role="presentation"
   >
@@ -61,7 +66,7 @@ import QuoteAndCharacter from '../../assets/images/brand/quote-and-character.web
   </div>
 
   <div
-    class="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 relative z-10"
+    class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 relative z-10"
   >
     <header class="text-center mb-12 sm:mb-14 md:mb-10 lg:mb-10 xl:mb-16 relative">
       <h2
@@ -78,91 +83,107 @@ import QuoteAndCharacter from '../../assets/images/brand/quote-and-character.web
     </header>
 
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 xl:gap-12 text-center mb-8 md:mb-12 lg:mb-16 items-stretch"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 xl:gap-8 text-center mb-8 md:mb-12 lg:mb-16 items-stretch"
       role="list"
-      aria-label="Beneficios principales"
+      aria-label="Beneficios principales estilo bento"
     >
-      <article
-        class="flex flex-col items-center gap-4 sm:gap-5 md:gap-6 px-2 sm:px-4 rounded-2xl py-8 h-full focus-within:ring-2 focus-within:ring-secondary outline-none order-2 lg:order-1"
-        role="listitem"
-        tabindex="0"
-        aria-label="Plataforma fácil e intuitiva"
+      <div
+        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-2 lg:col-span-2 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden"
       >
-        <div
-          class="relative w-[180px] sm:w-[160px] md:w-[250px] md:h-[210px] lg:w-[280px] lg:h-[210px] flex items-center justify-center"
-        >
-          <Image
-            src={InterfaceIcon}
-            alt="Interfaz intuitiva de la plataforma"
-            class="w-full h-auto object-contain"
-          />
+        <MatrixRain />
+        <Icon name="privacy" class="w-12 h-12 md:w-14 md:h-14 text-white relative z-10" />
+        <div class="mt-auto justify-start relative z-10">
+          <h3
+            class="text-balance text-left text-base sm:text-lg xl:text-2xl font-bold text-white mb-2"
+          >
+            Seguridad sin complicaciones
+          </h3>
+          <p class="text-balance text-left text-base sm:text-md text-white/80">
+            Tus datos y documentos están protegidos con estándares de seguridad de nivel
+            empresarial. Confía en nosotros para gestionar tus asuntos legales con total
+            confidencialidad.
+          </p>
         </div>
-        <h3 class="text-xl sm:text-2xl xl:text-3xl font-bold text-white mb-1">
-          Plataforma <br />
-          <span class="text-secondary">fácil e intuitiva</span>
-        </h3>
-        <p class="text-base sm:text-lg text-white/80 max-w-xs mx-auto">
-          Navega fácilmente por nuestra plataforma diseñada para simplificar tus procesos legales.
-        </p>
-      </article>
+      </div>
 
-      <article
-        class="flex flex-col items-center gap-4 sm:gap-5 md:gap-6 px-2 sm:px-4 rounded-2xl py-8 h-full focus-within:ring-2 focus-within:ring-secondary outline-none md:col-span-2 lg:col-span-1 order-1 lg:order-2"
-        role="listitem"
-        tabindex="0"
-        aria-label="Procesos 100% confidenciales"
+      {/* Card 2: Título claro */}
+      <div
+        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-1 lg:col-span-1 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden"
       >
-        <div class="relative w-full max-w-[120px] sm:max-w-[160px] md:max-w-[180px] mx-auto">
-          <Image
-            src={LockIcon}
-            alt="Procesos 100% confidenciales"
-            class="w-full h-auto object-contain"
-          />
+        <PuzzleEffect />
+        <Icon name="piece" class="w-12 h-12 md:w-14 md:h-14 text-white relative z-10" />
+        <div class="mt-auto justify-start relative z-10">
+          <h3
+            class="text-balance text-left text-base sm:text-lg xl:text-2xl font-bold text-white mb-2"
+          >
+            Fácil de usar, estés donde estés
+          </h3>
+          <p class="text-balance text-left text-base sm:text-md text-white/80">
+            Usa la plataforma desde tu celular o computador.
+          </p>
         </div>
-        <h3 class="text-xl sm:text-2xl xl:text-3xl font-bold text-white mb-1">
-          Procesos 100% <br /><span class="text-secondary">confidenciales</span>
-        </h3>
-        <p class="text-base sm:text-lg text-white/80 max-w-xs mx-auto">
-          Tu información está protegida con los más altos estándares de seguridad y privacidad.
-        </p>
-      </article>
-
-      <article
-        class="flex flex-col items-center gap-4 sm:gap-5 md:gap-6 px-2 sm:px-4 rounded-2xl py-8 h-full focus-within:ring-2 focus-within:ring-secondary outline-none order-3 lg:order-3"
-        role="listitem"
-        tabindex="0"
-        aria-label="Sigue tu caso en tiempo real"
+      </div>
+      {/* Card 4: Idiomas */}
+      <div
+        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-1 lg:col-span-1 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden"
       >
-        <div
-          class="relative w-[180px] sm:w-[160px] md:w-[250px] md:h-[210px] lg:w-[280px] lg:h-[210px] flex items-center justify-center"
-        >
-          <Image
-            src={StatusIcon}
-            alt="Sigue tu caso en tiempo real"
-            class="w-full h-auto object-contain"
-          />
+        <GlobeEffect />
+        <Icon name="mobile" class="w-12 h-12 md:w-14 md:h-14 text-white relative z-10" />
+        <div class="mt-auto justify-start relative z-10">
+          <h3
+            class="text-balance text-left text-base sm:text-lg xl:text-2xl font-bold text-white mb-2"
+          >
+            Todo en un solo lugar
+          </h3>
+          <p class="text-balance text-left text-base sm:text-md text-white/80">
+            Consulta todo tu proceso legal desde tu celular o computador, sin buscar en mil correos.
+          </p>
         </div>
-        <h3 class="text-xl sm:text-2xl xl:text-3xl font-bold text-white mb-1">
-          Sigue tu caso <br /><span class="text-secondary">en tiempo real</span>
-        </h3>
-        <p class="text-base sm:text-lg text-white/80 max-w-xs mx-auto">
-          Actualizaciones instantáneas y seguimiento detallado de cada etapa de tu proceso.
-        </p>
-      </article>
+      </div>
+      {/* Card 3: Seguimiento */}
+      <div
+        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-2 lg:col-span-2 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden"
+      >
+        <NotificationEffect />
+        <div class="mt-auto justify-start relative z-10">
+          <Icon name="bell" class="w-12 h-12 md:w-14 md:h-14 text-white relative z-10 mb-4" />
+          <h3
+            class="text-balance text-left text-base sm:text-lg xl:text-2xl font-bold text-white mb-2"
+          >
+            Te avisamos de todo
+          </h3>
+          <p class="text-balance text-left text-base sm:text-md text-white/80">
+            Sabes en qué va tu caso sin tener que preguntar. Te enviamos notificaciones cuando algo
+            cambia.
+          </p>
+        </div>
+      </div>
     </div>
+    {/* Bento Grid End */}
 
-    <div class="flex justify-center mt-4 mb-4">
+    <div class="flex flex-col items-center gap-6 mt-8 mb-4">
       <a
         href="#registrate"
-        class="px-8 py-3 bg-secondary text-primary text-lg font-medium rounded-xl shadow-lg hover:bg-secondary-400 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 focus:ring-offset-primary"
+        class="group relative inline-flex items-center gap-3 px-8 py-4 bg-secondary text-primary text-lg font-semibold rounded-xl shadow-lg hover:bg-secondary-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 focus:ring-offset-primary overflow-hidden"
       >
-        Registrate ahora
+        <span class="relative z-10">Comienza tu viaje legal</span>
+        <Icon
+          name="arrow-right"
+          class="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-secondary-400/0 via-secondary-400/20 to-secondary-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
+        >
+        </div>
       </a>
-    </div>
-    <div class="flex justify-center mb-2">
-      <p class="text-white/80 text-sm text-center max-w-xs">
-        Se acerca la oportunidad de reencontrar tu tranquilidad
-      </p>
+      <div class="flex flex-col items-center gap-2">
+        <p class="text-white/90 text-base sm:text-lg text-center leading-relaxed max-w-xl">
+          Es hora de embarcar, viajero
+        </p>
+        <p class="text-white font-bold text-lg sm:text-xl text-center leading-relaxed max-w-xl">
+          Estamos aquí para guiarte en tu trayecto legal
+        </p>
+      </div>
     </div>
 
     <div class="flex justify-center items-center mt-4 sm:mt-6 md:mt-8 lg:mt-10 xl:mt-12">
@@ -172,17 +193,11 @@ import QuoteAndCharacter from '../../assets/images/brand/quote-and-character.web
         class="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] object-contain"
       />
     </div>
-    <div class="flex justify-center mt-2 mb-2">
-      <p class="text-white/90 text-base sm:text-lg text-center leading-relaxed max-w-xl">
-        Es hora de embarcar, viajero<br />
-        <span class="font-bold">Estamos aquí para guiarte en tu trayecto legal.</span>
-      </p>
-    </div>
   </div>
 
   <style>
     .bg-primary {
-      background: radial-gradient(circle at 50% 40%, #896d9a 0%, #4f0786 55%, #3c007d 100%);
+      background: linear-gradient(135deg, #6b4d7a 0%, #3a0566 50%, #2a004d 100%);
     }
   </style>
 </SectionContainer>

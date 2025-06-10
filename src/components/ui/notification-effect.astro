@@ -1,0 +1,228 @@
+<canvas id="notificationCanvas" class="absolute inset-0 w-full h-full opacity-40"></canvas>
+
+<script>
+  const canvas = document.getElementById('notificationCanvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d');
+
+  if (!ctx) {
+    throw new Error('Could not get canvas context');
+  }
+
+  const context = ctx as CanvasRenderingContext2D;
+
+  // Initialize canvas size
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+
+  if (window.devicePixelRatio > 1) {
+    canvas.width = canvas.clientWidth * 2;
+    canvas.height = canvas.clientHeight * 2;
+    context.scale(2, 2);
+  }
+
+  /* ====================== */
+  /* ====== VARIABLES ===== */
+  /* ====================== */
+  let width = canvas.clientWidth;
+  let height = canvas.clientHeight;
+  let notifications: Notification[] = [];
+  let lastNotificationTime = 0;
+  const NOTIFICATION_INTERVAL = 1500;
+  const MAX_NOTIFICATIONS = 4;
+  let isFadingOut = false;
+  let fadeOutProgress = 0;
+
+  /* ====================== */
+  /* ====== CONSTANTS ===== */
+  /* ====================== */
+  const CARD_WIDTH = 220;
+  const CARD_HEIGHT = 80;
+  const CARD_PADDING = 12;
+  const CARD_BORDER_RADIUS = 8;
+  const CARD_COLOR = 'rgba(255, 255, 255, 0.1)';
+  const CARD_BORDER = 'rgba(255, 255, 255, 0.2)';
+  const ICON_COLOR = 'rgba(255, 255, 255, 0.3)';
+  const TEXT_COLOR = 'rgba(255, 255, 255, 0.4)';
+  const CARD_MARGIN = 10;
+  const CARD_OFFSET_X = 40; // Offset from right edge
+
+  class Notification {
+    x: number;
+    y: number;
+    targetY: number;
+    opacity: number;
+    scale: number;
+    message: string;
+    icon: string;
+    index: number;
+    time: string;
+    status: string;
+
+    constructor(index: number) {
+      this.x = width - CARD_WIDTH - CARD_OFFSET_X;
+      this.y = height;
+      this.targetY = CARD_PADDING + index * (CARD_HEIGHT + CARD_MARGIN);
+      this.opacity = 0;
+      this.scale = 0.8;
+      this.message = this.getRandomMessage();
+      this.icon = this.getRandomIcon();
+      this.index = index;
+      this.time = this.getRandomTime();
+      this.status = this.getRandomStatus();
+    }
+
+    getRandomMessage() {
+      const messages = [
+        'Nuevo documento añadido',
+        'Actualización de estado',
+        'Recordatorio programado',
+        'Cita confirmada',
+        'Proceso completado',
+        'Notificación importante',
+        'Cambio de estado',
+        'Documento revisado',
+      ];
+      return messages[Math.floor(Math.random() * messages.length)];
+    }
+
+    getRandomIcon() {
+      const icons = ['📄', '📝', '📅', '✅', '📌', '🔔', '📋', '📎'];
+      return icons[Math.floor(Math.random() * icons.length)];
+    }
+
+    getRandomTime() {
+      const times = ['Hace 5 min', 'Hace 10 min', 'Hace 15 min', 'Hace 20 min', 'Hace 30 min'];
+      return times[Math.floor(Math.random() * times.length)];
+    }
+
+    getRandomStatus() {
+      const statuses = ['Pendiente', 'En proceso', 'Completado', 'Urgente', 'Revisado'];
+      return statuses[Math.floor(Math.random() * statuses.length)];
+    }
+
+    update() {
+      if (isFadingOut) {
+        this.opacity = Math.max(0, this.opacity - 0.05);
+        this.y += 2;
+      } else {
+        if (this.y > this.targetY) {
+          this.y -= 3;
+        }
+        if (this.opacity < 1) {
+          this.opacity += 0.05;
+        }
+        if (this.scale < 1) {
+          this.scale += 0.02;
+        }
+      }
+    }
+
+    draw() {
+      context.save();
+      context.translate(this.x + CARD_WIDTH / 2, this.y + CARD_HEIGHT / 2);
+      context.scale(this.scale, this.scale);
+      context.translate(-CARD_WIDTH / 2, -CARD_HEIGHT / 2);
+
+      // Draw card background
+      context.beginPath();
+      context.roundRect(0, 0, CARD_WIDTH, CARD_HEIGHT, CARD_BORDER_RADIUS);
+      context.fillStyle = `rgba(255, 255, 255, ${0.1 * this.opacity})`;
+      context.fill();
+      context.strokeStyle = `rgba(255, 255, 255, ${0.2 * this.opacity})`;
+      context.stroke();
+
+      // Draw icon
+      context.font = '24px Arial';
+      context.fillStyle = `rgba(255, 255, 255, ${0.3 * this.opacity})`;
+      context.fillText(this.icon, CARD_PADDING, CARD_HEIGHT / 2 + 8);
+
+      // Draw message
+      context.font = 'bold 13px Arial';
+      context.fillStyle = `rgba(255, 255, 255, ${0.4 * this.opacity})`;
+      context.fillText(this.message, CARD_PADDING + 30, CARD_HEIGHT / 2 - 5);
+
+      // Draw time
+      context.font = '11px Arial';
+      context.fillStyle = `rgba(255, 255, 255, ${0.3 * this.opacity})`;
+      context.fillText(this.time, CARD_PADDING + 30, CARD_HEIGHT / 2 + 15);
+
+      // Draw status
+      context.font = '11px Arial';
+      context.fillStyle = `rgba(255, 255, 255, ${0.3 * this.opacity})`;
+      const statusWidth = context.measureText(this.status).width;
+      context.fillText(this.status, CARD_WIDTH - CARD_PADDING - statusWidth, CARD_HEIGHT / 2 + 15);
+
+      // Draw status indicator
+      const indicatorSize = 6;
+      const indicatorX = CARD_WIDTH - CARD_PADDING - statusWidth - 15;
+      const indicatorY = CARD_HEIGHT / 2 + 15;
+      context.beginPath();
+      context.arc(indicatorX, indicatorY, indicatorSize, 0, Math.PI * 2);
+      context.fillStyle = `rgba(255, 255, 255, ${0.3 * this.opacity})`;
+      context.fill();
+
+      context.restore();
+    }
+  }
+
+  function createNotification() {
+    if (notifications.length >= MAX_NOTIFICATIONS) {
+      isFadingOut = true;
+      return;
+    }
+    notifications.push(new Notification(notifications.length));
+  }
+
+  function resetNotifications() {
+    notifications = [];
+    isFadingOut = false;
+    fadeOutProgress = 0;
+  }
+
+  function render(timestamp: number) {
+    context.clearRect(0, 0, width, height);
+
+    if (!isFadingOut && timestamp - lastNotificationTime > NOTIFICATION_INTERVAL) {
+      createNotification();
+      lastNotificationTime = timestamp;
+    }
+
+    notifications.forEach(notification => {
+      notification.update();
+      notification.draw();
+    });
+
+    if (isFadingOut && notifications.every(n => n.opacity <= 0)) {
+      resetNotifications();
+    }
+
+    window.requestAnimationFrame(render);
+  }
+
+  function afterResize() {
+    width = canvas.offsetWidth;
+    height = canvas.offsetHeight;
+    if (window.devicePixelRatio > 1) {
+      canvas.width = canvas.clientWidth * 2;
+      canvas.height = canvas.clientHeight * 2;
+      context.scale(2, 2);
+    } else {
+      canvas.width = width;
+      canvas.height = height;
+    }
+    resetNotifications();
+    lastNotificationTime = 0;
+  }
+
+  let resizeTimeout: NodeJS.Timeout;
+  function onResize() {
+    if (resizeTimeout) {
+      clearTimeout(resizeTimeout);
+    }
+    resizeTimeout = setTimeout(afterResize, 500);
+  }
+
+  window.addEventListener('resize', onResize);
+
+  window.requestAnimationFrame(render);
+</script>

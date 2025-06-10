@@ -30,7 +30,8 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
     aria-hidden="true"
   >
     <div
-      class="absolute inset-0 bg-[radial-gradient(circle,_transparent_20%,_#000_70%)] opacity-5"
+      class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+      style="background:linear-gradient(135deg, #2A004D 0%, #660fb3 50%, #2A004D 100%); opacity:0.85;"
       role="presentation"
     >
     </div>
@@ -81,7 +82,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
           <h2
             class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl font-bold tracking-tight leading-tight"
           >
-            en menos de 24 horas
+            en menos de <span class="text-secondary">24 horas</span>
           </h2>
         </header>
 
@@ -99,10 +100,8 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
           </p>
 
           <p class="text-white/90 text-sm sm:text-base md:text-md max-w-xl leading-relaxed">
-            Olvídate de las búsquedas interminables. Conectamos con <span
-              class="text-white font-medium">abogados verificados</span
-            > y <span class="text-white font-medium">especializados</span> que resolverán tu caso de
-            manera eficiente.
+            Olvídate de las búsquedas interminables. Conectamos con abogados verificados y
+            especializados que resolverán tu caso de manera eficiente.
           </p>
         </div>
 

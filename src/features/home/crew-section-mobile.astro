@@ -30,14 +30,15 @@ import { Icon } from 'astro-icon/components';
     aria-hidden="true"
   >
     <div
-      class="absolute inset-0 bg-[radial-gradient(circle,_transparent_20%,_#000_70%)] opacity-0"
+      class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+      style="background:linear-gradient(135deg, #2A004D 0%, #660fb3 50%, #2A004D 100%); opacity:0.85;"
       role="presentation"
     >
     </div>
     <Image
       src={PatternHero}
       alt="Patrón de fondo decorativo de Juristap"
-      class="absolute inset-0 w-full h-full object-cover object-center opacity-10 mix-blend-overlay"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-5 mix-blend-overlay"
       width={1920}
       height={1080}
       loading="eager"

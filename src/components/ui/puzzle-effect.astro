@@ -1,0 +1,47 @@
+<canvas id="puzzleCanvas" class="absolute inset-0 w-full h-full opacity-10"></canvas>
+
+<script>
+  const canvas = document.getElementById('puzzleCanvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d');
+
+  if (!ctx) {
+    throw new Error('Could not get canvas context');
+  }
+
+  const context = ctx as CanvasRenderingContext2D;
+
+  // Configuration
+  const SQUARE_SIZE = 30;
+  const BORDER_COLOR = 'rgba(255, 255, 255, 0.2)';
+
+  // Initialize canvas size
+  function resizeCanvas() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  // Draw grid
+  function drawGrid() {
+    const cols = Math.ceil(canvas.width / SQUARE_SIZE);
+    const rows = Math.ceil(canvas.height / SQUARE_SIZE);
+
+    context.strokeStyle = BORDER_COLOR;
+    context.lineWidth = 1;
+
+    for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < rows; j++) {
+        context.strokeRect(i * SQUARE_SIZE, j * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
+      }
+    }
+  }
+
+  // Initialize and draw
+  resizeCanvas();
+  drawGrid();
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    drawGrid();
+  });
+</script>
