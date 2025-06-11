@@ -11,6 +11,75 @@ import MatrixRain from '../../components/ui/matrix-rain.astro';
 import PuzzleEffect from '../../components/ui/puzzle-effect.astro';
 import GlobeEffect from '../../components/ui/globe-effect.astro';
 import NotificationEffect from '../../components/ui/notification-effect.astro';
+
+// Meta description para SEO
+const metaDescription =
+  'Descubre cómo Juristap simplifica tus procesos legales con seguridad, accesibilidad y notificaciones en tiempo real. Únete a la revolución legal en Colombia.';
+
+interface Benefit {
+  title: string;
+  description: string;
+  icon: string;
+  imageSrc: string;
+  imageAlt: string;
+  imagePrompt: string;
+  class: string;
+}
+
+const benefits: Benefit[] = [
+  {
+    title: 'Seguridad sin complicaciones',
+    description:
+      'Tus datos están protegidos con los más altos estándares de seguridad y privacidad.',
+    icon: `<img src="/icons/shield-3d.png" alt="Icono de escudo de seguridad" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/shield-3d.png',
+    imageAlt: 'Escudo de seguridad protegiendo datos legales',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+  {
+    title: 'Fácil de usar, estés donde estés',
+    description:
+      'Accede a tu asesoría legal desde cualquier dispositivo, en cualquier momento y lugar.',
+    icon: `<img src="/icons/device-3d.png" alt="Icono de dispositivo móvil" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/device-3d.png',
+    imageAlt: 'Plataforma legal accesible desde múltiples dispositivos',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+  {
+    title: 'Todo en un solo lugar',
+    description:
+      'Gestiona todos tus procesos legales desde una única plataforma intuitiva y organizada.',
+    icon: `<img src="/icons/folder-3d.png" alt="Icono de carpeta organizada" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/folder-3d.png',
+    imageAlt: 'Panel de control centralizado para gestión legal',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-1',
+  },
+  {
+    title: 'Te avisamos de todo',
+    description:
+      'Recibe notificaciones en tiempo real sobre actualizaciones importantes de tu caso.',
+    icon: `<img src="/icons/notification-3d.png" alt="Icono de notificación" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/notification-3d.png',
+    imageAlt: 'Sistema de notificaciones para actualizaciones legales',
+    imagePrompt: '',
+    class: 'md:col-span-6 md:row-span-1',
+  },
+];
+
+// Structured data for benefits
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: benefits.map((benefit, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: benefit.title,
+    description: benefit.description,
+  })),
+};
 ---
 
 <SectionContainer
@@ -20,6 +89,9 @@ import NotificationEffect from '../../components/ui/notification-effect.astro';
   py="py-0"
   aria-label="Sección de beneficios"
 >
+  <!-- Meta description para SEO -->
+  <meta name="description" content={metaDescription} />
+
   <!-- Base background with pattern -->
   <div
     class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
@@ -88,9 +160,11 @@ import NotificationEffect from '../../components/ui/notification-effect.astro';
       aria-label="Beneficios principales estilo bento"
     >
       <div
-        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-2 lg:col-span-2 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden"
+        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-2 lg:col-span-2 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden will-change-transform"
       >
-        <MatrixRain />
+        <div class="absolute inset-0 z-0">
+          <MatrixRain />
+        </div>
         <Icon name="privacy" class="w-12 h-12 md:w-14 md:h-14 text-white relative z-10" />
         <div class="mt-auto justify-start relative z-10">
           <h3
@@ -106,11 +180,12 @@ import NotificationEffect from '../../components/ui/notification-effect.astro';
         </div>
       </div>
 
-      {/* Card 2: Título claro */}
       <div
-        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-1 lg:col-span-1 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden"
+        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-1 lg:col-span-1 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden will-change-transform"
       >
-        <PuzzleEffect />
+        <div class="absolute inset-0 z-0">
+          <PuzzleEffect />
+        </div>
         <Icon name="piece" class="w-12 h-12 md:w-14 md:h-14 text-white relative z-10" />
         <div class="mt-auto justify-start relative z-10">
           <h3
@@ -123,11 +198,13 @@ import NotificationEffect from '../../components/ui/notification-effect.astro';
           </p>
         </div>
       </div>
-      {/* Card 4: Idiomas */}
+
       <div
-        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-1 lg:col-span-1 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden"
+        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-1 lg:col-span-1 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden will-change-transform"
       >
-        <GlobeEffect />
+        <div class="absolute inset-0 z-0">
+          <GlobeEffect />
+        </div>
         <Icon name="mobile" class="w-12 h-12 md:w-14 md:h-14 text-white relative z-10" />
         <div class="mt-auto justify-start relative z-10">
           <h3
@@ -140,11 +217,13 @@ import NotificationEffect from '../../components/ui/notification-effect.astro';
           </p>
         </div>
       </div>
-      {/* Card 3: Seguimiento */}
+
       <div
-        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-2 lg:col-span-2 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden"
+        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-2 lg:col-span-2 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden will-change-transform"
       >
-        <NotificationEffect />
+        <div class="absolute inset-0 z-0">
+          <NotificationEffect />
+        </div>
         <div class="mt-auto justify-start relative z-10">
           <Icon name="bell" class="w-12 h-12 md:w-14 md:h-14 text-white relative z-10 mb-4" />
           <h3
@@ -165,11 +244,13 @@ import NotificationEffect from '../../components/ui/notification-effect.astro';
       <a
         href="#registrate"
         class="group relative inline-flex items-center gap-3 px-8 py-4 bg-secondary text-primary text-lg font-semibold rounded-xl shadow-lg hover:bg-secondary-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 focus:ring-offset-primary overflow-hidden"
+        aria-label="Comienza tu viaje legal con Juristap"
       >
         <span class="relative z-10">Comienza tu viaje legal</span>
         <Icon
           name="arrow-right"
           class="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1"
+          aria-hidden="true"
         />
         <div
           class="absolute inset-0 bg-gradient-to-r from-secondary-400/0 via-secondary-400/20 to-secondary-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
@@ -189,7 +270,7 @@ import NotificationEffect from '../../components/ui/notification-effect.astro';
     <div class="flex justify-center items-center mt-4 sm:mt-6 md:mt-8 lg:mt-10 xl:mt-12">
       <Image
         src={QuoteAndCharacter}
-        alt="Cita y personaje"
+        alt="Personaje de Juristap con mensaje motivacional"
         class="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] object-contain"
       />
     </div>
@@ -201,3 +282,63 @@ import NotificationEffect from '../../components/ui/notification-effect.astro';
     }
   </style>
 </SectionContainer>
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+<style>
+  @property --border-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    will-change: transform, opacity;
+  }
+
+  @keyframes border-rotate {
+    to {
+      --border-angle: 360deg;
+    }
+  }
+
+  .animate-rotate-border {
+    animation: border-rotate 15s linear infinite;
+    will-change: transform;
+  }
+
+  .group:hover .animate-rotate-border {
+    animation: border-rotate 3s linear infinite;
+  }
+
+  /* Asegurar que los efectos se muestren correctamente en todos los breakpoints */
+  @media (min-width: 640px) {
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out forwards;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out forwards;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out forwards;
+    }
+  }
+</style>

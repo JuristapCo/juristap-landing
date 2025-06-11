@@ -2,6 +2,67 @@
 import { Image } from 'astro:assets';
 import PatternLines from '../../assets/images/patterns/pattern-lines.webp';
 import Character from '../../assets/images/brand/character-2.webp';
+import SectionContainer from '../../components/ui/section-container.astro';
+import { Icon } from 'astro-icon/components';
+
+interface Step {
+  number: number;
+  title: string;
+  description: string;
+  icon: string;
+  imageSrc: string;
+  imageAlt: string;
+  imagePrompt: string;
+  class: string;
+}
+
+const steps: Step[] = [
+  {
+    number: 1,
+    title: 'Cuéntanos tu caso',
+    description:
+      'Describe tu situación legal y nuestra IA analizará automáticamente los detalles más relevantes.',
+    icon: `<img src="/icons/chat-3d.png" alt="Icono de chat para compartir caso legal" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/chat-3d.png',
+    imageAlt: 'Interfaz de chat para compartir detalles del caso legal',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+  {
+    number: 2,
+    title: 'Conectamos con el abogado ideal',
+    description:
+      'Nuestro sistema asigna tu caso al profesional más adecuado según su especialidad y experiencia.',
+    icon: `<img src="/icons/connection-3d.png" alt="Icono de conexión con abogado" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/connection-3d.png',
+    imageAlt: 'Sistema de conexión entre cliente y abogado especializado',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+  {
+    number: 3,
+    title: 'Recibe asesoría personalizada',
+    description:
+      'El abogado te contactará en menos de 24 horas para brindarte una solución adaptada a tu caso.',
+    icon: `<img src="/icons/advice-3d.png" alt="Icono de asesoría legal personalizada" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/advice-3d.png',
+    imageAlt: 'Abogado brindando asesoría legal personalizada',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+];
+
+// Structured data for steps
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: steps.map((step, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: step.title,
+    description: step.description,
+  })),
+};
 ---
 
 <section
@@ -38,7 +99,7 @@ import Character from '../../assets/images/brand/character-2.webp';
     class="relative z-10 max-w-6xl mx-auto flex flex-col-reverse md:flex-row md:items-center gap-8 lg:gap-12"
   >
     <figure
-      class="w-full md:w-1/3 lg:w-1/4 flex justify-center md:justify-start mt-[-4rem] md:mt-0 md:mb-0 relative z-0"
+      class="w-full md:w-1/3 lg:w-1/4 flex justify-center md:justify-start mt-[-2rem] md:mt-0 md:mb-0 relative z-0"
       aria-hidden="true"
     >
       <div
@@ -49,7 +110,7 @@ import Character from '../../assets/images/brand/character-2.webp';
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 577.71 835.71"
-        class="max-w-[200px] md:max-w-full h-auto relative"
+        class="w-[180px] md:w-[200px] lg:w-[250px] h-auto relative"
         role="img"
         aria-label="Ilustración de asistente virtual"
       >
@@ -218,12 +279,10 @@ import Character from '../../assets/images/brand/character-2.webp';
           <div class="absolute -inset-1.5 lg:-inset-2 rounded-full border border-secondary"></div>
 
           <!-- Icono -->
-          <svg
-            class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-12 fill-none stroke-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
-            aria-hidden="true"
-          >
-            <use href="/icons/flow-sprites.svg#icon-microphone"></use>
-          </svg>
+          <Icon
+            name="microphone"
+            class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 fill-none text-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
+          />
 
           <!-- Línea conectora -->
           <div
@@ -258,12 +317,10 @@ import Character from '../../assets/images/brand/character-2.webp';
           </div>
 
           <!-- Icono -->
-          <svg
-            class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 fill-none stroke-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
-            aria-hidden="true"
-          >
-            <use href="/icons/flow-sprites.svg#icon-user"></use>
-          </svg>
+          <Icon
+            name="user"
+            class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 fill-none text-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
+          />
 
           <!-- Línea conectora -->
           <div
@@ -298,12 +355,10 @@ import Character from '../../assets/images/brand/character-2.webp';
           </div>
 
           <!-- Icono -->
-          <svg
-            class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 fill-none stroke-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
-            aria-hidden="true"
-          >
-            <use href="/icons/flow-sprites.svg#icon-bulb"></use>
-          </svg>
+          <Icon
+            name="light-bulb"
+            class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 fill-none text-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
+          />
 
           <!-- Línea conectora -->
           <div
@@ -327,33 +382,56 @@ import Character from '../../assets/images/brand/character-2.webp';
     </div>
   </div>
 
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "Proceso de atención legal con IA",
-      "description": "Sigue estos pasos para recibir asesoría legal personalizada en menos de 24 horas",
-      "totalTime": "PT24H",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Cuéntanos tu caso",
-          "text": "Nuestra IA analiza tu situación legal en tiempo real. Comparte los detalles de tu caso y recibe una evaluación inmediata de cómo podemos ayudarte.",
-          "position": 1
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Conecta con tu abogado en 24 horas",
-          "text": "Nuestro sistema te conecta con el abogado especializado en tu tipo de caso. Recibe una respuesta en menos de 24 horas y comienza a resolver tu situación legal.",
-          "position": 2
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Resuelve tu caso con confianza",
-          "text": "Tu abogado asignado te guiará con un plan personalizado basado en el análisis inicial de nuestra IA. Comienza a resolver tu caso legal con la seguridad de tener el mejor equipo a tu lado.",
-          "position": 3
-        }
-      ]
-    }
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 </section>
+
+<style>
+  @property --border-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+  }
+
+  @keyframes border-rotate {
+    to {
+      --border-angle: 360deg;
+    }
+  }
+
+  .animate-rotate-border {
+    animation: border-rotate 15s linear infinite;
+  }
+
+  .group:hover .animate-rotate-border {
+    animation: border-rotate 3s linear infinite;
+  }
+
+  /* Ajustes responsivos para el personaje */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    figure {
+      position: relative;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    figure svg {
+      transform: scale(0.9);
+      margin-left: -1rem;
+    }
+  }
+</style>

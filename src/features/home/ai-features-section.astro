@@ -16,7 +16,7 @@ const features: Feature[] = [
     title: 'Identificamos tu problema',
     description:
       'Detectamos automáticamente el tipo de asunto legal y lo clasificamos en segundos.',
-    icon: `<img src="/icons/magnify-3d.png" alt="Icono de lupa para identificación de problemas legales" class="h-24 w-24 object-contain" />`,
+    icon: `<img src="/icons/magnify-3d.png" alt="Icono de lupa para identificación de problemas legales" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
     imageSrc: '/icons/magnify-3d.png',
     imageAlt: 'Panel de IA analizando documentos legales con precisión',
     imagePrompt: '',
@@ -26,7 +26,7 @@ const features: Feature[] = [
     title: 'Escuchamos al instante',
     description:
       'Leemos tu caso y lo resumimos con IA para que no repitas tu historia una y otra vez.',
-    icon: `<img src="/icons/microphone-3d.png" alt="Icono de micrófono para captura de voz" class="h-24 w-24 object-contain" />`,
+    icon: `<img src="/icons/microphone-3d.png" alt="Icono de micrófono para captura de voz" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
     imageSrc: '/icons/microphone-3d.png',
     imageAlt: 'Sistema de procesamiento de voz convirtiendo audio en texto legal',
     imagePrompt: '',
@@ -35,7 +35,7 @@ const features: Feature[] = [
   {
     title: 'Conexión con el abogado indicado',
     description: 'Dirigimos tu consulta al profesional más adecuado de nuestra red.',
-    icon: `<img src="/icons/lawyer-3d.png" alt="Icono de abogado profesional" class="h-24 w-24 object-contain" />`,
+    icon: `<img src="/icons/lawyer-3d.png" alt="Icono de abogado profesional" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
     imageSrc: '/icons/lawyer-3d.png',
     imageAlt: 'Red de conexión digital entre cliente y abogado especializado',
     imagePrompt: '',
@@ -45,7 +45,7 @@ const features: Feature[] = [
     title: 'Soporte profesional',
     description:
       'Expertos disponibles para asistirte en cualquier momento y brindarte seguridad en tus decisiones.',
-    icon: `<img src="/icons/headset-3d.png" alt="Icono de soporte técnico y legal" class="h-24 w-24 object-contain" />`,
+    icon: `<img src="/icons/headset-3d.png" alt="Icono de soporte técnico y legal" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
     imageSrc: '/icons/headset-3d.png',
     imageAlt: 'Asesor legal profesional brindando soporte personalizado',
     imagePrompt: '',
@@ -54,7 +54,7 @@ const features: Feature[] = [
   {
     title: 'Menos estrés, más claridad',
     description: 'Recibe respuestas claras y siguientes pasos concretos sin complicaciones.',
-    icon: `<img src="/icons/check-3d.png" alt="Icono de verificación y aprobación" class="h-24 w-24 object-contain" />`,
+    icon: `<img src="/icons/check-3d.png" alt="Icono de verificación y aprobación" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
     imageSrc: '/icons/check-3d.png',
     imageAlt: 'Usuario satisfecho recibiendo asesoría legal clara en dispositivo móvil',
     imagePrompt: '',
@@ -78,6 +78,7 @@ const structuredData = {
 <section
   class="relative py-24 bg-gradient-to-b from-purple-50 via-white to-white"
   aria-labelledby="features-heading"
+  role="region"
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <!-- Encabezado -->
@@ -96,19 +97,21 @@ const structuredData = {
 
     <!-- Grid principal -->
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center"
       role="list"
-      aria-label="Características principales"
+      aria-label="Características principales de la plataforma"
     >
       <!-- Primera fila (2 grandes) -->
-      <div class="col-span-1 md:col-span-2 lg:col-span-3 flex flex-col md:flex-row gap-6">
+      <div
+        class="col-span-1 md:col-span-2 lg:col-span-3 flex flex-col md:flex-row gap-6 justify-center items-center"
+      >
         {
           features.slice(0, 2).map(({ title, description, icon, imageSrc, imageAlt }) => (
             <article
               class="flex-1 group relative overflow-hidden rounded-3xl bg-white shadow-sm flex items-center justify-center
                             transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl animate-fade-in-up
                             bg-conic/[from_var(--border-angle)] from-white-900 via-purple-300 to-purple-500 from-80% via-90% to-100%
-                            animate-rotate-border"
+                            animate-rotate-border max-w-md"
               role="listitem"
             >
               <img
@@ -117,6 +120,7 @@ const structuredData = {
                 class="absolute inset-0 w-full h-full object-cover opacity-10 z-0 pointer-events-none"
                 draggable="false"
                 loading="lazy"
+                decoding="async"
               />
               <div class="relative z-10 flex h-[99%] w-[99%] flex-col justify-between p-8 bg-white rounded-3xl">
                 <div
@@ -134,35 +138,40 @@ const structuredData = {
       </div>
 
       <!-- Segunda fila (3 cards) -->
-      {
-        features.slice(2, 5).map(({ title, description, icon, imageSrc, imageAlt }, i) => (
-          <article
-            class="flex-1 group relative overflow-hidden rounded-3xl bg-white shadow-sm flex items-center justify-center
+      <div
+        class="col-span-1 md:col-span-2 lg:col-span-3 flex flex-col md:flex-row gap-6 justify-center items-center w-full"
+      >
+        {
+          features.slice(2, 5).map(({ title, description, icon, imageSrc, imageAlt }, i) => (
+            <article
+              class="flex-1 group relative overflow-hidden rounded-3xl bg-white shadow-sm flex items-center justify-center
                             transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl animate-fade-in-up
                             bg-conic/[from_var(--border-angle)] from-white-900 via-purple-400 to-purple-500 from-80% via-90% to-100%
-                            animate-rotate-border"
-            role="listitem"
-          >
-            <img
-              src={imageSrc}
-              alt={imageAlt}
-              class="absolute inset-0 w-full h-full object-cover opacity-10 z-0 pointer-events-none"
-              draggable="false"
-              loading="lazy"
-            />
-            <div class="relative z-10 flex h-[99%] w-[99%] flex-col justify-between p-8 bg-white backdrop-blur-sm rounded-3xl">
-              <div
-                class="mb-6 group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.5)] transition duration-300"
-                set:html={icon}
+                            animate-rotate-border max-w-md"
+              role="listitem"
+            >
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                class="absolute inset-0 w-full h-full object-cover opacity-10 z-0 pointer-events-none"
+                draggable="false"
+                loading="lazy"
+                decoding="async"
               />
-              <div>
-                <h3 class={`mb-2 text-2xl font-semibold text-primary-400`}>{title}</h3>
-                <p class="text-gray-700">{description}</p>
+              <div class="relative z-10 flex h-[99%] w-[99%] flex-col justify-between p-8 bg-white backdrop-blur-sm rounded-3xl">
+                <div
+                  class="mb-6 group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.5)] transition duration-300"
+                  set:html={icon}
+                />
+                <div>
+                  <h3 class={`mb-2 text-2xl font-semibold text-primary-400`}>{title}</h3>
+                  <p class="text-gray-700">{description}</p>
+                </div>
               </div>
-            </div>
-          </article>
-        ))
-      }
+            </article>
+          ))
+        }
+      </div>
     </div>
 
     <!-- CTA Section -->
