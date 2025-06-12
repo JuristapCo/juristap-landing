@@ -1,0 +1,568 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
+---
+
+<div class="horizontal-scroll-wrapper min-h-screen overflow-hidden relative hidden md:block">
+  <!-- Background elements from welcome section -->
+  <div
+    class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+    aria-hidden="true"
+  >
+    <div
+      class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+      style="background:linear-gradient(135deg, #0b0014 0%, #31005c 50%, #0b0014 100%);"
+      role="presentation"
+    >
+    </div>
+    <div class="background-pattern absolute inset-0 w-[200%] h-full">
+      <Image
+        src={PatternHero}
+        alt="Patrón de fondo decorativo de Juristap"
+        class="absolute inset-0 w-full h-full object-cover object-center opacity-10 mix-blend-overlay"
+        width={1920}
+        height={1080}
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+
+  <!-- Decorative elements -->
+  <div
+    class="absolute top-0 right-0 w-96 h-96 bg-purple-800/20 rounded-full blur-[100px] transform translate-x-1/2 -translate-y-1/2 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 left-0 w-[32rem] h-[32rem] bg-purple-700/20 rounded-full blur-[100px] transform -translate-x-1/2 translate-y-1/4 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+  <div
+    class="absolute top-1/2 left-1/2 w-[40rem] h-[40rem] bg-purple-600/15 rounded-full blur-[120px] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+
+  <!-- Subtle grid pattern -->
+  <div
+    class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px] opacity-10 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+
+  <!-- Additional light effects -->
+  <div
+    class="absolute top-1/4 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-[80px] transform pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+  <div
+    class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-[80px] transform pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+
+  <div class="horizontal-scroll flex min-h-screen w-[300vw] relative" id="horizontal-scroll">
+    <!-- Panel 1: Bienvenida -->
+    <section
+      class="panel flex-none w-screen min-h-screen flex flex-col justify-center items-center text-3xl bg-transparent text-white relative text-center px-[2vw]"
+    >
+      <div
+        class="backdrop-blur-md bg-white/5 rounded-full w-62 h-62 flex items-center justify-center border border-white/20 shadow-lg mb-12 overflow-hidden"
+      >
+        <div
+          class="rounded-full w-54 h-54 flex items-center justify-center border border-white/20 overflow-hidden"
+        >
+          <div
+            class="backdrop-blur-md bg-white/5 rounded-full w-42 h-42 flex items-center justify-center border border-white/20 shadow-lg overflow-hidden"
+          >
+            <div class="w-24 h-24 flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 577.71 835.71"
+                width="100%"
+                height="auto"
+                class="welcome-character-svg scale-[1.5] md:scale-[2] lg:scale-[3] pt-4"
+                aria-hidden="true"
+                role="presentation"
+              >
+                <defs>
+                  <style>
+                    .st0 {
+                      fill: #fff;
+                    }
+                    .st1 {
+                      fill: none;
+                    }
+                  </style>
+                </defs>
+                <g>
+                  <path
+                    class="st1 welcome-phone-path"
+                    d="M219.13,424.94c.98,10.84,10.57,18.83,21.4,17.84l30.09-2.73c10.84-.98,18.83-10.57,17.84-21.4l-2.73-30.09c-.98-10.84-10.57-18.83-21.4-17.84l-30.09,2.73c-10.84.98-18.83,10.57-17.84,21.4l2.73,30.09ZM246.54,382.24l24.07-2.18c3.58-.32,6.74,2.31,7.06,5.89l3.27,36.1c.32,3.58-2.31,6.74-5.89,7.06l-24.07,2.18c-3.58.32-6.74-2.31-7.06-5.89l-3.27-36.1c-.32-3.58,2.31-6.74,5.89-7.07Z"
+                  ></path>
+                  <polygon
+                    class="st1 welcome-legs-path"
+                    points="283.98 522.01 271.74 615.83 304.72 652.25 331.08 610.44 301.41 520.39 283.98 522.01"
+                  ></polygon>
+                  <path
+                    class="st1 welcome-phone-screen-path"
+                    d="M297.32,385.3l2.16,23.77c.71,7.78,7.59,13.52,15.37,12.81l19.53-1.77c7.78-.71,13.52-7.59,12.81-15.37l-2.16-23.77c-.71-7.78-7.59-13.52-15.37-12.81l-19.53,1.77c-7.78.71-13.52,7.59-12.81,15.37ZM307.64,379.07l17.04-1.55c2.18-.2,4.11,1.41,4.3,3.59l2.45,27.03c.2,2.18-1.41,4.11-3.59,4.3l-17.04,1.55c-2.18.2-4.11-1.41-4.3-3.59l-2.45-27.03c-.2-2.18,1.41-4.11,3.59-4.3Z"
+                  ></path>
+                  <path
+                    class="st0 welcome-hand-left"
+                    d="M148.36,526.22c-3.45,1.45,3.93,21.32-.8,23.54-5.78,2.71-19-26.02-31.47-23.54-7.29,1.45-11.67,13.05-11.73,21.6-.14,18.87,20.6,39.37,40.37,35.45,9.53-1.89,18.62-9.42,21.69-19.57,6-19.85-14.28-39.06-18.06-37.47Z"
+                  ></path>
+                  <path
+                    class="st0 welcome-hand-right"
+                    d="M507.46,393.62c-1.6-8.4-7.99-19.02-15.42-19.13-12.71-.19-20.54,30.44-26.72,28.82-5.05-1.32-1.37-22.2-5.02-23.01-4.01-.88-20.5,21.66-11.03,40.11,4.84,9.43,15.14,15.2,24.86,15.34,20.15.30,36.86-23.60,33.33-42.13Z"
+                  ></path>
+                  <path
+                    class="st0 welcome-character-body"
+                    d="M301.12,514.79l-17.76,1.61-12.48-24.6c-64.58.53-104.84-23.6-104.84-23.6l150.91,295.37,91.54-317.36s-33.67,32.09-99.52,42.45l-7.85,26.14ZM304.72,652.25l-32.98-36.42,12.24-93.82,17.43-1.62,29.67,90.05-26.36,41.81Z"
+                  ></path>
+                  <g class="welcome-character-head">
+                    <path
+                      d="M288.79,470.33c145.2-13.17,160.99-165.14,161.27-167.99h.01s-.01,0-.01,0c0-.02,0-.06,0-.06h-.07S171.71,87.53,171.71,87.53l55.41,149.84-127.23,96.61v.06s42.32,149.58,188.89,136.29ZM329.66,368.16c7.78-.71,14.66,5.03,15.37,12.81l2.16,23.77c.71,7.78-5.03,14.66-12.81,15.37l-19.53,1.77c-7.78.71-14.66-5.03-15.37-12.81l-2.16-23.77c-.71-7.78,5.03-14.66,12.81-15.37l19.53-1.77ZM270.66,253.83l8.31,27.3h28.54s-53.23,33.34-53.23,33.34l16.38-60.64ZM234.24,373.45l30.09-2.73c10.84-.98,20.42,7,21.4,17.84l2.73,30.09c.98,10.84-7,20.42-17.84,21.4l-30.09,2.73c-10.84.98-20.42-7-21.4-17.84l-2.73-30.09c-.98-10.84,7-20.42,17.84-21.4Z"
+                      class="st0"></path>
+                    <path
+                      class="st0 welcome-eye-left"
+                      d="M250.99,431.29l24.07-2.18c3.58-.32,6.21-3.49,5.89-7.06l-3.27-36.1c-.32-3.58-3.49-6.21-7.06-5.89l-24.07,2.18c-3.58.32-6.21,3.49-5.89,7.07l3.27,36.1c.32,3.58,3.49,6.21,7.06,5.89Z"
+                    ></path>
+                    <rect
+                      class="st0 welcome-eye-right"
+                      x="307"
+                      y="378"
+                      width="25"
+                      height="35"
+                      rx="7"
+                      ry="7"></rect>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1 class="text-2xl md:text-4xl lg:text-5xl font-extrabold mb-6 tracking-tight">
+        Conecta y crece profesionalmente
+      </h1>
+      <p class="text-base md:text-lg lg:text-xl mx-auto mb-10 font-normal max-w-3xl">
+        En <b>Juristap</b>, conectamos tu experiencia legal con quienes más la necesitan. Te
+        ayudamos a destacar, generar confianza y atraer nuevos clientes desde el primer contacto.
+      </p>
+      <div
+        class="cta text-secondary font-bold hover:text-white transition-colors cursor-pointer flex items-center gap-2 group mt-8"
+      >
+        <span class="text-base md:text-lg">Explora cómo transformar tu práctica legal</span>
+        <svg
+          class="w-6 h-6 transform group-hover:translate-x-1 transition-transform"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Panel 2: Capitanes -->
+    <section
+      class="panel flex-none w-screen min-h-screen flex flex-col justify-center items-center text-3xl bg-transparent text-white relative text-center px-[2vw]"
+    >
+      <div
+        class="backdrop-blur-md bg-white/5 rounded-full w-62 h-62 flex items-center justify-center border border-white/20 shadow-lg mb-12"
+      >
+        <div class="rounded-full w-54 h-54 flex items-center justify-center border border-white/20">
+          <div
+            class="backdrop-blur-md bg-white/5 rounded-full w-42 h-42 flex items-center justify-center border border-white/20 shadow-lg"
+          >
+            <div class="w-24 h-24 flex items-center justify-center">
+              <Icon name="scale" class="size-24" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 tracking-tight">
+        Tu perfil, en el lugar y momento correctos
+      </h2>
+      <p class="text-base md:text-lg lg:text-xl mx-auto mb-10 font-normal max-w-3xl">
+        Nuestra plataforma te conecta con clientes reales y verificados, destacando tus fortalezas
+        profesionales en las zonas donde prestas servicio. Más visibilidad, más oportunidades, sin
+        distracciones.
+      </p>
+      <ul
+        class="benefits list-none p-0 m-0 text-sm md:text-base lg:text-lg text-center max-w-[340px] mx-auto mb-8 space-y-4"
+      >
+        <li class="flex items-center gap-3">
+          <span class="text-[#ffd600]">•</span>
+          <span>Perfil profesional optimizado y visible</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="text-[#ffd600]">•</span>
+          <span>Acceso a clientes potenciales validados</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="text-[#ffd600]">•</span>
+          <span>Presencia en tu área de práctica legal</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Panel 3: Viajero -->
+    <section
+      class="panel flex-none w-screen min-h-screen flex flex-col justify-center items-center text-3xl bg-transparent text-white relative text-center px-[2vw]"
+    >
+      <div
+        class="backdrop-blur-md bg-white/5 rounded-full w-62 h-62 flex items-center justify-center border border-white/20 shadow-lg mb-12"
+      >
+        <div class="rounded-full w-54 h-54 flex items-center justify-center border border-white/20">
+          <div
+            class="backdrop-blur-md bg-white/5 rounded-full w-42 h-42 flex items-center justify-center border border-white/20 shadow-lg"
+          >
+            <div class="w-24 h-24 flex items-center justify-center">
+              <Icon name="user" class="size-24" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 tracking-tight">
+        Guía a tus clientes en su travesía legal
+      </h2>
+      <p class="text-base md:text-lg lg:text-xl mx-auto mb-10 font-normal max-w-3xl">
+        En <b>Juristap</b>, tú eres el capitán. Cada cliente busca guía y confianza. Te damos las
+        herramientas para evaluar casos con facilidad y llevarlos al destino correcto, sin
+        complicaciones técnicas.
+      </p>
+      <ul
+        class="benefits list-none p-0 m-0 text-sm md:text-base lg:text-lg text-center max-w-[340px] mx-auto mb-8 space-y-4"
+      >
+        <li class="flex items-center gap-3">
+          <span class="text-[#ffd600]">•</span>
+          <span>Casos relevantes organizados y filtrados automáticamente</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="text-[#ffd600]">•</span>
+          <span>Interfaz simple y lista para usar desde el primer día</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="text-[#ffd600]">•</span>
+          <span>Proceso de atención optimizado para dedicarte a lo legal, no a lo técnico</span>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Progress bar -->
+  <div
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 w-48 h-1 bg-white/20 rounded-full overflow-hidden z-20"
+  >
+    <div
+      class="progress-bar h-full bg-white rounded-full transition-all duration-300 ease-out"
+      style="width: 0%"
+    >
+    </div>
+  </div>
+</div>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
+    const horizontalScroll = document.getElementById('horizontal-scroll');
+    const wrapper = document.querySelector('.horizontal-scroll-wrapper');
+    const progressBar = document.querySelector('.progress-bar') as HTMLDivElement;
+    const panels = document.querySelectorAll('.panel');
+    const backgroundPattern = document.querySelector('.background-pattern') as HTMLDivElement;
+
+    if (!horizontalScroll || !wrapper || !progressBar || !backgroundPattern) return;
+
+    let scrollTween: gsap.core.Tween;
+
+    function initScroll() {
+      // Kill existing ScrollTrigger if it exists
+      ScrollTrigger.getAll().forEach(st => st.kill());
+      if (scrollTween) scrollTween.kill();
+
+      // Ensure elements exist before accessing properties
+      if (!horizontalScroll || !wrapper) return;
+
+      const scrollWidth = horizontalScroll.scrollWidth;
+      const wrapperWidth = wrapper.clientWidth;
+
+      // Reset position
+      gsap.set(horizontalScroll, { x: 0 });
+
+      // Configurar el scroll horizontal sin snap
+      scrollTween = gsap.to(horizontalScroll, {
+        x: () => -(scrollWidth - wrapperWidth),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: wrapper,
+          pin: true,
+          start: 'top top',
+          end: () => `+=${scrollWidth - wrapperWidth}`,
+          scrub: 1,
+          invalidateOnRefresh: true,
+          anticipatePin: 1,
+          onUpdate: self => {
+            // Actualizar la barra de progreso
+            const progress = self.progress;
+            progressBar.style.width = `${progress * 100}%`;
+
+            // Efecto parallax en el fondo
+            const parallaxProgress = progress * -50;
+            backgroundPattern.style.transform = `translateX(${parallaxProgress}%)`;
+          },
+        },
+      });
+    }
+
+    // Inicializar el scroll
+    initScroll();
+
+    // Función para manejar el cambio de tamaño
+    let resizeTimeout: number;
+    function handleResize() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = window.setTimeout(() => {
+        initScroll();
+      }, 250); // Debounce de 250ms
+    }
+
+    // Event listeners para cambios de tamaño y orientación
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', () => {
+      // Pequeño delay para asegurar que el cambio de orientación se complete
+      setTimeout(handleResize, 100);
+    });
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+      ScrollTrigger.getAll().forEach(st => st.kill());
+      if (scrollTween) scrollTween.kill();
+    };
+  });
+</script>
+
+<style>
+  /* Añadir al inicio del bloque de estilos */
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .horizontal-scroll-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    will-change: transform;
+  }
+
+  .horizontal-scroll {
+    will-change: transform;
+  }
+
+  /* Character animations */
+  .welcome-character-svg {
+    animation: welcome-floating 6s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes welcome-floating {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(1deg);
+    }
+  }
+
+  .welcome-character-head {
+    transform-origin: center;
+    animation: welcome-head-bob 4s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes welcome-head-bob {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(1deg);
+    }
+    75% {
+      transform: rotate(-1deg);
+    }
+  }
+
+  .welcome-character-body {
+    animation: welcome-body-sway 8s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes welcome-body-sway {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(2px);
+    }
+  }
+
+  .welcome-hand-left {
+    transform-origin: 30% 50%;
+    animation: welcome-hand-wave-left 3s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .welcome-hand-right {
+    transform-origin: 70% 50%;
+    animation: welcome-hand-wave-right 3s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes welcome-hand-wave-left {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
+  }
+
+  @keyframes welcome-hand-wave-right {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+
+  .welcome-eye-left {
+    animation: welcome-blink 4s ease-in-out infinite;
+    transform-origin: center;
+    will-change: transform, opacity;
+  }
+
+  .welcome-eye-right {
+    transform-origin: center;
+    animation: welcome-blink-right 4s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+
+  @keyframes welcome-blink {
+    0%,
+    96%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    98% {
+      transform: scale(0.95);
+      opacity: 0.2;
+    }
+  }
+
+  @keyframes welcome-blink-right {
+    0%,
+    96%,
+    100% {
+      transform: rotate(-5deg) scale(1);
+      opacity: 1;
+    }
+    98% {
+      transform: rotate(-5deg) scale(0.95);
+      opacity: 0.2;
+    }
+  }
+
+  @keyframes pulse-arrow {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+  }
+
+  .cta:hover {
+    animation: none;
+  }
+
+  /* Gradient background styles */
+  .bg-gradient-radial {
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      var(--tw-gradient-from),
+      var(--tw-gradient-via),
+      var(--tw-gradient-to)
+    );
+  }
+
+  .bg-gradient-conic {
+    background-image: conic-gradient(
+      from 0deg at 50% 50%,
+      var(--tw-gradient-from),
+      var(--tw-gradient-via),
+      var(--tw-gradient-to)
+    );
+  }
+
+  /* Progress bar styles */
+  .progress-bar {
+    background: linear-gradient(to right, #3e0086, #ffd600);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Background pattern styles */
+  .background-pattern {
+    will-change: transform;
+    transition: transform 0.1s linear;
+  }
+
+  /* Reduce motion if user prefers it */
+  @media (prefers-reduced-motion: reduce) {
+    .welcome-character-svg,
+    .welcome-character-head,
+    .welcome-character-body,
+    .welcome-hand-left,
+    .welcome-hand-right,
+    .welcome-eye-left,
+    .welcome-eye-right,
+    .cta,
+    .progress-bar,
+    .background-pattern {
+      animation: none;
+      transition: none;
+      transform: none !important;
+    }
+  }
+</style>

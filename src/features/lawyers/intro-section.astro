@@ -1,0 +1,24 @@
+---
+import SectionContainer from '../../components/ui/section-container.astro';
+---
+
+<SectionContainer background="bg-white">
+  <div
+    class="flex flex-col md:flex-col lg:flex-row gap-8 lg:gap-16 md:items-center justify-center lg:justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
+  >
+    <!-- Left Column - Main Heading -->
+    <div class="lg:w-1/2 space-y-4 text-center lg:text-left">
+      <h2 class="text-2xl sm:text-2xl md:text-3xl lg:text-4xl text-primary leading-tight">
+        Juristap, una plataforma que <span class="text-primary font-bold">trabaja</span> para ti
+      </h2>
+    </div>
+
+    <!-- Right Column - Supporting Text -->
+    <div class="lg:w-1/2 space-y-3 md:max-w-lg text-center lg:text-left">
+      <p class="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl">
+        En este trayecto tendrás un copiloto inteligente que te conecta con quienes necesitan de tu
+        ayuda y además facilita la administración de tus casos.
+      </p>
+    </div>
+  </div>
+</SectionContainer>

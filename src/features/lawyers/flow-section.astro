@@ -1,0 +1,437 @@
+---
+import { Image } from 'astro:assets';
+import PatternLines from '../../assets/images/patterns/pattern-lines.webp';
+import Character from '../../assets/images/brand/character-2.webp';
+import SectionContainer from '../../components/ui/section-container.astro';
+import { Icon } from 'astro-icon/components';
+
+interface Step {
+  number: number;
+  title: string;
+  description: string;
+  icon: string;
+  imageSrc: string;
+  imageAlt: string;
+  imagePrompt: string;
+  class: string;
+}
+
+const steps: Step[] = [
+  {
+    number: 3,
+    title: 'Recibe asesoría personalizada',
+    description:
+      'El abogado te contactará en menos de 24 horas para brindarte una solución adaptada a tu caso.',
+    icon: `<img src="/icons/advice-3d.png" alt="Icono de asesoría legal personalizada" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/advice-3d.png',
+    imageAlt: 'Abogado brindando asesoría legal personalizada',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+  {
+    number: 2,
+    title: 'Conectamos con el abogado ideal',
+    description:
+      'Nuestro sistema asigna tu caso al profesional más adecuado según su especialidad y experiencia.',
+    icon: `<img src="/icons/connection-3d.png" alt="Icono de conexión con abogado" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/connection-3d.png',
+    imageAlt: 'Sistema de conexión entre cliente y abogado especializado',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+  {
+    number: 1,
+    title: 'Cuéntanos tu caso',
+    description:
+      'Describe tu situación legal y nuestra IA analizará automáticamente los detalles más relevantes.',
+    icon: `<img src="/icons/chat-3d.png" alt="Icono de chat para compartir caso legal" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/chat-3d.png',
+    imageAlt: 'Interfaz de chat para compartir detalles del caso legal',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+];
+
+// Structured data for steps
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: steps.map((step, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: step.title,
+    description: step.description,
+  })),
+};
+---
+
+<section
+  class="relative overflow-hidden py-24 lg:py-32 px-4 md:px-8 text-white"
+  aria-labelledby="flow-title"
+  role="region"
+  aria-label="Proceso de atención legal"
+  style="background-color: #1a0033;"
+>
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <Image
+      src={PatternLines}
+      alt=""
+      class="w-full h-full object-cover opacity-70"
+      width={1920}
+      height={1080}
+      draggable="false"
+    />
+  </div>
+
+  <header class="relative z-10 mb-12 lg:mb-24">
+    <h2
+      id="flow-title"
+      class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 text-center"
+    >
+      Tu talento merece más que <span class="text-secondary">buscar clientes</span>
+    </h2>
+    <p class="text-white/80 text-base lg:text-lg text-center">
+      Nosotros los llevamos a ti. Conecta con clientes potenciales, gestiona tu agenda y haz crecer
+      tu firma legal con nuestra plataforma potenciada por IA.
+    </p>
+  </header>
+
+  <div
+    class="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-8 lg:gap-12"
+  >
+    <!-- Pasos - En móvil tendrán un padding inferior para que el robot se sobreponga -->
+    <div
+      class="w-full md:w-2/3 lg:w-3/4 flex flex-col gap-12 md:gap-14 lg:gap-24 pb-20 md:pb-0 relative z-10"
+      role="list"
+      aria-label="Pasos del proceso legal"
+    >
+      <!-- Primer paso -->
+      <article class="flex items-center relative" role="listitem">
+        <!-- Círculo del icono con doble borde -->
+        <div
+          class="relative flex-shrink-0 w-[4.5rem] h-[4.5rem] md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-secondary flex items-center justify-center z-20"
+          aria-hidden="true"
+        >
+          <!-- Línea conectora -->
+          <div
+            class="absolute left-full top-1/2 w-6 md:w-8 lg:w-10 h-0.5 lg:h-0.5 bg-secondary opacity-80 transform -translate-y-1/2 z-10"
+          >
+          </div>
+
+          <!-- Círculo exterior -->
+          <div class="absolute -inset-1.5 lg:-inset-2 rounded-full border border-secondary"></div>
+
+          <!-- Icono -->
+          <Icon
+            name="click"
+            class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 fill-none text-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
+          />
+        </div>
+
+        <!-- Contenido de texto -->
+        <div class="pl-8 md:pl-10 lg:pl-12 z-20">
+          <h3 class="text-xl md:text-2xl lg:text-3xl text-white font-semibold mb-3">
+            Clientes a un clic
+          </h3>
+          <p class="text-white/80 text-base lg:text-lg">
+            Haz que nuevos clientes te encuentren fácilmente y destaca tu experiencia profesional.
+            Expande tu red y haz crecer tu práctica legal sin complicaciones.
+          </p>
+        </div>
+      </article>
+
+      <!-- Segundo paso -->
+      <article class="flex items-center relative" role="listitem">
+        <!-- Círculo del icono con doble borde -->
+        <div
+          class="relative flex-shrink-0 w-[4.5rem] h-[4.5rem] md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-secondary flex items-center justify-center z-20"
+          aria-hidden="true"
+        >
+          <!-- Línea conectora -->
+          <div
+            class="absolute left-full top-1/2 w-6 md:w-8 lg:w-10 h-0.5 lg:h-0.5 bg-secondary opacity-80 transform -translate-y-1/2 z-10"
+          >
+          </div>
+
+          <!-- Círculo exterior -->
+          <div
+            class="absolute -inset-1.5 lg:-inset-2 rounded-full border border-secondary opacity-70"
+          >
+          </div>
+
+          <!-- Icono -->
+          <Icon
+            name="home"
+            class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 fill-none text-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
+          />
+        </div>
+
+        <!-- Contenido de texto -->
+        <div class="pl-8 md:pl-10 lg:pl-12 z-20">
+          <h3 class="text-xl md:text-2xl lg:text-3xl text-white font-semibold mb-3">
+            Trabaja desde tu comodidad
+          </h3>
+          <p class="text-white/80 text-base lg:text-lg">
+            Conecta y asesora a tus clientes desde cualquier lugar. Gestiona tus casos de forma
+            remota y equilibra tu vida profesional y personal.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tercer paso -->
+      <article class="flex items-center relative" role="listitem">
+        <!-- Círculo del icono con doble borde -->
+        <div
+          class="relative flex-shrink-0 w-[4.5rem] h-[4.5rem] md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-secondary flex items-center justify-center z-20"
+          aria-hidden="true"
+        >
+          <!-- Línea conectora -->
+          <div
+            class="absolute left-full top-1/2 w-6 md:w-8 lg:w-10 h-0.5 lg:h-0.5 bg-secondary opacity-80 transform -translate-y-1/2 z-10"
+          >
+          </div>
+
+          <!-- Círculo exterior -->
+          <div
+            class="absolute -inset-1.5 lg:-inset-2 rounded-full border border-secondary opacity-70"
+          >
+          </div>
+
+          <!-- Icono -->
+          <Icon
+            name="light-bulb"
+            class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 fill-none text-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
+          />
+        </div>
+
+        <!-- Contenido de texto -->
+        <div class="pl-8 md:pl-10 lg:pl-12 z-20">
+          <h3 class="text-xl md:text-2xl lg:text-3xl text-white font-semibold mb-3">
+            ¡Tú decides!
+          </h3>
+          <p class="text-white/80 text-base lg:text-lg">
+            Elige tus horarios, tus clientes y tu forma de trabajar. Disfruta de la libertad y
+            autonomía que te ofrece nuestra plataforma.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <figure
+      class="w-full md:w-1/3 lg:w-1/4 flex justify-center md:justify-end mt-[-2rem] md:mt-0 md:mb-0 relative z-0"
+      aria-hidden="true"
+    >
+      <div
+        class="absolute top-[58%] left-0 right-[-100vw] h-1 md:h-0.5 bg-secondary transform -translate-y-1/2 -z-10"
+      >
+      </div>
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 577.71 835.71"
+        class="w-[180px] md:w-[200px] lg:w-[250px] h-auto relative"
+        role="img"
+        aria-label="Ilustración de asistente virtual"
+      >
+        <defs>
+          <filter
+            id="drop-shadow-1"
+            x="111.09"
+            y="112.14"
+            width="362.16"
+            height="646.56"
+            filterUnits="userSpaceOnUse"
+          >
+            <feOffset dx="17.19" dy="22.1"></feOffset>
+            <feGaussianBlur result="blur" stdDeviation="9.82"></feGaussianBlur>
+            <feFlood flood-color="#000" flood-opacity=".25"></feFlood>
+            <feComposite in2="blur" operator="in"></feComposite>
+            <feComposite in="SourceGraphic"></feComposite>
+          </filter>
+        </defs>
+        <style>
+          .st0 {
+            fill: #fff;
+          }
+          .st1 {
+            filter: url(#drop-shadow-1);
+          }
+
+          .head-part-1,
+          .head-part-2 {
+            transform-origin: center;
+            animation: head-move 4s ease-in-out infinite;
+          }
+
+          @keyframes head-move {
+            0%,
+            100% {
+              transform: rotate(0deg);
+            }
+            25% {
+              transform: rotate(1deg);
+            }
+            75% {
+              transform: rotate(-1deg);
+            }
+          }
+
+          /* Hand animations */
+          .left-hand {
+            transform-origin: 30% 50%;
+            animation: left-hand-move 6s ease-in-out infinite;
+          }
+
+          .right-hand {
+            transform-origin: 70% 50%;
+            animation: right-hand-move 6s ease-in-out infinite;
+          }
+
+          @keyframes left-hand-move {
+            0%,
+            100% {
+              transform: rotate(0deg);
+            }
+            25% {
+              transform: rotate(-3deg);
+            }
+            75% {
+              transform: rotate(3deg);
+            }
+          }
+
+          @keyframes right-hand-move {
+            0%,
+            100% {
+              transform: rotate(0deg);
+            }
+            25% {
+              transform: rotate(3deg);
+            }
+            75% {
+              transform: rotate(-3deg);
+            }
+          }
+
+          /* Eye movement and blinking */
+          .eye-left,
+          .eye-right {
+            transform-origin: center;
+            animation:
+              eye-move 4s ease-in-out infinite,
+              eye-blink 4s ease-in-out infinite;
+          }
+
+          @keyframes eye-move {
+            0%,
+            100% {
+              transform: translateX(0) rotate(-21.3deg);
+            }
+            25% {
+              transform: translateX(1px) rotate(-21.3deg);
+            }
+            75% {
+              transform: translateX(-1px) rotate(-21.3deg);
+            }
+          }
+
+          @keyframes eye-blink {
+            0%,
+            96%,
+            100% {
+              transform: scale(1) rotate(-21.3deg);
+              opacity: 1;
+            }
+            98% {
+              transform: scale(0.95) rotate(-21.3deg);
+              opacity: 0.2;
+            }
+          }
+        </style>
+        <path
+          class="st0 left-hand"
+          d="M54.97,462.91c5.84-13.02,25.99-20.81,37.81-12.1,5.7,4.2,9.34,12.15,8.18,20.06-2.27,15.48-21.71,22.53-23.71,20.28-1.82-2.05,9.3-13.47,6.87-16.43-2.97-3.62-20.73,12.12-28.19,6.62-4.36-3.22-3.61-12.53-.96-18.42Z"
+        ></path>
+        <path
+          class="st0 right-hand"
+          d="M528.14,462.91c-5.84-13.02-25.99-20.81-37.81-12.1-5.7,4.2-9.34,12.15-8.18,20.06,2.27,15.48,21.71,22.53,23.71,20.28,1.82-2.05-9.3-13.47-6.87-16.43,2.97-3.62,20.73,12.12,28.19,6.62,4.36-3.22,3.61-12.53.96-18.42Z"
+        ></path>
+        <g class="st1">
+          <polygon
+            class="st0 head-part-1"
+            points="418.12 235.82 123.54 350.52 209.34 235.33 124.09 119.73 418.12 235.82"
+          ></polygon>
+          <path
+            class="st0 body"
+            d="M309.79,459.61l-7.27,23.43-15.98,1.3-11.02-22.22c-58.06-.04-94.07-22.07-94.07-22.07l133.28,266.77,84.87-284.58s-30.53,28.57-89.82,37.36ZM304.64,606.65l-29.35-33.01,11.76-84.25,15.68-1.32,25.95,81.19-24.04,37.38Z"
+          ></path>
+          <g>
+            <path
+              class="st0 head-part-2"
+              d="M130.87,369.33s66.56,99.9,189.85,51.84c123.29-48.06,104.68-166.65,104.68-166.65l-294.53,114.81ZM307.55,376.61c3.55,9.12-.96,19.38-10.07,22.94l-25.31,9.86c-9.12,3.55-19.38-.96-22.94-10.07l-9.86-25.31c-.32-.81-.55-1.63-.74-2.46-6.97-2.7-25.06-9.85-19.01-8.86,4.48.73,27.86-11.01,27.86-11.01l-.11.36c.66-.36,1.34-.7,2.06-.98l25.31-9.86c9.12-3.55,19.38.96,22.94,10.07l9.86,25.31ZM347.48,331.16l7.32,18.79c2.55,6.54-.69,13.92-7.23,16.47l-16.42,6.4c-6.55,2.55-13.92-.69-16.47-7.23l-7.79-19.99c-2.55-6.55.69-13.92,7.23-16.47l16.42-6.4c1.15-.45,2.32-.71,3.48-.81,5.69-1.71,18.94-5.89,20.77-8.22,3.45-4.4-5.29,13.4-7.31,17.47Z"
+            ></path>
+            <path
+              class="st0 eye-left"
+              d="M284.55,350.16h21.73c3.23,0,5.85,2.62,5.85,5.85v32.59c0,3.23-2.62,5.85-5.85,5.85h-21.73c-3.23,0-5.85-2.62-5.85-5.85v-32.59c0-3.23,2.62-5.85,5.85-5.85Z"
+              transform="translate(-116.07 127.26) rotate(-21.3)"></path>
+            <rect class="st0 eye-right" x="340.87" y="351.77" width="20" height="30" rx="7" ry="7"
+            ></rect>
+          </g>
+        </g>
+      </svg>
+    </figure>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+</section>
+
+<style>
+  @property --border-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+  }
+
+  @keyframes border-rotate {
+    to {
+      --border-angle: 360deg;
+    }
+  }
+
+  .animate-rotate-border {
+    animation: border-rotate 15s linear infinite;
+  }
+
+  .group:hover .animate-rotate-border {
+    animation: border-rotate 3s linear infinite;
+  }
+
+  /* Ajustes responsivos para el personaje */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    figure {
+      position: relative;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    figure svg {
+      transform: scale(0.9);
+      margin-left: -1rem;
+    }
+  }
+</style>

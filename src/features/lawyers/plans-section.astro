@@ -1,0 +1,156 @@
+---
+import SectionContainer from '../../components/ui/section-container.astro';
+---
+
+<SectionContainer
+  withSpacing={false}
+  constrained={false}
+  py="py-0"
+  class="bg-white text-primary-900"
+>
+  <div
+    class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 relative z-10"
+  >
+    <div class="text-center mb-16 max-w-7xl mx-auto">
+      <h2
+        id="flow-title"
+        class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-600 mb-8 text-center"
+      >
+        Planes para abogados <span class="text-primary-400">comprometidos</span>
+      </h2>
+      <p class="mt-4 text-lg text-primary-900 mx-auto">
+        Juristap conecta abogados con clientes que valoran la excelencia. Elige el plan que mejor se
+        adapta a tu volumen de casos y accede a herramientas que te ayudarán a gestionarlos con
+        eficiencia.
+      </p>
+      <p class="mt-2 text-sm text-primary-400">
+        * Actualmente estamos en fase de pre-lanzamiento. Únete a la lista de espera para ser de los
+        primeros en acceder.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto backdrop-blur-sm">
+      <!-- Plan Inicial -->
+      <div
+        class="relative border border-primary-100 rounded-3xl p-8 bg-white/50 shadow-xl backdrop-blur-md flex flex-col justify-between"
+      >
+        <div>
+          <span class="text-sm text-primary-400 font-semibold uppercase tracking-wide"
+            >Comisión 15%</span
+          >
+          <h3 class="text-2xl font-bold text-primary-700 mt-2 mb-4">Plan Inicial</h3>
+          <p class="text-primary-600 mb-6">
+            Empieza a construir tu reputación. Ideal para abogados que recién se unen a Juristap.
+          </p>
+          <div class="text-3xl font-bold text-primary-500 mb-2">$9.900</div>
+          <p class="text-sm text-primary-400 mb-6">Pago mensual</p>
+          <ul class="space-y-2 text-sm text-primary-700">
+            <li>✔ Acceso a clientes filtrados</li>
+            <li>✔ Publica y recibe casos ilimitadamente</li>
+            <li>✔ Herramienta básica de gestión</li>
+          </ul>
+          <a
+            href="/lista-de-espera"
+            class="mt-8 block text-center bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2 rounded-lg transition"
+          >
+            Unirme a la lista de espera
+          </a>
+        </div>
+      </div>
+
+      <!-- Plan Básico (Recomendado) -->
+      <div
+        class="relative border-2 border-primary-300 rounded-3xl p-8 bg-white/60 shadow-2xl backdrop-blur-md flex flex-col justify-between"
+      >
+        <div class="absolute top-4 right-4">
+          <span
+            class="text-xs bg-primary-100 text-primary-800 px-3 py-1 rounded-full font-semibold shadow-sm"
+          >
+            Recomendado
+          </span>
+        </div>
+        <div>
+          <span class="text-sm text-primary-400 font-semibold uppercase tracking-wide"
+            >Comisión 5%</span
+          >
+          <h3 class="text-2xl font-bold text-primary-700 mt-2 mb-4">Plan Básico</h3>
+          <p class="text-primary-600 mb-6">
+            El mejor balance entre tarifa y rentabilidad. Ideal para quienes ya están activos en el
+            mercado.
+          </p>
+          <div class="text-3xl font-bold text-primary-500 mb-2">$49.900</div>
+          <p class="text-sm text-primary-400 mb-6">Pago mensual</p>
+          <ul class="space-y-2 text-sm text-primary-700">
+            <li>✔ Mayor visibilidad y posicionamiento</li>
+            <li>✔ Acceso prioritario a nuevos casos</li>
+            <li>✔ Herramienta de gestión con recordatorios</li>
+          </ul>
+          <a
+            href="/lista-de-espera"
+            class="mt-8 block text-center bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2 rounded-lg transition"
+          >
+            Unirme a la lista de espera
+          </a>
+        </div>
+      </div>
+
+      <!-- Plan Premium -->
+      <div
+        class="relative border border-primary-100 rounded-3xl p-8 bg-white/50 shadow-xl backdrop-blur-md flex flex-col justify-between"
+      >
+        <div>
+          <span class="text-sm text-primary-400 font-semibold uppercase tracking-wide"
+            >Comisión 1%</span
+          >
+          <h3 class="text-2xl font-bold text-primary-700 mt-2 mb-4">Plan Premium</h3>
+          <p class="text-primary-600 mb-6">
+            Para abogados con alto volumen de casos que buscan eficiencia y control total.
+          </p>
+          <div class="text-3xl font-bold text-primary-500 mb-2">$149.900</div>
+          <p class="text-sm text-primary-400 mb-6">Pago mensual</p>
+          <ul class="space-y-2 text-sm text-primary-700">
+            <li>✔ Máxima visibilidad y prioridad</li>
+            <li>✔ Herramientas avanzadas de gestión</li>
+            <li>✔ Acompañamiento estratégico personalizado</li>
+          </ul>
+        </div>
+        <a
+          href="/lista-de-espera"
+          class="mt-8 block text-center bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2 rounded-lg transition"
+        >
+          Unirme a la lista de espera
+        </a>
+      </div>
+    </div>
+
+    <!-- CTA final -->
+    <div
+      class="relative text-center mt-12 mx-auto px-8 py-14 rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-primary-200 via-primary-400 to-primary-500"
+    >
+      <!-- Patrón personalizado usando ::before -->
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="
+            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+          "
+      >
+      </div>
+
+      <h3 class="relative text-3xl md:text-4xl font-bold text-white mb-4 z-10">
+        ¿Listo para liderar el cambio en el ejercicio legal?
+      </h3>
+      <p class="relative text-white/90 text-base md:text-lg mb-6 z-10">
+        Únete a una comunidad de abogados que priorizan la excelencia y aprovechan la tecnología
+        para conectar con los mejores clientes.
+      </p>
+      <a
+        href="/lista-de-espera"
+        class="relative inline-block bg-white text-primary-600 font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-md hover:bg-primary-100 z-10"
+      >
+        Unirme a la lista de espera
+      </a>
+    </div>
+  </div>
+</SectionContainer>
