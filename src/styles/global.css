@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+@property --border-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@theme {
+    /* Colors */
+    /* Primary colors */
+    --color-primary: #3D0071;
+    --color-primary-50: #ecd6ff;
+    --color-primary-100: #d9adff;
+    --color-primary-200: #b561ff;
+    --color-primary-300: #8f0fff;
+    --color-primary-400: #6700c2;
+    --color-primary-500: #3d0071;
+    --color-primary-600: #31005c;
+    --color-primary-700: #230042;
+    --color-primary-800: #18002e;
+    --color-primary-900: #0b0014;
+    --color-primary-950: #05000a;
+
+    /* Secondary colors */
+    --color-secondary: #f2cb00;
+    --color-secondary-50: #fffbe5;
+    --color-secondary-100: #fff7cc;
+    --color-secondary-200: #ffed94;
+    --color-secondary-300: #ffe561;
+    --color-secondary-400: #ffdb29;
+    --color-secondary-500: #f2cb00;
+    --color-secondary-600: #c2a200;
+    --color-secondary-700: #947b00;
+    --color-secondary-800: #615100;
+    --color-secondary-900: #332b00;
+    --color-secondary-950: #191500;
+
+    /* Fonts */
+    --font-sans: 'Poppins', sans-serif;
+
+    --animate-rotate-border: border-rotate 5s linear infinite;
+
+    @keyframes border-rotate {
+        to {
+            --border-angle: 360deg;
+        }
+    }
+}

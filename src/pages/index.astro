@@ -1,16 +1,27 @@
 ---
-
+import BaseLayout from '../layouts/base-layout.astro';
+import WelcomeSection from '../features/home/welcome-section.astro';
+import RegisterSection from '../features/home/register-section.astro';
+import HighlightSection from '../features/home/highlight-section.astro';
+import IntroSection from '../features/home/intro-section.astro';
+import FlowSection from '../features/home/flow-section.astro';
+import CreateSection from '../features/home/crew-section.astro';
+import HeroBenefitSection from '../features/home/hero-benefit-section.astro';
+import IntroSupportSection from '../features/home/intro-support-section.astro';
+import CrewSection from '../features/home/crew-section.astro';
+import AiFeaturesSection from '../features/home/ai-features-section.astro';
+import CrewSectionMobile from '../features/home/crew-section-mobile.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <WelcomeSection />
+  <HighlightSection />
+  <FlowSection />
+  <AiFeaturesSection />
+  <CrewSection />
+  <CrewSectionMobile />
+  <IntroSection />
+  <HeroBenefitSection />
+  <IntroSupportSection />
+  <RegisterSection />
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+import WelcomeSection from '../features/lawyers/welcome-section.astro';
+import IntroSection from '../features/lawyers/intro-section.astro';
+import FlowSection from '../features/lawyers/flow-section.astro';
+import AiFeaturesSection from '../features/lawyers/ai-features-section.astro';
+import BaseLayout from '../layouts/base-layout.astro';
+import CrewSection from '../features/lawyers/crew-section.astro';
+import CrewSectionMobile from '../features/lawyers/crew-section-mobile.astro';
+import CopilotSection from '../features/lawyers/copilot-section.astro';
+import HeroBenefitSection from '../features/lawyers/hero-benefit-section.astro';
+import PlansSection from '../features/lawyers/plans-section.astro';
+import ForgetFirmsSection from '../features/lawyers/forget-firms-section.astro';
+import RegisterSection from '../features/lawyers/register-section.astro';
+
+// Structured data for the lawyers page
+const pageStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Juristap para Abogados',
+  description:
+    'Plataforma inteligente que conecta abogados con clientes calificados y optimiza la práctica legal',
+  mainEntity: {
+    '@type': 'SoftwareApplication',
+    name: 'Juristap',
+    applicationCategory: 'LegalTech',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      category: 'Legal Services',
+      description: 'Plataforma de gestión legal inteligente para abogados',
+    },
+  },
+};
+---
+
+<BaseLayout>
+  <main id="main-content" role="main" itemscope itemtype="https://schema.org/WebPage">
+    <WelcomeSection />
+    <IntroSection />
+    <FlowSection />
+    <AiFeaturesSection />
+    <CrewSection />
+    <CrewSectionMobile />
+    <CopilotSection />
+    <HeroBenefitSection />
+    <PlansSection />
+    <ForgetFirmsSection />
+    <RegisterSection />
+  </main>
+</BaseLayout>
+
+<script type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />

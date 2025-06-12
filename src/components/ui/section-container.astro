@@ -1,0 +1,92 @@
+---
+interface Props {
+  /** Background color of the section */
+  background?: string;
+  /** Class for the general container */
+  class?: string;
+  /** Whether the container should have a maximum width */
+  constrained?: boolean;
+  /** Vertical padding */
+  py?: string;
+  /** Horizontal padding */
+  px?: string;
+  /** Whether to add spacing between sections */
+  withSpacing?: boolean;
+  /** Unique identifier for the section */
+  id?: string;
+  /** Section title for semantic purposes */
+  title?: string;
+  /** ARIA label for the section */
+  ariaLabel?: string;
+  /** ARIA role for the section */
+  role?:
+    | 'article'
+    | 'banner'
+    | 'complementary'
+    | 'contentinfo'
+    | 'form'
+    | 'main'
+    | 'navigation'
+    | 'region'
+    | 'search'
+    | 'section';
+  /** Additional metadata for SEO */
+  metadata?: {
+    description?: string;
+    keywords?: string[];
+  };
+  /** Whether the section has itemscope */
+  itemscope?: boolean;
+  /** The itemtype for the section */
+  itemtype?: string;
+}
+
+const {
+  background = 'transparent',
+  class: className = '',
+  constrained = true,
+  py = 'py-16 md:py-24',
+  px = 'px-4 md:px-6 lg:px-8',
+  withSpacing = true,
+  id,
+  title,
+  ariaLabel,
+  role,
+  metadata,
+  itemscope,
+  itemtype,
+} = Astro.props;
+---
+
+<section
+  class:list={[background, py, 'w-full relative overflow-hidden', className]}
+  id={id}
+  aria-label={ariaLabel}
+  role={role}
+  itemscope={itemscope}
+  itemtype={itemtype}
+>
+  {title && <h2 class="sr-only">{title}</h2>}
+
+  <!-- Section content -->
+  <div class:list={[constrained ? 'max-w-[1440px] mx-auto' : 'w-full', px, 'relative z-10']}>
+    <slot />
+  </div>
+
+  {withSpacing && <div class="absolute h-16 left-0 right-0 bottom-0 pointer-events-none" />}
+</section>
+
+{
+  metadata && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: title,
+        description: metadata.description,
+        keywords: metadata.keywords?.join(', '),
+      })}
+    />
+  )
+}

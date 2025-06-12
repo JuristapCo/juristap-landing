@@ -1,0 +1,297 @@
+---
+import SectionContainer from '../../components/ui/section-container.astro';
+
+interface Feature {
+  title: string;
+  description: string;
+  icon: string;
+  imageSrc: string;
+  imageAlt: string;
+  imagePrompt: string;
+  class: string;
+}
+
+const features: Feature[] = [
+  {
+    title: 'Clientes que ya tienen una necesidad legal',
+    description:
+      'Conectamos contigo cuando una persona ya identificó que necesita apoyo jurídico. Llegan con intención, no solo curiosidad.',
+    icon: `<img src="/icons/magnify-3d.png" alt="Icono de lupa para búsqueda de clientes" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/magnify-3d.png',
+    imageAlt: 'Cliente identificando necesidad legal antes de ser referido al abogado',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+  {
+    title: 'Casos filtrados por especialidad',
+    description:
+      'Solo te mostramos casos que encajan con tu experiencia y preferencias. No pierdas tiempo en lo que no te interesa.',
+    icon: `<img src="/icons/lawyer-3d.png" alt="Icono de selección de especialidad legal" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/lawyer-3d.png',
+    imageAlt: 'Sistema asignando casos por perfil profesional del abogado',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-1',
+  },
+  {
+    title: 'Contexto real',
+    description:
+      'Recibe la información clave del caso antes del primer contacto. Ahorra tiempo y decide con claridad si tomar el caso.',
+    icon: `<img src="/icons/microphone-3d.png" alt="Icono de audio resumido" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/microphone-3d.png',
+    imageAlt: 'Resumen del caso antes de contacto con abogado',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+  {
+    title: 'Sin llamadas en frío',
+    description:
+      'Las personas llegan a ti, no al revés. Juristap actúa como canal digital confiable que reduce la fricción del primer contacto.',
+    icon: `<img src="/icons/headset-3d.png" alt="Icono de contacto estructurado" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/headset-3d.png',
+    imageAlt: 'Abogado recibiendo solicitudes filtradas en plataforma segura',
+    imagePrompt: '',
+    class: 'md:col-span-6 md:row-span-1',
+  },
+  {
+    title: 'Acelera tu práctica legal',
+    description:
+      'Accede al historial del cliente, documentos clave y próximos pasos sin salir de la plataforma. Organiza tu práctica legal con eficiencia.',
+    icon: `<img src="/icons/check-3d.png" alt="Icono de crecimiento profesional" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/check-3d.png',
+    imageAlt: 'Crecimiento profesional de abogado con ayuda de plataforma digital',
+    imagePrompt: '',
+    class: 'md:col-span-6 md:row-span-2',
+  },
+];
+
+// Enhanced structured data for features
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Características de la plataforma Juristap para abogados',
+  description:
+    'Descubre cómo nuestra plataforma conecta abogados con clientes calificados y optimiza la práctica legal',
+  itemListElement: features.map((feature, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: feature.title,
+    description: feature.description,
+    image: feature.imageSrc,
+  })),
+};
+
+// Additional structured data for the section
+const sectionStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Características de Juristap para Abogados',
+  description:
+    'Plataforma inteligente que conecta abogados con clientes calificados y optimiza la práctica legal',
+  mainEntity: {
+    '@type': 'SoftwareApplication',
+    name: 'Juristap',
+    applicationCategory: 'LegalTech',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      category: 'Legal Services',
+    },
+  },
+};
+---
+
+<section
+  class="relative py-24 bg-gradient-to-b from-purple-100 via-white to-white"
+  aria-labelledby="features-heading"
+  role="region"
+  itemscope
+  itemtype="https://schema.org/ItemList"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Encabezado -->
+    <header class="mb-20 text-center">
+      <h2
+        id="features-heading"
+        class="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center text-primary-800"
+        itemprop="name"
+      >
+        Tenemos una <span class="text-primary-500">mente digital</span> que trabaja contigo
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-700" itemprop="description">
+        En Juristap, no estás solo. Nuestra inteligencia artificial es tu aliada: analiza
+        solicitudes, resume casos y te ayuda a responder más rápido y mejor.
+      </p>
+    </header>
+
+    <!-- Grid principal -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center"
+      role="list"
+      aria-label="Características principales de la plataforma"
+      itemscope
+      itemtype="https://schema.org/ItemList"
+    >
+      <!-- Primera columna (2 cards) -->
+      <div class="flex flex-col gap-6 w-full h-full">
+        {
+          features.slice(0, 2).map(({ title, description, icon, imageSrc, imageAlt }) => (
+            <article
+              class="group relative overflow-hidden rounded-3xl bg-white shadow-sm flex items-center justify-center
+                            transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl animate-fade-in-up
+                            bg-conic/[from_var(--border-angle)] from-white-900 via-purple-300 to-purple-500 from-80% via-90% to-100%
+                            animate-rotate-border border border-purple-100 flex-1"
+              role="listitem"
+              itemscope
+              itemtype="https://schema.org/Service"
+            >
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                class="absolute bottom-0 left-0 w-full h-1/2 object-cover opacity-10 z-0 pointer-events-none scale-110 transition-transform duration-500 group-hover:scale-125"
+                draggable="false"
+                loading="lazy"
+                decoding="async"
+                itemprop="image"
+              />
+              <div class="relative z-10 flex h-[99%] w-[99%] flex-col justify-end p-8 bg-white rounded-3xl">
+                <div>
+                  <div
+                    class="mb-6 group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.5)] transition duration-300 transform group-hover:scale-110"
+                    set:html={icon}
+                    aria-hidden="true"
+                  />
+                  <h3
+                    class="mb-2 text-2xl font-semibold text-primary-400 group-hover:text-primary-500 transition-colors duration-300"
+                    itemprop="name"
+                  >
+                    {title}
+                  </h3>
+                  <p class="text-gray-700" itemprop="description">
+                    {description}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <!-- Segunda columna (3 cards) -->
+      <div class="flex flex-col gap-6 w-full">
+        {
+          features.slice(2, 5).map(({ title, description, icon, imageSrc, imageAlt }) => (
+            <article
+              class="group relative overflow-hidden rounded-3xl bg-white shadow-sm flex items-center justify-center
+                            transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl animate-fade-in-up
+                            bg-conic/[from_var(--border-angle)] from-white-900 via-purple-400 to-purple-500 from-80% via-90% to-100%
+                            animate-rotate-border border border-purple-100"
+              role="listitem"
+              itemscope
+              itemtype="https://schema.org/Service"
+            >
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                class="absolute bottom-0 left-0 w-full h-1/2 object-cover opacity-10 z-0 pointer-events-none scale-110 transition-transform duration-500 group-hover:scale-125"
+                draggable="false"
+                loading="lazy"
+                decoding="async"
+                itemprop="image"
+              />
+              <div class="relative z-10 flex h-[99%] w-[99%] flex-col justify-between p-8 bg-white backdrop-blur-sm rounded-3xl">
+                <div
+                  class="mb-6 group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.5)] transition duration-300 transform group-hover:scale-110"
+                  set:html={icon}
+                  aria-hidden="true"
+                />
+                <div>
+                  <h3
+                    class={`mb-2 text-2xl font-semibold text-primary-400 group-hover:text-primary-500 transition-colors duration-300`}
+                    itemprop="name"
+                  >
+                    {title}
+                  </h3>
+                  <p class="text-gray-700" itemprop="description">
+                    {description}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <footer class="mt-20 text-center">
+      <h3 class="text-2xl md:text-3xl font-normal text-primary-800 mb-6">
+        Conecta con <span class="font-bold text-primary-500">clientes calificados</span> sin perder tiempo.
+      </h3>
+      <p class="text-gray-700 mb-10 max-w-2xl mx-auto">
+        Súmate a la red de abogados que ya están aprovechando la automatización inteligente en su
+        práctica legal.
+      </p>
+      <a
+        href="#register"
+        class="inline-flex items-center justify-center px-10 py-4 text-base font-medium text-white bg-primary-500 rounded-lg hover:bg-primary-600 transition-colors duration-300 shadow-lg hover:shadow-xl"
+        aria-label="Registrarse como abogado en Juristap"
+        role="button"
+      >
+        Únete como abogado
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 ml-2"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+          role="img"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </a>
+    </footer>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script type="application/ld+json" set:html={JSON.stringify(sectionStructuredData)} />
+
+<style>
+  @property --border-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+  }
+
+  @keyframes border-rotate {
+    to {
+      --border-angle: 360deg;
+    }
+  }
+
+  .animate-rotate-border {
+    animation: border-rotate 15s linear infinite;
+  }
+
+  .group:hover .animate-rotate-border {
+    animation: border-rotate 3s linear infinite;
+  }
+</style>

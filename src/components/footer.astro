@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import Logo from '../assets/images/brand/logo-horizontal-white.webp';
+---
+
+<footer class="bg-primary-500 text-white pt-10 pb-8 relative overflow-hidden">
+  <!-- Línea superior -->
+  <div class="absolute top-0 left-0 w-full h-px bg-white/10"></div>
+  <div
+    class="container mx-auto px-4 md:px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-4"
+  >
+    <!-- Logo a la izquierda -->
+    <div class="flex items-center w-full md:w-1/2 justify-center md:justify-start mb-2 md:mb-0">
+      <a href="/" class="flex items-center gap-2">
+        <Image
+          src={Logo}
+          alt="Juristap Logo"
+          class="w-36 md:w-44 h-auto drop-shadow-lg"
+          style="image-rendering: high-quality; -webkit-font-smoothing: antialiased;"
+          draggable="false"
+        />
+      </a>
+    </div>
+    <!-- Copyright a la derecha -->
+    <div
+      class="w-full md:w-1/2 flex justify-center md:justify-end items-center text-xs md:text-xs xl:text-sm text-white/70 mt-2 md:mt-0 text-center md:text-right"
+    >
+      © {new Date().getFullYear()}
+      <span class="text-primary-100 font-semibold">Juristap</span>. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>

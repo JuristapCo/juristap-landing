@@ -1,0 +1,40 @@
+---
+import SectionContainer from '../../components/ui/section-container.astro';
+---
+
+<SectionContainer py="py-12" px="px-4 md:px-6 lg:px-8">
+  <article
+    class="text-center mx-auto"
+    aria-labelledby="highlight-heading"
+    itemscope
+    itemtype="https://schema.org/Service"
+  >
+    <header>
+      <h2
+        id="highlight-heading"
+        class="text-xl md:text-4xl lg:text-4xl text-primary-400 mb-2"
+        itemprop="name"
+      >
+        Encuentra un abogado
+      </h2>
+      <p
+        class="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 bg-gradient-to-r from-primary-700 via-primary-400 to-primary-700 text-transparent bg-clip-text"
+        aria-live="polite"
+        role="status"
+        itemprop="description"
+      >
+        <span class="sr-only">Tiempo de respuesta:</span> ¡EN MENOS DE 24 HORAS!
+      </p>
+    </header>
+    <p
+      class="text-gray-500 text-base md:text-lg lg:text-xl max-w-xl mx-auto"
+      aria-describedby="highlight-heading"
+      itemprop="slogan"
+    >
+      Te conectamos con profesionales expertos que están listos para ti
+    </p>
+    <meta itemprop="serviceType" content="Servicio Legal" />
+    <meta itemprop="areaServed" content="España" />
+    <meta itemprop="availableChannel" content="Online" />
+  </article>
+</SectionContainer>

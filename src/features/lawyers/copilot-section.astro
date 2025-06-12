@@ -1,0 +1,52 @@
+---
+import SectionContainer from '../../components/ui/section-container.astro';
+
+// Structured data for the copilot section
+const copilotStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Copiloto Juristap',
+  description: 'Asistente inteligente que ayuda a gestionar casos legales',
+  applicationCategory: 'LegalTech',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    category: 'Legal Services',
+    description: 'Asistencia personalizada para maximizar el uso de la plataforma legal',
+  },
+};
+---
+
+<SectionContainer
+  background="bg-white"
+  role="region"
+  aria-labelledby="copilot-heading"
+  itemscope
+  itemtype="https://schema.org/SoftwareApplication"
+>
+  <div
+    class="flex flex-col md:flex-col lg:flex-row gap-8 lg:gap-16 md:items-center justify-center lg:justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
+  >
+    <!-- Left Column - Main Heading -->
+    <div class="lg:w-1/2 space-y-4 text-center lg:text-left">
+      <h2
+        id="copilot-heading"
+        class="text-2xl sm:text-2xl md:text-3xl lg:text-4xl text-primary leading-tight"
+        itemprop="name"
+      >
+        Porfín tendrás un <span class="text-primary font-bold">Copiloto</span> que te ayude a gestionar
+        tus casos.
+      </h2>
+    </div>
+
+    <!-- Right Column - Supporting Text -->
+    <div class="lg:w-1/2 space-y-3 md:max-w-lg text-center lg:text-left">
+      <p class="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl" itemprop="description">
+        Ofrecemos asistencia a nuestros usuarios para maximizar el uso de la plataforma y hacer tu
+        trabajo mucho más fácil.
+      </p>
+    </div>
+  </div>
+</SectionContainer>
+
+<script type="application/ld+json" set:html={JSON.stringify(copilotStructuredData)} />

@@ -1,0 +1,100 @@
+---
+import SectionContainer from '../../components/ui/section-container.astro';
+import { Image } from 'astro:assets';
+import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
+import InterfaceIcon from '../../assets/images/interface.webp';
+import LockIcon from '../../assets/images/lock.webp';
+import StatusIcon from '../../assets/images/status.webp';
+---
+
+<SectionContainer
+  background="bg-white"
+  withSpacing={true}
+  constrained={false}
+  py="py-0"
+  aria-label="Sección de características"
+>
+  <div
+    class="mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32"
+  >
+    <header class="text-center mb-12 sm:mb-14 md:mb-16 lg:mb-20 xl:mb-24">
+      <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-1 bg-primary/30 rounded-full">
+      </div>
+      <h2
+        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-5 lg:mb-6 tracking-tight text-primary"
+      >
+        Características destacadas
+      </h2>
+      <p
+        class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-600 max-w-[280px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[800px] mx-auto leading-relaxed"
+      >
+        Descubre todas las herramientas que ponemos a tu disposición
+      </p>
+    </header>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12"
+    >
+      <!-- Card grande -->
+      <article
+        class="md:col-span-2 lg:col-span-2 bg-primary/5 rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col md:flex-row gap-6 items-center"
+      >
+        <div class="w-full md:w-1/2">
+          <Image
+            src={InterfaceIcon}
+            alt=""
+            class="w-full h-auto object-contain"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="w-full md:w-1/2">
+          <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-4">
+            Plataforma integral
+          </h3>
+          <p class="text-gray-600 text-base sm:text-lg leading-relaxed">
+            Una solución completa que integra todas las herramientas necesarias para gestionar tus
+            casos legales de manera eficiente y profesional.
+          </p>
+        </div>
+      </article>
+
+      <!-- Card pequeña -->
+      <article class="bg-primary/5 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center">
+        <div class="w-16 h-16 mb-4">
+          <Image src={LockIcon} alt="" class="w-full h-full object-contain" aria-hidden="true" />
+        </div>
+        <h3 class="text-xl font-bold text-primary mb-3">Seguridad garantizada</h3>
+        <p class="text-gray-600 text-sm sm:text-base">
+          Protección de datos con los más altos estándares de seguridad
+        </p>
+      </article>
+
+      <!-- Card pequeña -->
+      <article class="bg-primary/5 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center">
+        <div class="w-16 h-16 mb-4">
+          <Image src={StatusIcon} alt="" class="w-full h-full object-contain" aria-hidden="true" />
+        </div>
+        <h3 class="text-xl font-bold text-primary mb-3">Seguimiento en tiempo real</h3>
+        <p class="text-gray-600 text-sm sm:text-base">Actualizaciones instantáneas de tus casos</p>
+      </article>
+
+      <!-- Card mediana -->
+      <article
+        class="md:col-span-2 bg-primary/5 rounded-2xl p-6 sm:p-8 md:p-10 flex flex-col items-center text-center"
+      >
+        <h3 class="text-2xl font-bold text-primary mb-4">
+          ¿Listo para <span class="text-secondary">comenzar</span>?
+        </h3>
+        <p class="text-gray-600 text-base sm:text-lg mb-6 max-w-2xl">
+          Únete a nuestra plataforma y transforma la manera en que gestionas tus casos legales
+        </p>
+        <a
+          href="#contact"
+          class="inline-flex items-center justify-center px-6 py-3 bg-secondary text-primary rounded-lg hover:bg-secondary-400 transition-colors duration-300 shadow-lg hover:shadow-xl"
+        >
+          Comenzar ahora
+        </a>
+      </article>
+    </div>
+  </div>
+</SectionContainer>

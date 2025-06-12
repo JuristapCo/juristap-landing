@@ -1,0 +1,398 @@
+---
+import SectionContainer from '../../components/ui/section-container.astro';
+import { Image } from 'astro:assets';
+import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
+import InterfaceIcon from '../../assets/images/interface.webp';
+import LockIcon from '../../assets/images/lock.webp';
+import StatusIcon from '../../assets/images/status.webp';
+import QuoteAndCharacter from '../../assets/images/brand/quote-and-character.webp';
+import { Icon } from 'astro-icon/components';
+import MatrixRain from '../../components/ui/matrix-rain.astro';
+import PuzzleEffect from '../../components/ui/puzzle-effect.astro';
+import GlobeEffect from '../../components/ui/globe-effect.astro';
+import NotificationEffect from '../../components/ui/notification-effect.astro';
+
+// Meta description para SEO
+const metaDescription =
+  'Descubre cómo Juristap simplifica tus procesos legales con seguridad, accesibilidad y notificaciones en tiempo real. Únete a la revolución legal en Colombia.';
+
+interface Benefit {
+  title: string;
+  description: string;
+  icon: string;
+  imageSrc: string;
+  imageAlt: string;
+  imagePrompt: string;
+  class: string;
+}
+
+const benefits: Benefit[] = [
+  {
+    title: 'Seguridad sin complicaciones',
+    description:
+      'Tus datos están protegidos con los más altos estándares de seguridad y privacidad.',
+    icon: `<img src="/icons/shield-3d.png" alt="Icono de escudo de seguridad" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/shield-3d.png',
+    imageAlt: 'Escudo de seguridad protegiendo datos legales',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+  {
+    title: 'Fácil de usar, estés donde estés',
+    description:
+      'Accede a tu asesoría legal desde cualquier dispositivo, en cualquier momento y lugar.',
+    icon: `<img src="/icons/device-3d.png" alt="Icono de dispositivo móvil" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/device-3d.png',
+    imageAlt: 'Plataforma legal accesible desde múltiples dispositivos',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-2',
+  },
+  {
+    title: 'Todo en un solo lugar',
+    description:
+      'Gestiona todos tus procesos legales desde una única plataforma intuitiva y organizada.',
+    icon: `<img src="/icons/folder-3d.png" alt="Icono de carpeta organizada" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/folder-3d.png',
+    imageAlt: 'Panel de control centralizado para gestión legal',
+    imagePrompt: '',
+    class: 'md:col-span-4 md:row-span-1',
+  },
+  {
+    title: 'Te avisamos de todo',
+    description:
+      'Recibe notificaciones en tiempo real sobre actualizaciones importantes de tu caso.',
+    icon: `<img src="/icons/notification-3d.png" alt="Icono de notificación" class="h-24 w-24 object-contain" loading="lazy" decoding="async" />`,
+    imageSrc: '/icons/notification-3d.png',
+    imageAlt: 'Sistema de notificaciones para actualizaciones legales',
+    imagePrompt: '',
+    class: 'md:col-span-6 md:row-span-1',
+  },
+];
+
+// Enhanced structured data for benefits
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Beneficios de la plataforma Juristap',
+  description: 'Características que simplifican tus procesos legales con Juristap',
+  itemListElement: benefits.map((benefit, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: benefit.title,
+    description: benefit.description,
+    image: benefit.imageSrc,
+  })),
+};
+
+// Additional structured data for the section
+const sectionStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Beneficios de Juristap',
+  description: metaDescription,
+  mainEntity: {
+    '@type': 'SoftwareApplication',
+    name: 'Juristap',
+    applicationCategory: 'LegalTech',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      category: 'Legal Services',
+    },
+    featureList: benefits.map(benefit => benefit.title).join(', '),
+  },
+};
+---
+
+<SectionContainer
+  background="bg-primary text-white"
+  withSpacing={false}
+  constrained={false}
+  py="py-0"
+  id="beneficios"
+  role="region"
+  aria-labelledby="benefits-heading"
+  itemscope
+  itemtype="https://schema.org/WebPage"
+>
+  <!-- Meta description para SEO -->
+  <meta name="description" content={metaDescription} />
+
+  <!-- Base background with pattern -->
+  <div
+    class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+    aria-hidden="true"
+    role="presentation"
+  >
+    <Image
+      src={PatternHero}
+      alt="Patrón de fondo decorativo"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-20 mix-blend-overlay"
+      width={1920}
+      height={1080}
+    />
+  </div>
+
+  <!-- Gradient overlay -->
+  <div
+    class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+    style="background:linear-gradient(135deg, #2A004D 0%, #660fb3 50%, #2A004D 100%); opacity:0.85;"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+
+  <!-- Decorative elements -->
+  <div
+    class="absolute top-0 right-0 w-64 h-64 bg-purple-800/20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 left-0 w-96 h-96 bg-purple-700/20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/4 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+
+  <!-- Subtle grid pattern -->
+  <div
+    class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:80px_80px] opacity-10 pointer-events-none"
+    aria-hidden="true"
+    role="presentation"
+  >
+  </div>
+
+  <div
+    class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 relative z-10"
+  >
+    <header class="text-center mb-12 sm:mb-14 md:mb-10 lg:mb-10 xl:mb-16 relative">
+      <h2
+        id="benefits-heading"
+        class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 text-center"
+        itemprop="name"
+      >
+        Simplifica tus procesos legales
+      </h2>
+      <p
+        class="text-sm sm:text-base md:text-lg text-white/90 max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[800px] mx-auto leading-relaxed"
+        itemprop="description"
+      >
+        Nuestra plataforma te permite gestionar tus procesos legales de manera sencilla y eficiente.
+      </p>
+    </header>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 xl:gap-8 text-center mb-8 md:mb-12 lg:mb-16 items-stretch"
+      role="list"
+      aria-label="Beneficios principales estilo bento"
+      itemscope
+      itemtype="https://schema.org/ItemList"
+    >
+      <div
+        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-2 lg:col-span-2 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden will-change-transform"
+        role="listitem"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/Thing"
+      >
+        <meta itemprop="position" content="1" />
+        <div class="absolute inset-0 z-0" aria-hidden="true">
+          <MatrixRain />
+        </div>
+        <Icon
+          name="privacy"
+          class="w-12 h-12 md:w-14 md:h-14 text-white relative z-10"
+          aria-hidden="true"
+        />
+        <div class="mt-auto justify-start relative z-10">
+          <h3
+            class="text-balance text-left text-base sm:text-lg xl:text-2xl font-bold text-white mb-2"
+            itemprop="name"
+          >
+            Seguridad sin complicaciones
+          </h3>
+          <p
+            class="text-balance text-left text-base sm:text-md text-white/80"
+            itemprop="description"
+          >
+            Tus datos y documentos están protegidos con estándares de seguridad de nivel
+            empresarial. Confía en nosotros para gestionar tus asuntos legales con total
+            confidencialidad.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-1 lg:col-span-1 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden will-change-transform"
+        role="listitem"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/Thing"
+      >
+        <meta itemprop="position" content="2" />
+        <div class="absolute inset-0 z-0" aria-hidden="true">
+          <PuzzleEffect />
+        </div>
+        <Icon
+          name="piece"
+          class="w-12 h-12 md:w-14 md:h-14 text-white relative z-10"
+          aria-hidden="true"
+        />
+        <div class="mt-auto justify-start relative z-10">
+          <h3
+            class="text-balance text-left text-base sm:text-lg xl:text-2xl font-bold text-white mb-2"
+            itemprop="name"
+          >
+            Fácil de usar, estés donde estés
+          </h3>
+          <p
+            class="text-balance text-left text-base sm:text-md text-white/80"
+            itemprop="description"
+          >
+            Usa la plataforma desde tu celular o computador.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-1 lg:col-span-1 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden will-change-transform"
+        role="listitem"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/Thing"
+      >
+        <meta itemprop="position" content="3" />
+        <div class="absolute inset-0 z-0" aria-hidden="true">
+          <GlobeEffect />
+        </div>
+        <Icon
+          name="mobile"
+          class="w-12 h-12 md:w-14 md:h-14 text-white relative z-10"
+          aria-hidden="true"
+        />
+        <div class="mt-auto justify-start relative z-10">
+          <h3
+            class="text-balance text-left text-base sm:text-lg xl:text-2xl font-bold text-white mb-2"
+            itemprop="name"
+          >
+            Todo en un solo lugar
+          </h3>
+          <p
+            class="text-balance text-left text-base sm:text-md text-white/80"
+            itemprop="description"
+          >
+            Consulta todo tu proceso legal desde tu celular o computador, sin buscar en mil correos.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="bg-gradient-to-br from-white/5 via-white/10 to-white/5 border border-white/20 shadow-lg rounded-2xl p-10 flex flex-col justify-between h-full col-span-1 sm:col-span-2 lg:col-span-2 backdrop-blur-md transition-all duration-300 gap-4 relative overflow-hidden will-change-transform"
+        role="listitem"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/Thing"
+      >
+        <meta itemprop="position" content="4" />
+        <div class="absolute inset-0 z-0" aria-hidden="true">
+          <NotificationEffect />
+        </div>
+        <div class="mt-auto justify-start relative z-10">
+          <Icon
+            name="bell"
+            class="w-12 h-12 md:w-14 md:h-14 text-white relative z-10 mb-4"
+            aria-hidden="true"
+          />
+          <h3
+            class="text-balance text-left text-base sm:text-lg xl:text-2xl font-bold text-white mb-2"
+            itemprop="name"
+          >
+            Te avisamos de todo
+          </h3>
+          <p
+            class="text-balance text-left text-base sm:text-md text-white/80"
+            itemprop="description"
+          >
+            Sabes en qué va tu caso sin tener que preguntar. Te enviamos notificaciones cuando algo
+            cambia.
+          </p>
+        </div>
+      </div>
+    </div>
+    {/* Bento Grid End */}
+
+    <div class="flex flex-col items-center gap-6 mt-8 mb-4">
+      <a
+        href="#register"
+        class="group relative inline-flex items-center gap-3 px-8 py-4 bg-secondary text-primary text-lg font-semibold rounded-xl shadow-lg hover:bg-secondary-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 focus:ring-offset-primary overflow-hidden"
+        aria-label="Comienza tu viaje legal con Juristap"
+        role="button"
+      >
+        <span class="relative z-10">Comienza tu viaje legal</span>
+      </a>
+    </div>
+  </div>
+</SectionContainer>
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script type="application/ld+json" set:html={JSON.stringify(sectionStructuredData)} />
+
+<style>
+  @property --border-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    will-change: transform, opacity;
+  }
+
+  @keyframes border-rotate {
+    to {
+      --border-angle: 360deg;
+    }
+  }
+
+  .animate-rotate-border {
+    animation: border-rotate 15s linear infinite;
+    will-change: transform;
+  }
+
+  .group:hover .animate-rotate-border {
+    animation: border-rotate 3s linear infinite;
+  }
+
+  /* Asegurar que los efectos se muestren correctamente en todos los breakpoints */
+  @media (min-width: 640px) {
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out forwards;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out forwards;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out forwards;
+    }
+  }
+</style>

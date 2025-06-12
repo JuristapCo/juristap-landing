@@ -1,0 +1,186 @@
+<canvas id="matrixCanvas" class="absolute inset-0 w-full h-full opacity-10"></canvas>
+
+<script>
+  const canvas = document.getElementById('matrixCanvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d');
+
+  if (!ctx) {
+    throw new Error('Could not get canvas context');
+  }
+
+  // Assert ctx as CanvasRenderingContext2D after null check
+  const context = ctx as CanvasRenderingContext2D;
+
+  // Matrix characters
+  const MATRIX_CHARACTERS =
+    'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  // Colors
+  const WHITE = '#FFFFFF';
+  const GREENS = ['#00FF00'];
+
+  // Configuration
+  const CELL_SIZE = 20;
+  const RAINDROP_SPAWN_RATE = 0.98;
+  const FRAME_RATE = 1000 / 20;
+
+  // Initialize canvas size
+  function resizeCanvas() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  // Initialize matrix
+  function createMatrix(): Column[] {
+    const columns: Column[] = [];
+    const columnCount = Math.floor(canvas.width / CELL_SIZE);
+    const rowCount = Math.floor(canvas.height / CELL_SIZE);
+
+    for (let i = 0; i < columnCount; i++) {
+      const cells: Cell[] = [];
+      for (let j = 0; j < rowCount; j++) {
+        cells.push({
+          position: j,
+          char: '',
+          activeFor: 0,
+          color: WHITE,
+          retainChar: 0,
+          retainColor: 0,
+        });
+      }
+      columns.push({
+        cells,
+        head: undefined,
+        trail: 0,
+        ticksLeft: 0,
+        speed: 1,
+      });
+    }
+    return columns;
+  }
+
+  // Types
+  type Cell = {
+    position: number;
+    char: string;
+    activeFor: number;
+    color: string;
+    retainChar: number;
+    retainColor: number;
+  };
+
+  type Column = {
+    cells: Cell[];
+    head: Cell | undefined;
+    trail: number;
+    ticksLeft: number;
+    speed: number;
+  };
+
+  // Utility functions
+  function randomChar(): string {
+    return MATRIX_CHARACTERS[Math.floor(Math.random() * MATRIX_CHARACTERS.length)];
+  }
+
+  function randomGreen(): string {
+    return GREENS[Math.floor(Math.random() * GREENS.length)];
+  }
+
+  function randomNumberBetween(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  // Render function
+  function render(matrix: Column[]): void {
+    context.fillStyle = '#3d0071';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    let x = 0;
+    for (const column of matrix) {
+      let y = CELL_SIZE;
+      for (const cell of column.cells) {
+        if (cell.char) {
+          context.fillStyle = cell.color;
+          context.font = `${CELL_SIZE}px monospace`;
+          context.fillText(cell.char, x, y);
+        }
+        y += CELL_SIZE;
+      }
+      x += CELL_SIZE;
+    }
+  }
+
+  // Animation tick
+  let tickNo = 0;
+  function tick(matrix: Column[]): void {
+    for (const column of matrix) {
+      if (tickNo % column.speed !== 0) {
+        continue;
+      }
+
+      const animationComplete = column.ticksLeft <= 0;
+
+      if (animationComplete && Math.random() > RAINDROP_SPAWN_RATE) {
+        column.speed = randomNumberBetween(1, 6);
+        column.trail = randomNumberBetween(5, 15);
+        column.ticksLeft = column.trail;
+        column.head = column.cells[0];
+      }
+
+      if (column.ticksLeft > 0) {
+        if (column.head) {
+          column.head.activeFor = column.trail;
+          column.head = column.cells[column.head.position + 1];
+        }
+
+        for (const cell of column.cells) {
+          if (cell.activeFor > 0) {
+            if (column.head === cell) {
+              cell.color = WHITE;
+              cell.retainColor = 0;
+              cell.char = randomChar();
+              cell.retainChar = randomNumberBetween(1, 10);
+            } else {
+              if (cell.retainColor <= 0) {
+                cell.color = randomGreen();
+                cell.retainColor = randomNumberBetween(1, 10);
+              } else {
+                cell.retainColor -= 1;
+              }
+
+              if (cell.retainChar <= 0) {
+                cell.char = randomChar();
+                cell.retainChar = randomNumberBetween(1, 10);
+              } else {
+                cell.retainChar -= 1;
+              }
+            }
+            cell.activeFor -= 1;
+          } else {
+            cell.char = '';
+          }
+        }
+
+        column.ticksLeft -= 1;
+      }
+    }
+    tickNo += 1;
+  }
+
+  // Initialize and start animation
+  resizeCanvas();
+  const matrix = createMatrix();
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    matrix.length = 0;
+    matrix.push(...createMatrix());
+  });
+
+  // Animation loop
+  setInterval(() => {
+    tick(matrix);
+    render(matrix);
+  }, FRAME_RATE);
+</script>
