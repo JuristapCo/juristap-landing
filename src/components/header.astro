@@ -10,14 +10,15 @@ import Logo from '../assets/images/brand/logo-horizontal-white.webp';
     class="container mx-auto flex items-center justify-between p-4 md:p-4 transition-all duration-500"
     id="headerContent"
   >
-    <Image
-      src={Logo}
-      alt="Juristap"
-      class="w-auto h-8 hover:opacity-90 transition-all duration-300 hover:scale-105"
-      draggable="false"
-    />
+    <a href="/">
+      <Image
+        src={Logo}
+        alt="Juristap"
+        class="w-auto h-8 hover:opacity-90 transition-all duration-300 hover:scale-105"
+        draggable="false"
+      />
+    </a>
 
-    <!-- 👇 Añadimos un id para poder seleccionar solo este nav -->
     <nav
       id="desktopNav"
       class="hidden lg:flex gap-8 relative items-center desktop-nav header-navigation"
@@ -29,7 +30,7 @@ import Logo from '../assets/images/brand/logo-horizontal-white.webp';
       </div>
 
       <a
-        href="#"
+        href="/abogados"
         class="relative group px-4 py-2.5 rounded-lg z-10 flex items-center h-10 header-nav-item"
       >
         <span class="transition-all duration-300 group-hover:text-primary group-hover:scale-105"
@@ -37,7 +38,7 @@ import Logo from '../assets/images/brand/logo-horizontal-white.webp';
         >
       </a>
       <a
-        href="#"
+        href="/"
         class="relative group px-4 py-2.5 rounded-lg z-10 flex items-center h-10 header-nav-item"
       >
         <span class="transition-all duration-300 group-hover:text-primary group-hover:scale-105"
