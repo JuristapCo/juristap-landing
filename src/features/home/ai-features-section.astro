@@ -66,12 +66,31 @@ const features: Feature[] = [
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
+  name: 'Características de inteligencia artificial de Juristap',
+  description: 'Funcionalidades de IA que mejoran la experiencia de asesoría legal',
   itemListElement: features.map((feature, index) => ({
     '@type': 'ListItem',
     position: index + 1,
     name: feature.title,
     description: feature.description,
+    image: feature.imageSrc,
   })),
+};
+
+// Additional structured data for the section
+const sectionStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Juristap - Plataforma de asesoría legal con IA',
+  applicationCategory: 'LegalTech',
+  operatingSystem: 'Web',
+  description: 'Plataforma de asesoría legal potenciada por inteligencia artificial',
+  offers: {
+    '@type': 'Offer',
+    category: 'Legal Services',
+    description: 'Conecta con abogados especializados en menos de 24 horas',
+  },
+  featureList: features.map(feature => feature.title).join(', '),
 };
 ---
 
@@ -79,6 +98,8 @@ const structuredData = {
   class="relative py-24 bg-gradient-to-b from-purple-50 via-white to-white"
   aria-labelledby="features-heading"
   role="region"
+  itemscope
+  itemtype="https://schema.org/ItemList"
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <!-- Encabezado -->
@@ -86,10 +107,11 @@ const structuredData = {
       <h2
         id="features-heading"
         class="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center text-primary-700"
+        itemprop="name"
       >
         Una plataforma que realmente <span class="text-primary-400">te entiende</span>
       </h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600" itemprop="description">
         Nos apoyamos en <span class="font-semibold">inteligencia artificial</span> para que no repitas
         tu historia sin tener respuesta.
       </p>
@@ -106,14 +128,18 @@ const structuredData = {
         class="col-span-1 md:col-span-2 lg:col-span-3 flex flex-col md:flex-row gap-6 justify-center items-center"
       >
         {
-          features.slice(0, 2).map(({ title, description, icon, imageSrc, imageAlt }) => (
+          features.slice(0, 2).map(({ title, description, icon, imageSrc, imageAlt }, index) => (
             <article
               class="flex-1 group relative overflow-hidden rounded-3xl bg-white shadow-sm flex items-center justify-center
                             transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl animate-fade-in-up
                             bg-conic/[from_var(--border-angle)] from-white-900 via-purple-300 to-purple-500 from-80% via-90% to-100%
                             animate-rotate-border max-w-md"
               role="listitem"
+              itemprop="itemListElement"
+              itemscope
+              itemtype="https://schema.org/Service"
             >
+              <meta itemprop="position" content={`${index + 1}`} />
               <img
                 src={imageSrc}
                 alt={imageAlt}
@@ -121,15 +147,21 @@ const structuredData = {
                 draggable="false"
                 loading="lazy"
                 decoding="async"
+                itemprop="image"
               />
               <div class="relative z-10 flex h-[99%] w-[99%] flex-col justify-between p-8 bg-white rounded-3xl">
                 <div
                   class="mb-6 group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.5)] transition duration-300"
                   set:html={icon}
+                  aria-hidden="true"
                 />
                 <div>
-                  <h3 class="mb-2 text-2xl font-semibold text-primary-400">{title}</h3>
-                  <p class="text-gray-700">{description}</p>
+                  <h3 class="mb-2 text-2xl font-semibold text-primary-400" itemprop="name">
+                    {title}
+                  </h3>
+                  <p class="text-gray-700" itemprop="description">
+                    {description}
+                  </p>
                 </div>
               </div>
             </article>
@@ -149,7 +181,11 @@ const structuredData = {
                             bg-conic/[from_var(--border-angle)] from-white-900 via-purple-400 to-purple-500 from-80% via-90% to-100%
                             animate-rotate-border max-w-md"
               role="listitem"
+              itemprop="itemListElement"
+              itemscope
+              itemtype="https://schema.org/Service"
             >
+              <meta itemprop="position" content={`${i + 3}`} />
               <img
                 src={imageSrc}
                 alt={imageAlt}
@@ -157,15 +193,21 @@ const structuredData = {
                 draggable="false"
                 loading="lazy"
                 decoding="async"
+                itemprop="image"
               />
               <div class="relative z-10 flex h-[99%] w-[99%] flex-col justify-between p-8 bg-white backdrop-blur-sm rounded-3xl">
                 <div
                   class="mb-6 group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.5)] transition duration-300"
                   set:html={icon}
+                  aria-hidden="true"
                 />
                 <div>
-                  <h3 class={`mb-2 text-2xl font-semibold text-primary-400`}>{title}</h3>
-                  <p class="text-gray-700">{description}</p>
+                  <h3 class={`mb-2 text-2xl font-semibold text-primary-400`} itemprop="name">
+                    {title}
+                  </h3>
+                  <p class="text-gray-700" itemprop="description">
+                    {description}
+                  </p>
                 </div>
               </div>
             </article>
@@ -189,6 +231,7 @@ const structuredData = {
         href="/contacto"
         class="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-primary-400 rounded-lg hover:bg-primary-500 transition-colors duration-300 shadow-lg hover:shadow-xl"
         aria-label="Registrarse en la plataforma"
+        role="button"
       >
         Regístrate
         <svg
@@ -209,6 +252,7 @@ const structuredData = {
 </section>
 
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script type="application/ld+json" set:html={JSON.stringify(sectionStructuredData)} />
 
 <style>
   @property --border-angle {

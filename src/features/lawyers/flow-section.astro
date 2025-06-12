@@ -52,15 +52,34 @@ const steps: Step[] = [
   },
 ];
 
-// Structured data for steps
+// Enhanced structured data for steps
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
+  name: 'Proceso de atención legal en Juristap',
+  description:
+    'Pasos para conectar con abogados especializados y recibir asesoría legal personalizada',
   itemListElement: steps.map((step, index) => ({
     '@type': 'ListItem',
     position: index + 1,
     name: step.title,
     description: step.description,
+    image: step.imageSrc,
+  })),
+};
+
+// Additional structured data for the section
+const sectionStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Cómo funciona Juristap para abogados',
+  description: 'Proceso para conectar con clientes y gestionar casos legales de forma eficiente',
+  step: steps.map((step, index) => ({
+    '@type': 'HowToStep',
+    position: index + 1,
+    name: step.title,
+    text: step.description,
+    image: step.imageSrc,
   })),
 };
 ---
@@ -71,8 +90,10 @@ const structuredData = {
   role="region"
   aria-label="Proceso de atención legal"
   style="background-color: #1a0033;"
+  itemscope
+  itemtype="https://schema.org/HowTo"
 >
-  <div class="absolute inset-0 z-0" aria-hidden="true">
+  <div class="absolute inset-0 z-0" aria-hidden="true" role="presentation">
     <Image
       src={PatternLines}
       alt=""
@@ -87,10 +108,11 @@ const structuredData = {
     <h2
       id="flow-title"
       class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 text-center"
+      itemprop="name"
     >
       Tu talento merece más que <span class="text-secondary">buscar clientes</span>
     </h2>
-    <p class="text-white/80 text-base lg:text-lg text-center">
+    <p class="text-white/80 text-base lg:text-lg text-center" itemprop="description">
       Nosotros los llevamos a ti. Conecta con clientes potenciales, gestiona tu agenda y haz crecer
       tu firma legal con nuestra plataforma potenciada por IA.
     </p>
@@ -104,36 +126,50 @@ const structuredData = {
       class="w-full md:w-2/3 lg:w-3/4 flex flex-col gap-12 md:gap-14 lg:gap-24 pb-20 md:pb-0 relative z-10"
       role="list"
       aria-label="Pasos del proceso legal"
+      itemscope
+      itemtype="https://schema.org/ItemList"
     >
       <!-- Primer paso -->
-      <article class="flex items-center relative" role="listitem">
+      <article
+        class="flex items-center relative"
+        role="listitem"
+        itemscope
+        itemtype="https://schema.org/HowToStep"
+      >
         <!-- Círculo del icono con doble borde -->
         <div
           class="relative flex-shrink-0 w-[4.5rem] h-[4.5rem] md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-secondary flex items-center justify-center z-20"
           aria-hidden="true"
+          role="presentation"
         >
           <!-- Línea conectora -->
           <div
             class="absolute left-full top-1/2 w-6 md:w-8 lg:w-10 h-0.5 lg:h-0.5 bg-secondary opacity-80 transform -translate-y-1/2 z-10"
+            role="presentation"
           >
           </div>
 
           <!-- Círculo exterior -->
-          <div class="absolute -inset-1.5 lg:-inset-2 rounded-full border border-secondary"></div>
+          <div
+            class="absolute -inset-1.5 lg:-inset-2 rounded-full border border-secondary"
+            role="presentation"
+          >
+          </div>
 
           <!-- Icono -->
           <Icon
             name="click"
             class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 fill-none text-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
+            aria-hidden="true"
           />
         </div>
 
         <!-- Contenido de texto -->
         <div class="pl-8 md:pl-10 lg:pl-12 z-20">
-          <h3 class="text-xl md:text-2xl lg:text-3xl text-white font-semibold mb-3">
+          <h3 class="text-xl md:text-2xl lg:text-3xl text-white font-semibold mb-3" itemprop="name">
             Clientes a un clic
           </h3>
-          <p class="text-white/80 text-base lg:text-lg">
+          <p class="text-white/80 text-base lg:text-lg" itemprop="text">
             Haz que nuevos clientes te encuentren fácilmente y destaca tu experiencia profesional.
             Expande tu red y haz crecer tu práctica legal sin complicaciones.
           </p>
@@ -141,21 +177,29 @@ const structuredData = {
       </article>
 
       <!-- Segundo paso -->
-      <article class="flex items-center relative" role="listitem">
+      <article
+        class="flex items-center relative"
+        role="listitem"
+        itemscope
+        itemtype="https://schema.org/HowToStep"
+      >
         <!-- Círculo del icono con doble borde -->
         <div
           class="relative flex-shrink-0 w-[4.5rem] h-[4.5rem] md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-secondary flex items-center justify-center z-20"
           aria-hidden="true"
+          role="presentation"
         >
           <!-- Línea conectora -->
           <div
             class="absolute left-full top-1/2 w-6 md:w-8 lg:w-10 h-0.5 lg:h-0.5 bg-secondary opacity-80 transform -translate-y-1/2 z-10"
+            role="presentation"
           >
           </div>
 
           <!-- Círculo exterior -->
           <div
             class="absolute -inset-1.5 lg:-inset-2 rounded-full border border-secondary opacity-70"
+            role="presentation"
           >
           </div>
 
@@ -163,15 +207,16 @@ const structuredData = {
           <Icon
             name="home"
             class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 fill-none text-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
+            aria-hidden="true"
           />
         </div>
 
         <!-- Contenido de texto -->
         <div class="pl-8 md:pl-10 lg:pl-12 z-20">
-          <h3 class="text-xl md:text-2xl lg:text-3xl text-white font-semibold mb-3">
+          <h3 class="text-xl md:text-2xl lg:text-3xl text-white font-semibold mb-3" itemprop="name">
             Trabaja desde tu comodidad
           </h3>
-          <p class="text-white/80 text-base lg:text-lg">
+          <p class="text-white/80 text-base lg:text-lg" itemprop="text">
             Conecta y asesora a tus clientes desde cualquier lugar. Gestiona tus casos de forma
             remota y equilibra tu vida profesional y personal.
           </p>
@@ -179,21 +224,29 @@ const structuredData = {
       </article>
 
       <!-- Tercer paso -->
-      <article class="flex items-center relative" role="listitem">
+      <article
+        class="flex items-center relative"
+        role="listitem"
+        itemscope
+        itemtype="https://schema.org/HowToStep"
+      >
         <!-- Círculo del icono con doble borde -->
         <div
           class="relative flex-shrink-0 w-[4.5rem] h-[4.5rem] md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-secondary flex items-center justify-center z-20"
           aria-hidden="true"
+          role="presentation"
         >
           <!-- Línea conectora -->
           <div
             class="absolute left-full top-1/2 w-6 md:w-8 lg:w-10 h-0.5 lg:h-0.5 bg-secondary opacity-80 transform -translate-y-1/2 z-10"
+            role="presentation"
           >
           </div>
 
           <!-- Círculo exterior -->
           <div
             class="absolute -inset-1.5 lg:-inset-2 rounded-full border border-secondary opacity-70"
+            role="presentation"
           >
           </div>
 
@@ -201,15 +254,16 @@ const structuredData = {
           <Icon
             name="light-bulb"
             class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 fill-none text-secondary stroke-[1.5px] transition-transform duration-300 hover:scale-110"
+            aria-hidden="true"
           />
         </div>
 
         <!-- Contenido de texto -->
         <div class="pl-8 md:pl-10 lg:pl-12 z-20">
-          <h3 class="text-xl md:text-2xl lg:text-3xl text-white font-semibold mb-3">
+          <h3 class="text-xl md:text-2xl lg:text-3xl text-white font-semibold mb-3" itemprop="name">
             ¡Tú decides!
           </h3>
-          <p class="text-white/80 text-base lg:text-lg">
+          <p class="text-white/80 text-base lg:text-lg" itemprop="text">
             Elige tus horarios, tus clientes y tu forma de trabajar. Disfruta de la libertad y
             autonomía que te ofrece nuestra plataforma.
           </p>
@@ -220,9 +274,11 @@ const structuredData = {
     <figure
       class="w-full md:w-1/3 lg:w-1/4 flex justify-center md:justify-end mt-[-2rem] md:mt-0 md:mb-0 relative z-0"
       aria-hidden="true"
+      role="presentation"
     >
       <div
         class="absolute top-[58%] left-0 right-[-100vw] h-1 md:h-0.5 bg-secondary transform -translate-y-1/2 -z-10"
+        role="presentation"
       >
       </div>
 
@@ -381,9 +437,10 @@ const structuredData = {
       </svg>
     </figure>
   </div>
-
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 </section>
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script type="application/ld+json" set:html={JSON.stringify(sectionStructuredData)} />
 
 <style>
   @property --border-angle {

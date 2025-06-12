@@ -1,14 +1,48 @@
-<section class="bg-primary-50 py-20 px-4 text-center">
+---
+// Structured data for the section
+const sectionStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Independencia legal con Juristap',
+  description: 'Conecta con clientes directos y mantén tu independencia profesional',
+  mainEntity: {
+    '@type': 'SoftwareApplication',
+    name: 'Juristap',
+    applicationCategory: 'LegalTech',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      category: 'Legal Services',
+      description: 'Plataforma para abogados independientes',
+    },
+  },
+};
+---
+
+<section
+  class="bg-primary-50 py-20 px-4 text-center"
+  role="region"
+  aria-labelledby="independence-heading"
+  itemscope
+  itemtype="https://schema.org/WebPage"
+>
   <div class="max-w-7xl mx-auto">
     <h2
+      id="independence-heading"
       class="text-3xl sm:text-4xl md:text-5xl/15 lg:text-6xl/20 font-bold text-primary-700 mb-6 text-balance"
+      itemprop="name"
     >
       Olvida los despachos,<br />
       no están valorando tu talento
     </h2>
-    <p class="text-primary-600 text-lg md:text-xl lg:text-2xl mx-auto text-balance">
+    <p
+      class="text-primary-600 text-lg md:text-xl lg:text-2xl mx-auto text-balance"
+      itemprop="description"
+    >
       En <span class="font-bold">Juristap</span>, conectas con clientes directos, sin presiones y
       con la independencia que siempre has querido.
     </p>
   </div>
 </section>
+
+<script type="application/ld+json" set:html={JSON.stringify(sectionStructuredData)} />

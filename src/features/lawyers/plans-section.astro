@@ -1,5 +1,82 @@
 ---
 import SectionContainer from '../../components/ui/section-container.astro';
+
+// Structured data for plans
+const plansStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Planes de Juristap para abogados',
+  description: 'Planes de suscripción para abogados comprometidos con la excelencia legal',
+  itemListElement: [
+    {
+      '@type': 'Offer',
+      position: 1,
+      name: 'Plan Inicial',
+      description:
+        'Empieza a construir tu reputación. Ideal para abogados que recién se unen a Juristap.',
+      price: '9900',
+      priceCurrency: 'COP',
+      priceValidUntil: '2024-12-31',
+      availability: 'https://schema.org/PreOrder',
+      category: 'Legal Services',
+      offeredBy: {
+        '@type': 'Organization',
+        name: 'Juristap',
+      },
+    },
+    {
+      '@type': 'Offer',
+      position: 2,
+      name: 'Plan Básico',
+      description:
+        'El mejor balance entre tarifa y rentabilidad. Ideal para quienes ya están activos en el mercado.',
+      price: '49900',
+      priceCurrency: 'COP',
+      priceValidUntil: '2024-12-31',
+      availability: 'https://schema.org/PreOrder',
+      category: 'Legal Services',
+      offeredBy: {
+        '@type': 'Organization',
+        name: 'Juristap',
+      },
+    },
+    {
+      '@type': 'Offer',
+      position: 3,
+      name: 'Plan Premium',
+      description: 'Para abogados con alto volumen de casos que buscan eficiencia y control total.',
+      price: '149900',
+      priceCurrency: 'COP',
+      priceValidUntil: '2024-12-31',
+      availability: 'https://schema.org/PreOrder',
+      category: 'Legal Services',
+      offeredBy: {
+        '@type': 'Organization',
+        name: 'Juristap',
+      },
+    },
+  ],
+};
+
+// Additional structured data for the section
+const sectionStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Planes de Juristap',
+  description: 'Planes de suscripción para abogados comprometidos con la excelencia legal',
+  mainEntity: {
+    '@type': 'SoftwareApplication',
+    name: 'Juristap',
+    applicationCategory: 'LegalTech',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'COP',
+      availability: 'https://schema.org/PreOrder',
+      category: 'Legal Services',
+    },
+  },
+};
 ---
 
 <SectionContainer
@@ -7,18 +84,23 @@ import SectionContainer from '../../components/ui/section-container.astro';
   constrained={false}
   py="py-0"
   class="bg-white text-primary-900"
+  role="region"
+  aria-labelledby="plans-heading"
+  itemscope
+  itemtype="https://schema.org/ItemList"
 >
   <div
     class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 relative z-10"
   >
     <div class="text-center mb-16 max-w-7xl mx-auto">
       <h2
-        id="flow-title"
+        id="plans-heading"
         class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-600 mb-8 text-center"
+        itemprop="name"
       >
         Planes para abogados <span class="text-primary-400">comprometidos</span>
       </h2>
-      <p class="mt-4 text-lg text-primary-900 mx-auto">
+      <p class="mt-4 text-lg text-primary-900 mx-auto" itemprop="description">
         Juristap conecta abogados con clientes que valoran la excelencia. Elige el plan que mejor se
         adapta a tu volumen de casos y accede a herramientas que te ayudarán a gestionarlos con
         eficiencia.
@@ -29,29 +111,44 @@ import SectionContainer from '../../components/ui/section-container.astro';
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto backdrop-blur-sm">
+    <div
+      class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto backdrop-blur-sm"
+      role="list"
+      aria-label="Planes disponibles"
+    >
       <!-- Plan Inicial -->
       <div
         class="relative border border-primary-100 rounded-3xl p-8 bg-white/50 shadow-xl backdrop-blur-md flex flex-col justify-between"
+        role="listitem"
+        itemscope
+        itemtype="https://schema.org/Offer"
       >
         <div>
           <span class="text-sm text-primary-400 font-semibold uppercase tracking-wide"
             >Comisión 15%</span
           >
-          <h3 class="text-2xl font-bold text-primary-700 mt-2 mb-4">Plan Inicial</h3>
-          <p class="text-primary-600 mb-6">
+          <h3 class="text-2xl font-bold text-primary-700 mt-2 mb-4" itemprop="name">
+            Plan Inicial
+          </h3>
+          <p class="text-primary-600 mb-6" itemprop="description">
             Empieza a construir tu reputación. Ideal para abogados que recién se unen a Juristap.
           </p>
-          <div class="text-3xl font-bold text-primary-500 mb-2">$9.900</div>
+          <div class="text-3xl font-bold text-primary-500 mb-2" itemprop="price">$9.900</div>
           <p class="text-sm text-primary-400 mb-6">Pago mensual</p>
-          <ul class="space-y-2 text-sm text-primary-700">
-            <li>✔ Acceso a clientes filtrados</li>
-            <li>✔ Publica y recibe casos ilimitadamente</li>
-            <li>✔ Herramienta básica de gestión</li>
+          <ul
+            class="space-y-2 text-sm text-primary-700"
+            role="list"
+            aria-label="Características del plan inicial"
+          >
+            <li role="listitem">✔ Acceso a clientes filtrados</li>
+            <li role="listitem">✔ Publica y recibe casos ilimitadamente</li>
+            <li role="listitem">✔ Herramienta básica de gestión</li>
           </ul>
           <a
             href="/lista-de-espera"
             class="mt-8 block text-center bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2 rounded-lg transition"
+            role="button"
+            aria-label="Unirse a la lista de espera del plan inicial"
           >
             Unirme a la lista de espera
           </a>
@@ -61,10 +158,14 @@ import SectionContainer from '../../components/ui/section-container.astro';
       <!-- Plan Básico (Recomendado) -->
       <div
         class="relative border-2 border-primary-300 rounded-3xl p-8 bg-white/60 shadow-2xl backdrop-blur-md flex flex-col justify-between"
+        role="listitem"
+        itemscope
+        itemtype="https://schema.org/Offer"
       >
         <div class="absolute top-4 right-4">
           <span
             class="text-xs bg-primary-100 text-primary-800 px-3 py-1 rounded-full font-semibold shadow-sm"
+            aria-label="Plan recomendado"
           >
             Recomendado
           </span>
@@ -73,21 +174,27 @@ import SectionContainer from '../../components/ui/section-container.astro';
           <span class="text-sm text-primary-400 font-semibold uppercase tracking-wide"
             >Comisión 5%</span
           >
-          <h3 class="text-2xl font-bold text-primary-700 mt-2 mb-4">Plan Básico</h3>
-          <p class="text-primary-600 mb-6">
+          <h3 class="text-2xl font-bold text-primary-700 mt-2 mb-4" itemprop="name">Plan Básico</h3>
+          <p class="text-primary-600 mb-6" itemprop="description">
             El mejor balance entre tarifa y rentabilidad. Ideal para quienes ya están activos en el
             mercado.
           </p>
-          <div class="text-3xl font-bold text-primary-500 mb-2">$49.900</div>
+          <div class="text-3xl font-bold text-primary-500 mb-2" itemprop="price">$49.900</div>
           <p class="text-sm text-primary-400 mb-6">Pago mensual</p>
-          <ul class="space-y-2 text-sm text-primary-700">
-            <li>✔ Mayor visibilidad y posicionamiento</li>
-            <li>✔ Acceso prioritario a nuevos casos</li>
-            <li>✔ Herramienta de gestión con recordatorios</li>
+          <ul
+            class="space-y-2 text-sm text-primary-700"
+            role="list"
+            aria-label="Características del plan básico"
+          >
+            <li role="listitem">✔ Mayor visibilidad y posicionamiento</li>
+            <li role="listitem">✔ Acceso prioritario a nuevos casos</li>
+            <li role="listitem">✔ Herramienta de gestión con recordatorios</li>
           </ul>
           <a
             href="/lista-de-espera"
             class="mt-8 block text-center bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2 rounded-lg transition"
+            role="button"
+            aria-label="Unirse a la lista de espera del plan básico"
           >
             Unirme a la lista de espera
           </a>
@@ -97,26 +204,37 @@ import SectionContainer from '../../components/ui/section-container.astro';
       <!-- Plan Premium -->
       <div
         class="relative border border-primary-100 rounded-3xl p-8 bg-white/50 shadow-xl backdrop-blur-md flex flex-col justify-between"
+        role="listitem"
+        itemscope
+        itemtype="https://schema.org/Offer"
       >
         <div>
           <span class="text-sm text-primary-400 font-semibold uppercase tracking-wide"
             >Comisión 1%</span
           >
-          <h3 class="text-2xl font-bold text-primary-700 mt-2 mb-4">Plan Premium</h3>
-          <p class="text-primary-600 mb-6">
+          <h3 class="text-2xl font-bold text-primary-700 mt-2 mb-4" itemprop="name">
+            Plan Premium
+          </h3>
+          <p class="text-primary-600 mb-6" itemprop="description">
             Para abogados con alto volumen de casos que buscan eficiencia y control total.
           </p>
-          <div class="text-3xl font-bold text-primary-500 mb-2">$149.900</div>
+          <div class="text-3xl font-bold text-primary-500 mb-2" itemprop="price">$149.900</div>
           <p class="text-sm text-primary-400 mb-6">Pago mensual</p>
-          <ul class="space-y-2 text-sm text-primary-700">
-            <li>✔ Máxima visibilidad y prioridad</li>
-            <li>✔ Herramientas avanzadas de gestión</li>
-            <li>✔ Acompañamiento estratégico personalizado</li>
+          <ul
+            class="space-y-2 text-sm text-primary-700"
+            role="list"
+            aria-label="Características del plan premium"
+          >
+            <li role="listitem">✔ Máxima visibilidad y prioridad</li>
+            <li role="listitem">✔ Herramientas avanzadas de gestión</li>
+            <li role="listitem">✔ Acompañamiento estratégico personalizado</li>
           </ul>
         </div>
         <a
           href="/lista-de-espera"
           class="mt-8 block text-center bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2 rounded-lg transition"
+          role="button"
+          aria-label="Unirse a la lista de espera del plan premium"
         >
           Unirme a la lista de espera
         </a>
@@ -126,6 +244,8 @@ import SectionContainer from '../../components/ui/section-container.astro';
     <!-- CTA final -->
     <div
       class="relative text-center mt-12 mx-auto px-8 py-16 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary-300 via-primary-400 to-primary-600"
+      role="complementary"
+      aria-labelledby="offer-heading"
     >
       <!-- Patrón de fondo mejorado -->
       <div
@@ -138,6 +258,8 @@ import SectionContainer from '../../components/ui/section-container.astro';
           background-size: 100% 100%, 100% 100%, 20px 20px;
           opacity: 0.5;
         "
+        aria-hidden="true"
+        role="presentation"
       >
       </div>
 
@@ -146,14 +268,14 @@ import SectionContainer from '../../components/ui/section-container.astro';
         <div
           class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-2"
         >
-          <span class="animate-pulse w-2 h-2 rounded-full bg-white"></span>
+          <span class="animate-pulse w-2 h-2 rounded-full bg-white" aria-hidden="true"></span>
           <span class="text-white text-sm font-semibold uppercase tracking-wider"
             >Oferta por tiempo limitado</span
           >
         </div>
       </div>
 
-      <h3 class="relative text-4xl md:text-5xl font-bold text-white mb-6 z-10">
+      <h3 id="offer-heading" class="relative text-4xl md:text-5xl font-bold text-white mb-6 z-10">
         ¡Oferta especial de pre-lanzamiento!
       </h3>
 
@@ -175,6 +297,8 @@ import SectionContainer from '../../components/ui/section-container.astro';
       <a
         href="/lista-de-espera"
         class="relative inline-flex items-center gap-2 bg-white text-primary-600 font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:bg-primary-100 hover:scale-105 hover:shadow-xl z-10 text-lg group"
+        role="button"
+        aria-label="Aprovechar el descuento de pre-lanzamiento"
       >
         ¡Aprovecha el descuento ahora!
         <svg
@@ -183,6 +307,7 @@ import SectionContainer from '../../components/ui/section-container.astro';
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          aria-hidden="true"
         >
           <path
             stroke-linecap="round"
@@ -194,3 +319,6 @@ import SectionContainer from '../../components/ui/section-container.astro';
     </div>
   </div>
 </SectionContainer>
+
+<script type="application/ld+json" set:html={JSON.stringify(plansStructuredData)} />
+<script type="application/ld+json" set:html={JSON.stringify(sectionStructuredData)} />

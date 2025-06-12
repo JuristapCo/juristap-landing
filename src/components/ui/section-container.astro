@@ -35,6 +35,10 @@ interface Props {
     description?: string;
     keywords?: string[];
   };
+  /** Whether the section has itemscope */
+  itemscope?: boolean;
+  /** The itemtype for the section */
+  itemtype?: string;
 }
 
 const {
@@ -49,6 +53,8 @@ const {
   ariaLabel,
   role,
   metadata,
+  itemscope,
+  itemtype,
 } = Astro.props;
 ---
 
@@ -57,6 +63,8 @@ const {
   id={id}
   aria-label={ariaLabel}
   role={role}
+  itemscope={itemscope}
+  itemtype={itemtype}
 >
   {title && <h2 class="sr-only">{title}</h2>}
 

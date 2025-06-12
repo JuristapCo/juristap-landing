@@ -2,6 +2,26 @@
 import SectionContainer from '../../components/ui/section-container.astro';
 import { Image } from 'astro:assets';
 import PatternLines from '../../assets/images/patterns/pattern-lines.webp';
+
+// Structured data for the registration form
+const formStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Registro en Juristap - Plataforma de Asesoría Legal',
+  description:
+    'Únete a la lista de espera de Juristap y sé parte de la revolución legal en Colombia',
+  mainEntity: {
+    '@type': 'SoftwareApplication',
+    name: 'Juristap',
+    applicationCategory: 'LegalTech',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      category: 'Legal Services',
+      description: 'Plataforma para conectar con abogados especializados',
+    },
+  },
+};
 ---
 
 <SectionContainer
@@ -9,7 +29,11 @@ import PatternLines from '../../assets/images/patterns/pattern-lines.webp';
   py="py-0"
   constrained={false}
   withSpacing={false}
-  aria-label="Sección de registro"
+  id="register"
+  role="region"
+  aria-labelledby="register-heading"
+  itemscope
+  itemtype="https://schema.org/WebPage"
 >
   <!-- Fondo decorativo -->
   <div
@@ -25,6 +49,7 @@ import PatternLines from '../../assets/images/patterns/pattern-lines.webp';
     <div
       class="absolute top-0 left-0 w-full h-4/5 pointer-events-none"
       style="mask-image: linear-gradient(to bottom, black 50%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);"
+      role="presentation"
     >
       <Image
         src={PatternLines}
@@ -61,7 +86,11 @@ import PatternLines from '../../assets/images/patterns/pattern-lines.webp';
     class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-24 md:py-32 flex flex-col md:flex-row items-center justify-center gap-16 relative z-10 min-h-[600px]"
   >
     <!-- Character floating near the card -->
-    <div class="absolute -right-32 bottom-0 w-96 h-96 hidden lg:block">
+    <div
+      class="absolute -right-32 bottom-0 w-96 h-96 hidden lg:block"
+      aria-hidden="true"
+      role="presentation"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -141,17 +170,24 @@ import PatternLines from '../../assets/images/patterns/pattern-lines.webp';
 
     <div
       class="w-full max-w-7xl bg-white/10 text-white rounded-2xl shadow-2xl p-10 flex flex-col gap-8 items-center mx-auto border border-white/20"
+      itemscope
+      itemtype="https://schema.org/SoftwareApplication"
     >
       <div class="flex flex-col gap-4 items-center">
         <span class="px-4 py-1.5 bg-secondary/20 text-secondary rounded-full text-sm font-medium">
           Próximamente
         </span>
         <h2
+          id="register-heading"
           class="text-xl sm:text-2xl md:text-4xl font-bold text-center leading-tight max-w-5xl mx-auto"
+          itemprop="name"
         >
           La nueva forma de resolver tus asuntos legales en Colombia
         </h2>
-        <p class="text-center text-white/80 text-sm md:text-lg max-w-5xl mx-auto">
+        <p
+          class="text-center text-white/80 text-sm md:text-lg max-w-5xl mx-auto"
+          itemprop="description"
+        >
           Juristap está transformando el acceso a la justicia. Únete a nuestra lista de espera y sé
           parte de esta revolución legal.
         </p>
@@ -163,6 +199,8 @@ import PatternLines from '../../assets/images/patterns/pattern-lines.webp';
           action="#"
           method="POST"
           class="flex flex-col md:flex-row gap-4 w-full items-center justify-center"
+          role="form"
+          aria-labelledby="register-heading"
         >
           <div class="w-full md:w-auto flex-1">
             <label for="correo" class="sr-only">Correo</label>
@@ -173,12 +211,14 @@ import PatternLines from '../../assets/images/patterns/pattern-lines.webp';
               placeholder="tu@email.com"
               required
               class="w-full px-4 py-3 bg-white/5 text-white rounded-lg border border-white/20 focus:outline-none focus:border-secondary placeholder-white/50"
+              aria-required="true"
             />
           </div>
           <div class="w-full md:w-auto flex items-center gap-2">
             <button
               type="submit"
               class="w-full md:w-auto bg-secondary text-primary font-semibold py-3 px-8 rounded-lg hover:bg-secondary-400 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
+              aria-label="Unirme a la lista de espera de Juristap"
             >
               <span>Unirme a la lista de espera</span>
             </button>
@@ -193,6 +233,8 @@ import PatternLines from '../../assets/images/patterns/pattern-lines.webp';
   </div>
 </SectionContainer>
 
+<script type="application/ld+json" set:html={JSON.stringify(formStructuredData)} />
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('#customerRegisterForm');
@@ -202,6 +244,8 @@ import PatternLines from '../../assets/images/patterns/pattern-lines.webp';
     notification.className =
       'hidden fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50';
     notification.textContent = '¡Gracias por preregistrarte! Te contactaremos pronto.';
+    notification.setAttribute('role', 'alert');
+    notification.setAttribute('aria-live', 'polite');
     document.body.appendChild(notification);
 
     form.addEventListener('submit', async e => {

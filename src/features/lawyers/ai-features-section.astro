@@ -64,16 +64,39 @@ const features: Feature[] = [
   },
 ];
 
-// Structured data for features
+// Enhanced structured data for features
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
+  name: 'Características de la plataforma Juristap para abogados',
+  description:
+    'Descubre cómo nuestra plataforma conecta abogados con clientes calificados y optimiza la práctica legal',
   itemListElement: features.map((feature, index) => ({
     '@type': 'ListItem',
     position: index + 1,
     name: feature.title,
     description: feature.description,
+    image: feature.imageSrc,
   })),
+};
+
+// Additional structured data for the section
+const sectionStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Características de Juristap para Abogados',
+  description:
+    'Plataforma inteligente que conecta abogados con clientes calificados y optimiza la práctica legal',
+  mainEntity: {
+    '@type': 'SoftwareApplication',
+    name: 'Juristap',
+    applicationCategory: 'LegalTech',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      category: 'Legal Services',
+    },
+  },
 };
 ---
 
@@ -81,6 +104,8 @@ const structuredData = {
   class="relative py-24 bg-gradient-to-b from-purple-100 via-white to-white"
   aria-labelledby="features-heading"
   role="region"
+  itemscope
+  itemtype="https://schema.org/ItemList"
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <!-- Encabezado -->
@@ -88,10 +113,11 @@ const structuredData = {
       <h2
         id="features-heading"
         class="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center text-primary-800"
+        itemprop="name"
       >
         Tenemos una <span class="text-primary-500">mente digital</span> que trabaja contigo
       </h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-700">
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-700" itemprop="description">
         En Juristap, no estás solo. Nuestra inteligencia artificial es tu aliada: analiza
         solicitudes, resume casos y te ayuda a responder más rápido y mejor.
       </p>
@@ -102,6 +128,8 @@ const structuredData = {
       class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center"
       role="list"
       aria-label="Características principales de la plataforma"
+      itemscope
+      itemtype="https://schema.org/ItemList"
     >
       <!-- Primera columna (2 cards) -->
       <div class="flex flex-col gap-6 w-full h-full">
@@ -113,6 +141,8 @@ const structuredData = {
                             bg-conic/[from_var(--border-angle)] from-white-900 via-purple-300 to-purple-500 from-80% via-90% to-100%
                             animate-rotate-border border border-purple-100 flex-1"
               role="listitem"
+              itemscope
+              itemtype="https://schema.org/Service"
             >
               <img
                 src={imageSrc}
@@ -121,17 +151,24 @@ const structuredData = {
                 draggable="false"
                 loading="lazy"
                 decoding="async"
+                itemprop="image"
               />
               <div class="relative z-10 flex h-[99%] w-[99%] flex-col justify-end p-8 bg-white rounded-3xl">
                 <div>
                   <div
                     class="mb-6 group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.5)] transition duration-300 transform group-hover:scale-110"
                     set:html={icon}
+                    aria-hidden="true"
                   />
-                  <h3 class="mb-2 text-2xl font-semibold text-primary-400 group-hover:text-primary-500 transition-colors duration-300">
+                  <h3
+                    class="mb-2 text-2xl font-semibold text-primary-400 group-hover:text-primary-500 transition-colors duration-300"
+                    itemprop="name"
+                  >
                     {title}
                   </h3>
-                  <p class="text-gray-700">{description}</p>
+                  <p class="text-gray-700" itemprop="description">
+                    {description}
+                  </p>
                 </div>
               </div>
             </article>
@@ -149,6 +186,8 @@ const structuredData = {
                             bg-conic/[from_var(--border-angle)] from-white-900 via-purple-400 to-purple-500 from-80% via-90% to-100%
                             animate-rotate-border border border-purple-100"
               role="listitem"
+              itemscope
+              itemtype="https://schema.org/Service"
             >
               <img
                 src={imageSrc}
@@ -157,19 +196,24 @@ const structuredData = {
                 draggable="false"
                 loading="lazy"
                 decoding="async"
+                itemprop="image"
               />
               <div class="relative z-10 flex h-[99%] w-[99%] flex-col justify-between p-8 bg-white backdrop-blur-sm rounded-3xl">
                 <div
                   class="mb-6 group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.5)] transition duration-300 transform group-hover:scale-110"
                   set:html={icon}
+                  aria-hidden="true"
                 />
                 <div>
                   <h3
                     class={`mb-2 text-2xl font-semibold text-primary-400 group-hover:text-primary-500 transition-colors duration-300`}
+                    itemprop="name"
                   >
                     {title}
                   </h3>
-                  <p class="text-gray-700">{description}</p>
+                  <p class="text-gray-700" itemprop="description">
+                    {description}
+                  </p>
                 </div>
               </div>
             </article>
@@ -191,6 +235,7 @@ const structuredData = {
         href="/registro-abogados"
         class="inline-flex items-center justify-center px-10 py-4 text-base font-medium text-white bg-primary-500 rounded-lg hover:bg-primary-600 transition-colors duration-300 shadow-lg hover:shadow-xl"
         aria-label="Registrarse como abogado en Juristap"
+        role="button"
       >
         Únete como abogado
         <svg
@@ -199,6 +244,7 @@ const structuredData = {
           viewBox="0 0 20 20"
           fill="currentColor"
           aria-hidden="true"
+          role="img"
         >
           <path
             fill-rule="evenodd"
@@ -211,6 +257,7 @@ const structuredData = {
 </section>
 
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script type="application/ld+json" set:html={JSON.stringify(sectionStructuredData)} />
 
 <style>
   @property --border-angle {

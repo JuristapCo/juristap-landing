@@ -2,6 +2,36 @@
 import SectionContainer from '../../components/ui/section-container.astro';
 import { Image } from 'astro:assets';
 import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
+
+// Enhanced structured data for the welcome section
+const welcomeStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Juristap',
+  description:
+    'Conectamos con abogados especializados en menos de 24 horas. Tu solución legal rápida y confiable.',
+  url: 'https://juristap.com',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://juristap.com/buscar?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const organizationStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Juristap',
+  url: 'https://juristap.com',
+  logo: 'https://juristap.com/logo.png',
+  description:
+    'Plataforma de conexión legal inteligente que conecta abogados con clientes calificados',
+  sameAs: [
+    'https://www.linkedin.com/company/juristap',
+    'https://twitter.com/juristap',
+    'https://www.facebook.com/juristap',
+  ],
+};
 ---
 
 <SectionContainer
@@ -26,10 +56,13 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
       'asesoría legal 24 horas',
     ],
   }}
+  itemscope
+  itemtype="https://schema.org/WebSite"
 >
   <div
     class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
     aria-hidden="true"
+    role="presentation"
   >
     <div
       class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
@@ -46,6 +79,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
       loading="eager"
       fetchpriority="high"
       decoding="async"
+      itemprop="image"
     />
   </div>
 
@@ -82,6 +116,8 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
           class="character-container w-[80%] md:w-[100%] relative"
           role="img"
           aria-label="Ilustración representativa de Juristap - Plataforma de conexión legal"
+          itemscope
+          itemtype="https://schema.org/ImageObject"
         >
           <!--?xml version="1.0" encoding="UTF-8"?-->
           <svg
@@ -168,7 +204,7 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
               </g>
             </g>
           </svg>
-          <figcaption class="sr-only">
+          <figcaption class="sr-only" itemprop="caption">
             Ilustración animada que representa la plataforma Juristap conectando personas con
             abogados especializados
           </figcaption>
@@ -179,11 +215,13 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
         <header class="space-y-2 sm:space-y-0">
           <h1
             class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl font-light tracking-tight leading-tight"
+            itemprop="headline"
           >
             ¡Hey, abogado!
           </h1>
           <h2
             class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl font-bold tracking-tight leading-tight"
+            itemprop="alternativeHeadline"
           >
             No estudiaste 5 años para perseguir clientes
           </h2>
@@ -192,11 +230,15 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
         <div class="space-y-3 sm:space-y-4 text-sm sm:text-lg md:text-xl lg:text-xl xl:text-2xl">
           <p
             class="text-secondary text-lg sm:text-2xl md:text-3xl lg:text-2xl xl:text-4xl font-semibold leading-relaxed"
+            itemprop="description"
           >
             Nosotros los llevamos a ti
           </p>
 
-          <p class="text-white/90 text-sm sm:text-base md:text-md max-w-xl leading-relaxed">
+          <p
+            class="text-white/90 text-sm sm:text-base md:text-md max-w-xl leading-relaxed"
+            itemprop="description"
+          >
             Juristap es la nueva forma de <span class="font-bold">conectar</span> con clientes a tan
             solo unos clicks y con total <span class="font-bold">independencia</span>
           </p>
@@ -205,18 +247,13 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
         <nav
           class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6"
           aria-label="Navegación principal"
+          role="navigation"
         >
-          <a
-            href="#conocenos"
-            class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-2 border border-white/20 rounded-lg hover:bg-primary-600 transition-colors duration-300 text-center relative z-20 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary text-base sm:text-lg"
-            aria-label="Conoce más sobre Juristap y nuestros servicios legales"
-          >
-            Conócenos
-          </a>
           <a
             href="#register"
             class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-2 rounded-lg text-primary-500 bg-secondary-400 hover:bg-secondary-500 transition-colors duration-300 text-center relative z-20 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary text-base sm:text-lg"
             aria-label="Regístrate en Juristap para encontrar tu abogado ideal"
+            role="button"
           >
             Regístrate
           </a>
@@ -226,36 +263,8 @@ import PatternHero from '../../assets/images/patterns/pattern-hero.webp';
   </div>
 </SectionContainer>
 
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Juristap",
-    "description": "Conectamos con abogados especializados en menos de 24 horas. Tu solución legal rápida y confiable.",
-    "url": "https://juristap.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://juristap.com/buscar?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-</script>
-
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Juristap",
-    "url": "https://juristap.com",
-    "logo": "https://juristap.com/logo.png",
-    "description": "Plataforma que conecta personas con abogados especializados en menos de 24 horas",
-    "sameAs": [
-      "https://facebook.com/juristap",
-      "https://twitter.com/juristap",
-      "https://linkedin.com/company/juristap"
-    ]
-  }
-</script>
+<script type="application/ld+json" set:html={JSON.stringify(welcomeStructuredData)} />
+<script type="application/ld+json" set:html={JSON.stringify(organizationStructuredData)} />
 
 <style>
   /* Character container with entrance animation */
