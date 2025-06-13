@@ -36,7 +36,8 @@
     "standard-version": "^9.5.0"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.6.1"
+    "@rollup/rollup-linux-x64-gnu": "4.6.1",
+    "lightningcss-linux-x64-gnu": "1.23.0"
   },
   "config": {
     "commitizen": {
