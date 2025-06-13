@@ -16,28 +16,24 @@
     "check": "biome check --apply ."
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.5",
-    "astro": "^5.9.0",
+    "@tailwindcss/vite": "^4.1.10",
+    "astro": "^5.9.3",
     "astro-icon": "^1.1.5",
     "gsap": "^3.13.0",
-    "tailwindcss": "^4.1.5"
+    "tailwindcss": "^4.1.10"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@types/bun": "^1.2.12",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@types/bun": "^1.2.16",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.2",
+    "lint-staged": "^16.1.0",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "standard-version": "^9.5.0"
-  },
-  "optionalDependencies": {
-    "@tailwindcss/oxide-linux-x64-gnu": "^4.0.14",
-    "lightningcss-linux-x64-gnu": "^1.29"
   },
   "config": {
     "commitizen": {
